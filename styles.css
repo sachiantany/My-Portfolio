@@ -1,0 +1,46 @@
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px; /* Adds spacing between content and button */
+ }
+ 
+ .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+ }
+ 
+ .actions {
+    margin-top: 10px; /* Adds some space between content and button */
+ }
+
+  /* Set a fixed height for the cards */
+  .card {
+   height: 400px;
+ }
+
+ /* Ensure images fill the card without exceeding */
+ .card img {
+   object-fit: cover;
+   height: 150px; /* Set a fixed height for images */
+   width: 100%;
+ }
+
+ /* Ensure text content fits within the fixed-size card */
+ .card-body {
+   overflow: hidden;
+ }
+
+ .card-title, .card p {
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   overflow: hidden;
+ }
+
+ /* Adjust for smaller screens */
+ @media (max-width: 768px) {
+   .card {
+     height: auto;
+   }
+ }
