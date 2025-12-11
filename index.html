@@ -338,7 +338,8 @@
         .profile-card {
             position: relative;
             width: 400px;
-            height: 500px;
+            height: auto;
+            min-height: 500px;
             background: var(--bg-card);
             border-radius: 24px;
             padding: 2rem;
@@ -898,6 +899,165 @@
             z-index: 9999;
             transition: width 0.1s ease;
         }
+
+        /* Image Slider Modal */
+        .image-slider-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-slider-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .slider-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .slider-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .close-slider {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close-slider:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .slider-content {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+            background: var(--bg-secondary);
+        }
+
+        .slider-image.active {
+            display: block;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-prev {
+            left: 20px;
+        }
+
+        .slider-next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .slider-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .slider-content {
+                width: 90vw;
+                height: 70vh;
+            }
+
+            .slider-nav {
+                font-size: 1.5rem;
+                padding: 0.75rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .slider-prev {
+                left: 10px;
+            }
+
+            .slider-next {
+                right: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -973,6 +1133,7 @@
                     <div class="profile-info">
                         <h3>Sachintha Madushan Antany</h3>
                         <p>Software Engineer</p>
+                        <p>BSc (Hons) in Information Technology<br>Specialising in Software Engineering, SLIIT</p>
                         <div class="profile-stats">
                             <div class="stat">
                                 <div class="stat-number">5+</div>
@@ -1018,11 +1179,14 @@
                     <div class="skill-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="skill-title">Languages</h3>
+                    <h3 class="skill-title">Programming Languages</h3>
                     <ul class="skill-list">
                         <li>Dart</li>
-                        <li>SQL</li>
+                        <li>Java</li>
+                        <li>Python</li>
                         <li>JavaScript</li>
+                        <li>TypeScript</li>
+                        <li>SQL</li>
                     </ul>
                 </div>
                 <div class="skill-card fade-in">
@@ -1032,27 +1196,48 @@
                     <h3 class="skill-title">Mobile Development</h3>
                     <ul class="skill-list">
                         <li>Flutter</li>
-                        <li>Android</li>
-                        <li>iOS</li>
+                        <li>Android (Native)</li>
+                        <li>iOS (Native)</li>
+                        <li>Cross-Platform Apps</li>
                     </ul>
                 </div>
                 <div class="skill-card fade-in">
                     <div class="skill-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3 class="skill-title">Architecture</h3>
+                    <h3 class="skill-title">Frameworks & Libraries</h3>
+                    <ul class="skill-list">
+                        <li>React</li>
+                        <li>Angular</li>
+                        <li>Spring Boot</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>Angular Material</li>
+                    </ul>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="skill-title">Architecture & Patterns</h3>
                     <ul class="skill-list">
                         <li>Clean Architecture</li>
                         <li>Bloc Pattern</li>
+                        <li>MVVM</li>
+                        <li>MVC</li>
+                        <li>RESTful APIs</li>
                     </ul>
                 </div>
                 <div class="skill-card fade-in">
                     <div class="skill-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3 class="skill-title">Cloud Platforms</h3>
+                    <h3 class="skill-title">Cloud & DevOps</h3>
                     <ul class="skill-list">
                         <li>Google Cloud Platform (GCP)</li>
+                        <li>Cloud Run</li>
+                        <li>Docker</li>
+                        <li>Firebase</li>
                         <li>AppSheet</li>
                         <li>Google App Script</li>
                     </ul>
@@ -1061,12 +1246,27 @@
                     <div class="skill-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="skill-title">Tools & Technologies</h3>
+                    <h3 class="skill-title">Development Tools</h3>
                     <ul class="skill-list">
-                        <li>Git, Bitbucket</li>
+                        <li>Git & Bitbucket</li>
                         <li>Figma</li>
-                        <li>Firebase</li>
+                        <li>Redis</li>
+                        <li>Tailwind CSS</li>
+                        <li>Spring Security</li>
+                        <li>RDP Server Management</li>
+                    </ul>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-title">Databases</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>MySQL</li>
                         <li>SAP HANA</li>
+                        <li>Cloud SQL</li>
+                        <li>Firestore</li>
                     </ul>
                 </div>
                 <div class="skill-card fade-in">
@@ -1075,8 +1275,9 @@
                     </div>
                     <h3 class="skill-title">Specializations</h3>
                     <ul class="skill-list">
-                        <li>API Integration</li>
-                        <li>RDP Server Management</li>
+                        <li>API Integration & Development</li>
+                        <li>Workflow Automation</li>
+                        <li>System Integration</li>
                     </ul>
                 </div>
             </div>
@@ -1101,7 +1302,7 @@
                         <div class="experience-header">
                             <h3 class="experience-title">Software Engineer</h3>
                             <div class="experience-company">Finetech Consultancy Pvt Ltd</div>
-                            <div class="experience-period">December 2019 – Present | Veyangoda, Sri Lanka</div>
+                            <div class="experience-period">December 2019 – Present | Nawala, Sri Lanka</div>
                         </div>
                         <p class="experience-description">
                             Leading development of mobile applications and workflow automation solutions for enterprise clients.
@@ -1135,6 +1336,88 @@
             <div class="projects-grid">
                 <div class="project-card fade-in">
                     <div class="project-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Enterprise Dealer Stock Recommendation System</h3>
+                        <div class="project-period">📅 Cloud-based Solution</div>
+                        <p class="project-description">
+                            High-performance, scalable dealer stock recommendation system processing 15,000+ dealer outposts monthly. Optimized from 8+ hours to under 2 hours using distributed processing architecture with Google Cloud Platform.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Google Cloud Run</span>
+                            <span class="tech-tag">Cloud Tasks</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Memorystore</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Timespot Attendance & Task Management</h3>
+                        <div class="project-period">📅 September 2023 – Present</div>
+                        <p class="project-description">
+                            Cross-platform mobile app for attendance management with daily task tracking, leave requests, and WFH approvals. Published to both Play Store and App Store.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://finetech.timespotonline.com/#/signin" class="project-link" target="_blank">
+                                <i class="fas fa-globe"></i> Web App
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.app.fcpl.timespot&hl=en" class="project-link" target="_blank">
+                                <i class="fab fa-google-play"></i> Play Store
+                            </a>
+                            <a href="https://apps.apple.com/us/app/timespot/id1467717734" class="project-link" target="_blank">
+                                <i class="fab fa-app-store-ios"></i> App Store
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">RhythmCore - Event Management & Ticketing System</h3>
+                        <div class="project-period">📅 Freelance Project</div>
+                        <p class="project-description">
+                            Full-stack event management and ticketing system with QR code verification, role-based access control, and automated email notifications. Features dual deployment environments and integrated frontend-backend architecture.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java 21</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Angular 19</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Firebase Auth</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Spring Security</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link" onclick="openImageSlider()">
+                                <i class="fas fa-images"></i> View Images
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <div class="project-content">
@@ -1150,35 +1433,12 @@
                             <span class="tech-tag">Bloc Pattern</span>
                             <span class="tech-tag">OCR</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                        </div>
                     </div>
                 </div>
 
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Timespot Attendance Management</h3>
-                        <div class="project-period">📅 September 2023 – March 2024</div>
-                        <p class="project-description">
-                            Cross-platform mobile app for attendance management with daily task tracking, leave requests, and WFH approvals. Published to both Play Store and App Store.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">iOS</span>
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.app.fcpl.timespot&hl=en" class="project-link" target="_blank">View Project</a>
-                        </div>
-                    </div>
-                </div>
+                
 
-                <div class="project-card fade-in">
+<div class="project-card fade-in">
                     <div class="project-image">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
@@ -1216,7 +1476,9 @@
                             <span class="tech-tag">RDP Server</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Details</a>
+                            <button class="project-link" onclick="openSanasaImageSlider()">
+                                <i class="fas fa-images"></i> View Images
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1237,7 +1499,9 @@
                             <span class="tech-tag">Workflow Automation</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
+                            <button class="project-link" onclick="openDilmahImageSlider()">
+                                <i class="fas fa-images"></i> View Images
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1381,6 +1645,117 @@
         </div>
     </section>
 
+    <!-- Image Slider Modal -->
+    <div class="image-slider-modal" id="imageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">RhythmCore - Project Screenshots</div>
+                <button class="close-slider" onclick="closeImageSlider()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
+                </div>
+                <img src="images/rc/rc1.png" alt="RhythmCore Screenshot 1" class="slider-image active">
+                <img src="images/rc/rc2.png" alt="RhythmCore Screenshot 2" class="slider-image">
+                <img src="images/rc/rc3.png" alt="RhythmCore Screenshot 3" class="slider-image">
+                <img src="images/rc/rc4.png" alt="RhythmCore Screenshot 4" class="slider-image">
+                <img src="images/rc/rc5.png" alt="RhythmCore Screenshot 5" class="slider-image">
+                <img src="images/rc/rc6.png" alt="RhythmCore Screenshot 6" class="slider-image">
+                <img src="images/rc/rc7.png" alt="RhythmCore Screenshot 7" class="slider-image">
+                
+                <button class="slider-nav slider-prev" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav slider-next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="currentSlide(1)"></div>
+                    <div class="slider-dot" onclick="currentSlide(2)"></div>
+                    <div class="slider-dot" onclick="currentSlide(3)"></div>
+                    <div class="slider-dot" onclick="currentSlide(4)"></div>
+                    <div class="slider-dot" onclick="currentSlide(5)"></div>
+                    <div class="slider-dot" onclick="currentSlide(6)"></div>
+                    <div class="slider-dot" onclick="currentSlide(7)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dilmah Image Slider Modal -->
+    <div class="image-slider-modal" id="dilmahImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Dilmah Product Development Workflow - Project Screenshots</div>
+                <button class="close-slider" onclick="closeDilmahImageSlider()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter">
+                    <span id="currentDilmahSlide">1</span> / <span id="totalDilmahSlides">5</span>
+                </div>
+                <img src="images/dl/dl1.png" alt="Dilmah Project Screenshot 1" class="slider-image active">
+                <img src="images/dl/dl2.png" alt="Dilmah Project Screenshot 2" class="slider-image">
+                <img src="images/dl/dl3.png" alt="Dilmah Project Screenshot 3" class="slider-image">
+                <img src="images/dl/dl4.png" alt="Dilmah Project Screenshot 4" class="slider-image">
+                <img src="images/dl/dl5.png" alt="Dilmah Project Screenshot 5" class="slider-image">
+                
+                <button class="slider-nav slider-prev" onclick="previousDilmahSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav slider-next" onclick="nextDilmahSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="currentDilmahSlide(1)"></div>
+                    <div class="slider-dot" onclick="currentDilmahSlide(2)"></div>
+                    <div class="slider-dot" onclick="currentDilmahSlide(3)"></div>
+                    <div class="slider-dot" onclick="currentDilmahSlide(4)"></div>
+                    <div class="slider-dot" onclick="currentDilmahSlide(5)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SANASA Image Slider Modal -->
+    <div class="image-slider-modal" id="sanasaImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">SANASA Life Insurance Integration - Project Screenshots</div>
+                <button class="close-slider" onclick="closeSanasaImageSlider()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter">
+                    <span id="currentSanasaSlide">1</span> / <span id="totalSanasaSlides">3</span>
+                </div>
+                <img src="images/san/san1.png" alt="SANASA Project Screenshot 1" class="slider-image active">
+                <img src="images/san/san2.png" alt="SANASA Project Screenshot 2" class="slider-image">
+                <img src="images/san/san3.png" alt="SANASA Project Screenshot 3" class="slider-image">
+                
+                <button class="slider-nav slider-prev" onclick="previousSanasaSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav slider-next" onclick="nextSanasaSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="currentSanasaSlide(1)"></div>
+                    <div class="slider-dot" onclick="currentSanasaSlide(2)"></div>
+                    <div class="slider-dot" onclick="currentSanasaSlide(3)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -1403,7 +1778,7 @@
             </div>
             <p>&copy; 2024 Sachintha Madushan Antany. All rights reserved.</p>
             <p style="color: rgba(255, 255, 255, 0.6); margin-top: 1rem;">
-                Built with passion and modern web technologies
+                Built with AI
             </p>
         </div>
     </footer>
@@ -1549,6 +1924,357 @@
             const originalText = heroTitle.textContent;
             typeWriter(heroTitle, originalText, 50);
         });
+
+        // Image Slider Functionality
+        let currentSlideIndex = 1;
+        const totalSlidesCount = 7;
+
+        function openImageSlider() {
+            document.getElementById('imageSliderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeImageSlider() {
+            document.getElementById('imageSliderModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slider-image');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            if (n > totalSlidesCount) { currentSlideIndex = 1; }
+            if (n < 1) { currentSlideIndex = totalSlidesCount; }
+            
+            // Hide all slides and remove active class from dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide and activate corresponding dot
+            slides[currentSlideIndex - 1].classList.add('active');
+            dots[currentSlideIndex - 1].classList.add('active');
+            
+            // Update counter
+            document.getElementById('currentSlide').textContent = currentSlideIndex;
+        }
+
+        function nextSlide() {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }
+
+        function previousSlide() {
+            currentSlideIndex--;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(n) {
+            currentSlideIndex = n;
+            showSlide(currentSlideIndex);
+        }
+
+        // Keyboard navigation for slider
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('imageSliderModal');
+            if (modal.style.display === 'flex') {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        previousSlide();
+                        break;
+                    case 'ArrowRight':
+                        nextSlide();
+                        break;
+                    case 'Escape':
+                        closeImageSlider();
+                        break;
+                }
+            }
+        });
+
+        // Close modal when clicking outside the slider container
+        document.getElementById('imageSliderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageSlider();
+            }
+        });
+
+        // Auto-advance slider (optional - every 5 seconds)
+        let sliderInterval;
+        function startSliderAutoplay() {
+            sliderInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSliderAutoplay() {
+            clearInterval(sliderInterval);
+        }
+
+        // Start autoplay when modal opens, stop when it closes
+        function openImageSliderWithAutoplay() {
+            openImageSlider();
+            startSliderAutoplay();
+        }
+
+        function closeImageSliderWithAutoplay() {
+            closeImageSlider();
+            stopSliderAutoplay();
+        }
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        document.querySelector('.slider-content').addEventListener('touchstart', function(e) {
+            startX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.querySelector('.slider-content').addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const threshold = 50; // Minimum swipe distance
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextSlide(); // Swipe left - next slide
+                } else {
+                    previousSlide(); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // Dilmah Image Slider Functionality
+        let currentDilmahSlideIndex = 1;
+        const totalDilmahSlidesCount = 5;
+
+        function openDilmahImageSlider() {
+            document.getElementById('dilmahImageSliderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            resetDilmahSlider(); // Reset to first slide when opening
+        }
+
+        function closeDilmahImageSlider() {
+            document.getElementById('dilmahImageSliderModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function resetDilmahSlider() {
+            currentDilmahSlideIndex = 1;
+            showDilmahSlide(currentDilmahSlideIndex);
+        }
+
+        function showDilmahSlide(n) {
+            const modal = document.getElementById('dilmahImageSliderModal');
+            const slides = modal.querySelectorAll('.slider-image');
+            const dots = modal.querySelectorAll('.slider-dot');
+            
+            if (n > totalDilmahSlidesCount) { currentDilmahSlideIndex = 1; }
+            if (n < 1) { currentDilmahSlideIndex = totalDilmahSlidesCount; }
+            
+            // Hide all slides and remove active class from dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide and activate corresponding dot
+            slides[currentDilmahSlideIndex - 1].classList.add('active');
+            dots[currentDilmahSlideIndex - 1].classList.add('active');
+            
+            // Update counter
+            document.getElementById('currentDilmahSlide').textContent = currentDilmahSlideIndex;
+        }
+
+        function nextDilmahSlide() {
+            currentDilmahSlideIndex++;
+            showDilmahSlide(currentDilmahSlideIndex);
+        }
+
+        function previousDilmahSlide() {
+            currentDilmahSlideIndex--;
+            showDilmahSlide(currentDilmahSlideIndex);
+        }
+
+        function currentDilmahSlide(n) {
+            currentDilmahSlideIndex = n;
+            showDilmahSlide(currentDilmahSlideIndex);
+        }
+
+        // Enhanced keyboard navigation to handle all sliders
+        document.addEventListener('keydown', function(e) {
+            const rhythmModal = document.getElementById('imageSliderModal');
+            const dilmahModal = document.getElementById('dilmahImageSliderModal');
+            const sanasaModal = document.getElementById('sanasaImageSliderModal');
+            
+            if (rhythmModal && rhythmModal.style.display === 'flex') {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        previousSlide();
+                        break;
+                    case 'ArrowRight':
+                        nextSlide();
+                        break;
+                    case 'Escape':
+                        closeImageSlider();
+                        break;
+                }
+            } else if (dilmahModal && dilmahModal.style.display === 'flex') {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        previousDilmahSlide();
+                        break;
+                    case 'ArrowRight':
+                        nextDilmahSlide();
+                        break;
+                    case 'Escape':
+                        closeDilmahImageSlider();
+                        break;
+                }
+            } else if (sanasaModal && sanasaModal.style.display === 'flex') {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        previousSanasaSlide();
+                        break;
+                    case 'ArrowRight':
+                        nextSanasaSlide();
+                        break;
+                    case 'Escape':
+                        closeSanasaImageSlider();
+                        break;
+                }
+            }
+        });
+
+        // Close Dilmah modal when clicking outside the slider container
+        document.getElementById('dilmahImageSliderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDilmahImageSlider();
+            }
+        });
+
+        // Touch/swipe support for Dilmah slider
+        let dilmahStartX = 0;
+        let dilmahEndX = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dilmahSliderContent = document.querySelector('#dilmahImageSliderModal .slider-content');
+            if (dilmahSliderContent) {
+                dilmahSliderContent.addEventListener('touchstart', function(e) {
+                    dilmahStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                dilmahSliderContent.addEventListener('touchend', function(e) {
+                    dilmahEndX = e.changedTouches[0].screenX;
+                    handleDilmahSwipe();
+                }, { passive: true });
+            }
+        });
+
+        function handleDilmahSwipe() {
+            const threshold = 50; // Minimum swipe distance
+            const diff = dilmahStartX - dilmahEndX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextDilmahSlide(); // Swipe left - next slide
+                } else {
+                    previousDilmahSlide(); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // SANASA Image Slider Functionality
+        let currentSanasaSlideIndex = 1;
+        const totalSanasaSlidesCount = 3;
+
+        function openSanasaImageSlider() {
+            document.getElementById('sanasaImageSliderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            resetSanasaSlider(); // Reset to first slide when opening
+        }
+
+        function closeSanasaImageSlider() {
+            document.getElementById('sanasaImageSliderModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function resetSanasaSlider() {
+            currentSanasaSlideIndex = 1;
+            showSanasaSlide(currentSanasaSlideIndex);
+        }
+
+        function showSanasaSlide(n) {
+            const modal = document.getElementById('sanasaImageSliderModal');
+            const slides = modal.querySelectorAll('.slider-image');
+            const dots = modal.querySelectorAll('.slider-dot');
+            
+            if (n > totalSanasaSlidesCount) { currentSanasaSlideIndex = 1; }
+            if (n < 1) { currentSanasaSlideIndex = totalSanasaSlidesCount; }
+            
+            // Hide all slides and remove active class from dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide and activate corresponding dot
+            slides[currentSanasaSlideIndex - 1].classList.add('active');
+            dots[currentSanasaSlideIndex - 1].classList.add('active');
+            
+            // Update counter
+            document.getElementById('currentSanasaSlide').textContent = currentSanasaSlideIndex;
+        }
+
+        function nextSanasaSlide() {
+            currentSanasaSlideIndex++;
+            showSanasaSlide(currentSanasaSlideIndex);
+        }
+
+        function previousSanasaSlide() {
+            currentSanasaSlideIndex--;
+            showSanasaSlide(currentSanasaSlideIndex);
+        }
+
+        function currentSanasaSlide(n) {
+            currentSanasaSlideIndex = n;
+            showSanasaSlide(currentSanasaSlideIndex);
+        }
+
+        // Close SANASA modal when clicking outside the slider container
+        document.getElementById('sanasaImageSliderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSanasaImageSlider();
+            }
+        });
+
+        // Touch/swipe support for SANASA slider
+        let sanasaStartX = 0;
+        let sanasaEndX = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sanasaSliderContent = document.querySelector('#sanasaImageSliderModal .slider-content');
+            if (sanasaSliderContent) {
+                sanasaSliderContent.addEventListener('touchstart', function(e) {
+                    sanasaStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                sanasaSliderContent.addEventListener('touchend', function(e) {
+                    sanasaEndX = e.changedTouches[0].screenX;
+                    handleSanasaSwipe();
+                }, { passive: true });
+            }
+        });
+
+        function handleSanasaSwipe() {
+            const threshold = 50; // Minimum swipe distance
+            const diff = sanasaStartX - sanasaEndX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextSanasaSlide(); // Swipe left - next slide
+                } else {
+                    previousSanasaSlide(); // Swipe right - previous slide
+                }
+            }
+        }
     </script>
 </body>
 </html>
