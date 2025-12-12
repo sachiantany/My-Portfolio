@@ -1058,6 +1058,240 @@
                 right: 10px;
             }
         }
+
+        /* Customer Logos Scrolling Section */
+        .customers-scroll-container {
+            overflow: hidden;
+            padding: 2rem 0;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .customer-scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(99, 102, 241, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            font-size: 1.2rem;
+        }
+
+        .customer-scroll-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .customer-scroll-prev {
+            left: 15px;
+        }
+
+        .customer-scroll-next {
+            right: 15px;
+        }
+
+        .customers-scroll-container::before,
+        .customers-scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .customers-scroll-container::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%);
+        }
+
+        .customers-scroll-container::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--bg-secondary) 0%, transparent 100%);
+        }
+
+        .customers-scroll-track {
+            display: flex;
+            animation: scroll-logos 30s linear infinite;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .customer-logo {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 80px;
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .customer-logo:visited,
+        .customer-logo:link {
+            text-decoration: none;
+        }
+
+        .customer-logo:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .customer-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .customer-logo:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Text-based logo styles */
+        .text-logo {
+            text-align: center;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .company-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .company-subtitle {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .customer-logo:hover .company-name {
+            color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .customer-logo:hover .company-subtitle {
+            color: var(--primary-color);
+        }
+
+        /* Brand-specific colors */
+        .dilmah .company-name {
+            color: #8B4513;
+        }
+
+        .dilmah .company-subtitle {
+            color: #228B22;
+        }
+
+        .customer-logo:hover .dilmah .company-name {
+            color: #8B4513;
+        }
+
+        .customer-logo:hover .dilmah .company-subtitle {
+            color: #228B22;
+        }
+
+        .litro .company-name {
+            color: #FF6B35;
+        }
+
+        .customer-logo:hover .litro .company-name {
+            color: #FF6B35;
+        }
+
+        .finetech .company-name {
+            color: var(--primary-color);
+        }
+
+        .customer-logo:hover .finetech .company-name {
+            color: var(--primary-dark);
+        }
+
+        .bns .company-name {
+            color: #9B59B6;
+        }
+
+        .customer-logo:hover .bns .company-name {
+            color: #8E44AD;
+        }
+
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .customers-scroll-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Dark theme adjustments */
+        [data-theme="dark"] .customer-logo {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .customers-scroll-container::before {
+            background: linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%);
+        }
+
+        [data-theme="dark"] .customers-scroll-container::after {
+            background: linear-gradient(270deg, var(--bg-secondary) 0%, transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            .customers-scroll-track {
+                gap: 2rem;
+            }
+
+            .customer-logo {
+                width: 120px;
+                height: 60px;
+                padding: 0.75rem;
+            }
+
+            .customers-scroll-container::before,
+            .customers-scroll-container::after {
+                width: 50px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1159,8 +1393,7 @@
                 <p class="section-subtitle">
                     A seasoned Software Engineer with 5+ years of experience building enterprise-grade solutions that drive digital transformation. 
                     I specialize in full-stack development, from high-performance mobile applications using Flutter to scalable cloud architectures 
-                    on Google Cloud Platform. My work spans complex system integrations, workflow automation, and performance optimization - 
-                    delivering solutions that have processed 15,000+ dealer networks, reduced processing times from 8+ hours to under 2 hours, 
+                    on Google Cloud Platform. My work spans complex system integrations, workflow automation, performance optimization 
                     and achieved 80% paper reduction across multiple enterprise implementations.
                 </p>
             </div>
@@ -1198,6 +1431,110 @@
                             approval mechanisms, and automated business processes that scale across thousands of users 
                             and multiple organizational hierarchies.
                         </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trusted By Section -->
+            <div class="section-container" style="margin-top: 4rem;">
+                <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+                    <h3 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Trusted by Leading Organizations</h3>
+                    <p style="color: var(--text-secondary); font-size: 1rem;">Delivering enterprise solutions for industry leaders across multiple sectors</p>
+                </div>
+                <div class="customers-scroll-container" id="customerScrollContainer">
+                    <button class="customer-scroll-btn customer-scroll-prev" onclick="scrollCustomerLogos('left')">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="customer-scroll-btn customer-scroll-next" onclick="scrollCustomerLogos('right')">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="customers-scroll-track" id="customerScrollTrack">
+                        <a href="https://www.sanasalife.com" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA Life Insurance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SANASA</div><div class=&quot;company-subtitle&quot;>Life Insurance</div></div>'" />
+                        </a>
+                        <a href="https://www.dilmahtea.com" target="_blank" class="customer-logo">
+                            <img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah Tea" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text dilmah&quot;><div class=&quot;company-name&quot;>Dilmah</div><div class=&quot;company-subtitle&quot;>Ceylon Tea</div></div>'" />
+                        </a>
+                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="customer-logo">
+                            <img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya Development Finance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SDF</div><div class=&quot;company-subtitle&quot;>Sarvodaya Finance</div></div>'" />
+                        </a>
+                        <a href="https://www.litrogas.com/" target="_blank" class="customer-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro Gas Lanka" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text litro&quot;><div class=&quot;company-name&quot;>LITRO</div><div class=&quot;company-subtitle&quot;>Gas Lanka Ltd</div></div>'" />
+                        </a>
+                        <a href="https://fcpl.biz" target="_blank" class="customer-logo">
+                            <img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech Consultancy" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text finetech&quot;><div class=&quot;company-name&quot;>Finetech</div><div class=&quot;company-subtitle&quot;>Consultancy</div></div>'" />
+                        </a>
+                        <a href="https://www.dfcc.lk" target="_blank" class="customer-logo">
+                            <img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC Bank" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>DFCC</div><div class=&quot;company-subtitle&quot;>Bank PLC</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection (Pvt) Ltd" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Enfection</div><div class=&quot;company-subtitle&quot;>(Pvt) Ltd</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console Electronics" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Console</div><div class=&quot;company-subtitle&quot;>Electronics</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo text-logo">
+                            <div class="logo-text">
+                                <div class="company-name">OMC</div>
+                                <div class="company-subtitle">Ocean Maritime</div>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes & Walker Tea Brokers" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Forbes &amp; Walker</div><div class=&quot;company-subtitle&quot;>Tea Brokers</div></div>'" />
+                        </a>
+                        <a href="https://www.bnsmusic.com" target="_blank" class="customer-logo">
+                            <img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS Music" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text bns&quot;><div class=&quot;company-name&quot;>BNS</div><div class=&quot;company-subtitle&quot;>Music</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo text-logo">
+                            <div class="logo-text">
+                                <div class="company-name">GSSI</div>
+                                <div class="company-subtitle">Global Solutions</div>
+                            </div>
+                        </a>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <a href="https://www.sanasalife.com" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA Life Insurance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SANASA</div><div class=&quot;company-subtitle&quot;>Life Insurance</div></div>'" />
+                        </a>
+                        <a href="https://www.dilmahtea.com" target="_blank" class="customer-logo">
+                            <img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah Tea" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text dilmah&quot;><div class=&quot;company-name&quot;>Dilmah</div><div class=&quot;company-subtitle&quot;>Ceylon Tea</div></div>'" />
+                        </a>
+                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="customer-logo">
+                            <img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya Development Finance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SDF</div><div class=&quot;company-subtitle&quot;>Sarvodaya Finance</div></div>'" />
+                        </a>
+                        <a href="https://www.litrogas.com/" target="_blank" class="customer-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro Gas Lanka" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text litro&quot;><div class=&quot;company-name&quot;>LITRO</div><div class=&quot;company-subtitle&quot;>Gas Lanka Ltd</div></div>'" />
+                        </a>
+                        <a href="https://finetech.lk" target="_blank" class="customer-logo">
+                            <img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech Consultancy" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text finetech&quot;><div class=&quot;company-name&quot;>Finetech</div><div class=&quot;company-subtitle&quot;>Consultancy</div></div>'" />
+                        </a>
+                        <a href="https://www.dfcc.lk" target="_blank" class="customer-logo">
+                            <img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC Bank" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>DFCC</div><div class=&quot;company-subtitle&quot;>Bank PLC</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection (Pvt) Ltd" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Enfection</div><div class=&quot;company-subtitle&quot;>(Pvt) Ltd</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console Electronics" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Console</div><div class=&quot;company-subtitle&quot;>Electronics</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo text-logo">
+                            <div class="logo-text">
+                                <div class="company-name">OMC</div>
+                                <div class="company-subtitle">Ocean Maritime</div>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes & Walker Tea Brokers" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Forbes &amp; Walker</div><div class=&quot;company-subtitle&quot;>Tea Brokers</div></div>'" />
+                        </a>
+                        <a href="https://www.bnsmusic.com" target="_blank" class="customer-logo">
+                            <img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS Music" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text bns&quot;><div class=&quot;company-name&quot;>BNS</div><div class=&quot;company-subtitle&quot;>Music</div></div>'" />
+                        </a>
+                        <a href="#" target="_blank" class="customer-logo text-logo">
+                            <div class="logo-text">
+                                <div class="company-name">GSSI</div>
+                                <div class="company-subtitle">Global Solutions</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2315,6 +2652,69 @@
                 }
             }
         }
+
+        // Customer Logos Manual Scroll Functionality
+        let customerScrollPosition = 0;
+        let isCustomerAutoScrolling = true;
+        let customerAutoScrollInterval;
+
+        function scrollCustomerLogos(direction) {
+            const track = document.getElementById('customerScrollTrack');
+            const logoWidth = 160 + 48; // logo width + gap (3rem = 48px)
+            const containerWidth = track.parentElement.clientWidth;
+            const maxScroll = track.scrollWidth - containerWidth;
+            
+            // Pause auto-scroll when user manually scrolls
+            pauseCustomerAutoScroll();
+            
+            if (direction === 'left') {
+                customerScrollPosition = Math.max(customerScrollPosition - logoWidth * 3, -maxScroll);
+            } else {
+                customerScrollPosition = Math.min(customerScrollPosition + logoWidth * 3, 0);
+            }
+            
+            track.style.transform = `translateX(${customerScrollPosition}px)`;
+            
+            // Resume auto-scroll after 5 seconds of no manual interaction
+            setTimeout(() => {
+                if (!isCustomerAutoScrolling) {
+                    resumeCustomerAutoScroll();
+                }
+            }, 5000);
+        }
+
+        function pauseCustomerAutoScroll() {
+            isCustomerAutoScrolling = false;
+            const track = document.getElementById('customerScrollTrack');
+            track.style.animationPlayState = 'paused';
+        }
+
+        function resumeCustomerAutoScroll() {
+            isCustomerAutoScrolling = true;
+            const track = document.getElementById('customerScrollTrack');
+            track.style.animationPlayState = 'running';
+            customerScrollPosition = 0;
+            track.style.transform = 'translateX(0)';
+        }
+
+        // Enhanced customer scroll container interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('customerScrollContainer');
+            
+            // Pause auto-scroll on hover
+            container.addEventListener('mouseenter', function() {
+                pauseCustomerAutoScroll();
+            });
+            
+            // Resume auto-scroll when not hovering (with delay)
+            container.addEventListener('mouseleave', function() {
+                setTimeout(() => {
+                    if (!isCustomerAutoScrolling) {
+                        resumeCustomerAutoScroll();
+                    }
+                }, 2000);
+            });
+        });
     </script>
 </body>
 </html>
