@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachintha Antany - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .page {
+            width: 180mm;
+            min-height: 297mm;
+            margin: -25mm auto 0 auto;
+            background: white;
+            padding: 0mm 7mm 12mm 0mm;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1a5490;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1a5490;
+            flex-shrink: 0;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a5490;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .title {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: #1a5490;
+            text-decoration: none;
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a5490;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        /* About Me Section */
+        .about-text {
+            text-align: justify;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Tech Stack */
+        .tech-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .tech-item {
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .tech-label {
+            font-weight: bold;
+            color: #1a5490;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-weight: 600;
+            color: #1a5490;
+            font-size: 12px;
+        }
+
+        .position {
+            font-weight: bold;
+            font-size: 13px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .subsection {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+
+        .subsection-title {
+            font-weight: bold;
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 6px;
+        }
+
+        .experience-item li {
+            font-size: 11px;
+            line-height: 1.5;
+            margin-bottom: 3px;
+            color: #444;
+        }
+
+        /* Projects */
+        .project-item {
+            font-size: 11px;
+            line-height: 1.6;
+            margin-bottom: 4px;
+            color: #444;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #1a5490;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 10px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .degree {
+            font-weight: bold;
+            font-size: 12px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .institution {
+            font-size: 11px;
+            color: #555;
+            margin-top: 2px;
+        }
+
+        /* Certifications */
+        .cert-item {
+            font-size: 11px;
+            font-weight: 600;
+            color: #1a5490;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        /* Publication */
+        .publication-item {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #444;
+            font-style: italic;
+        }
+
+        /* References */
+        .reference-item {
+            margin-bottom: 15px;
+        }
+
+        .reference-name {
+            font-weight: bold;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .reference-title {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                margin: -5mm 0 0 0;
+                padding: 0mm 12mm 12mm 0mm;
+                width: 180mm;
+                height: 297mm;
+                box-sizing: border-box;
+                page-break-after: always;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        /* Page 2 */
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1 -->
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <img src="../images/pro.png" alt="Sachintha Antany Profile" class="profile-image">
+            <div class="header-content">
+                <h1 class="name">SACHINTHA ANTANY</h1>
+                <p class="title">Software Engineer | Flutter Developer | Cloud Integration Expert</p>
+                <div class="contact-info">
+                    +94 717804901 | <a href="mailto:sachi.antany@gmail.com">sachi.antany@gmail.com</a> | Colombo, Sri Lanka<br>
+                    <a href="#">LinkedIn</a> | <a href="#">Portfolio</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me -->
+        <div class="section">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                Results-driven Software Engineer with over 5 years of experience in full-cycle mobile app development, 
+                including 3+ years in Flutter. Expert in building high-performance, scalable, and intuitive mobile 
+                applications using Clean Architecture and Bloc Pattern. Proven success in delivering digital 
+                transformation projects and workflow automation across finance, insurance, and manufacturing 
+                domains. Google Certified Cloud Architect passionate about leveraging GCP and low-code platforms to 
+                streamline operations and boost business agility.
+            </p>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="section">
+            <h2 class="section-title">Tech Stack & Tools</h2>
+            <div class="tech-list">
+                <div class="tech-item"><span class="tech-label">Languages:</span> Dart, SQL, JavaScript</div>
+                <div class="tech-item"><span class="tech-label">Mobile:</span> Flutter (Android & iOS)</div>
+                <div class="tech-item"><span class="tech-label">Architecture:</span> Clean Architecture, Bloc Pattern</div>
+                <div class="tech-item"><span class="tech-label">Cloud & Automation:</span> Google Cloud Platform (GCP), AppSheet, Google Apps Script</div>
+                <div class="tech-item"><span class="tech-label">Dev Tools:</span> Git, Bitbucket, Firebase, Figma</div>
+                <div class="tech-item"><span class="tech-label">Enterprise Integration:</span> SAP HANA, Cloud SQL</div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="date">2019 – Present</span>
+                    <span class="position">Software Engineer | Finetech Consultancy Pvt Ltd – Sri Lanka</span>
+                </div>
+                
+                <div class="subsection">
+                    <div class="subsection-title">Flutter App Development</div>
+                    <ul>
+                        <li>Architected & launched the Timespot Attendance App with end-to-end features (attendance, task management, leave & WFH workflows).</li>
+                        <li>Created DocIt, an OCR-powered document management system with dynamic indexing and search.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Cloud Workflow Automation</div>
+                    <ul>
+                        <li>Digitized workflows for top clients (Dilmah, DFCC, SANASA, SDF Bank), achieving up to 80% paper reduction.</li>
+                        <li>Automated business processes using AppSheet & Apps Script integrated with SAP B1 (HANA/SQL).</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">Tech Leadership & Collaboration</div>
+                    <ul>
+                        <li>Led technical design and cross-team integrations for enterprise-grade systems.</li>
+                        <li>Mentored developers in architecture best practices and cloud workflows.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page page-break">
+        <!-- Education -->
+         
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <span class="date">2017 – 2021</span>
+                    <span class="degree">BSc (Hons) in Information Technology – Software Engineering</span>
+                </div>
+                <div class="institution">Sri Lanka Institute of Information Technology (SLIIT)</div>
+            </div>
+        </div>
+
+        <!-- Project Highlights -->
+        <div class="section">
+            <h2 class="section-title">Project Highlights</h2>
+            <div class="project-item">
+                <span class="project-name">DocIt DMS</span> – OCR-based Document Search & Workflow (04/2024–Present)
+            </div>
+            <div class="project-item">
+                <span class="project-name">Timespot App</span> – Attendance & Task App on Play Store & App Store (09/2023–03/2024)
+            </div>
+            <div class="project-item">
+                <span class="project-name">Ceylon Explorer</span> – Modular Travel Booking App (03/2024–05/2024)
+            </div>
+            <div class="project-item">
+                <span class="project-name">SANASA Life</span> – SAP Integration & Workflow (06/2023–09/2023)
+            </div>
+            <div class="project-item">
+                <span class="project-name">FCPL Internal</span> – SAP-Based Finance Approval App (08/2023–11/2023)
+            </div>
+            <div class="project-item">
+                <span class="project-name">Dilmah Tea</span> – NPD Workflow Automation (06/2022–02/2023)
+            </div>
+            <div class="project-item">
+                <span class="project-name">SDF Bank</span> – 10+ Workflow Automation Apps (2020–2021)
+            </div>
+            <div class="project-item">
+                <span class="project-name">Petty Cash Manager</span> – Real-time Expense Tracker (12/2019–03/2020)
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-item">Google Associate Cloud Engineer – Valid till 03/2026</div>
+            <div class="cert-item">Google Professional Cloud Architect – Valid till 12/2024</div>
+        </div>
+
+        <!-- Publication -->
+        <div class="section">
+            <h2 class="section-title">Publication</h2>
+            <div class="publication-item">
+                "Smart Urban Parking Solution in Sri Lanka (Pay-As-You-Park)" – International Journal of Computer Applications
+            </div>
+        </div>
+
+        <!-- References -->
+        <div class="section">
+            <h2 class="section-title">References</h2>
+            <div class="reference-item">
+                <div class="reference-name">Mr. Nirushka Samarasinghe</div>
+                <div class="reference-title">
+                    Software Engineer, Ernst & Young (EY), Sri Lanka<br>
+                    +94 71 110 7812
+                </div>
+            </div>
+            <div class="reference-item">
+                <div class="reference-name">Mr. Thilina Prabashwara Wickramarachchi</div>
+                <div class="reference-title">
+                    Business Analyst & Project Coordinator, Finetech<br>
+                    +94 770 470 548
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

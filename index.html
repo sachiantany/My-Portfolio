@@ -1338,6 +1338,10 @@
                         <i class="fas fa-rocket"></i>
                         View My Work
                     </a>
+                    <a href="cv/cv.pdf" class="btn btn-secondary" download target="_blank">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
                     <a href="#contact" class="btn btn-secondary">
                         <i class="fas fa-envelope"></i>
                         Get In Touch
@@ -1713,13 +1717,13 @@
             <div class="projects-grid">
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <i class="fas fa-server"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Enterprise Dealer Stock Recommendation System</h3>
+                        <h3 class="project-title">Enterprise Dealer Stock Recommendation Module</h3>
                         <div class="project-period">📅 Cloud-based Solution</div>
                         <p class="project-description">
-                            High-performance, scalable dealer stock recommendation system processing 15,000+ dealer outposts monthly. Optimized from 8+ hours to under 2 hours using distributed processing architecture with Google Cloud Platform.
+                            This stock recommendation module for Litro Gas distribution network. Built recommendation algorithms for the 3-application ecosystem: Litro Sales Data Tracker, Litro Sales POS, and Litro SPO Hub - tracking island-wide gas cylinder distribution across all dealers and truck drivers. Developed the algorithms to calculate optimal stock recommendations using historical sales data and predictive analytics.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Node.js</span>
@@ -1730,6 +1734,12 @@
                             <span class="tech-tag">Cloud Tasks</span>
                             <span class="tech-tag">Docker</span>
                             <span class="tech-tag">Memorystore</span>
+                            <span class="tech-tag">AppSheet</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link" onclick="openLitroImageSlider()">
+                                <i class="fas fa-mobile-alt"></i> View App
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1809,6 +1819,11 @@
                             <span class="tech-tag">Clean Architecture</span>
                             <span class="tech-tag">Bloc Pattern</span>
                             <span class="tech-tag">OCR</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link" onclick="openDocItImageSlider()">
+                                <i class="fas fa-images"></i> View Images
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2653,48 +2668,217 @@
             }
         }
 
-        // Customer Logos Manual Scroll Functionality
-        let customerScrollPosition = 0;
-        let isCustomerAutoScrolling = true;
-        let customerAutoScrollInterval;
+        // Litro Image Slider Functionality
+        function openLitroImageSlider() {
+            document.getElementById('litroImageSliderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLitroImageSlider() {
+            document.getElementById('litroImageSliderModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('litroImageSliderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLitroImageSlider();
+            }
+        });
+
+        // DocIt Image Slider Functionality - Initialize variables globally
+        window.currentDocItSlideIndex = 1;
+        window.totalDocItSlidesCount = 2;
+
+        // Immediate debug check
+        console.log('DocIt variables initialized:', {
+            currentIndex: window.currentDocItSlideIndex,
+            totalCount: window.totalDocItSlidesCount
+        });
+
+        function openDocItImageSlider() {
+            console.log('Opening DocIt slider...'); // Debug log
+            console.log('Variables at open:', {
+                currentIndex: window.currentDocItSlideIndex,
+                totalCount: window.totalDocItSlidesCount
+            });
+            const modal = document.getElementById('docItImageSliderModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                resetDocItSlider();
+            } else {
+                console.error('DocIt modal not found!');
+            }
+        }
+
+        function closeDocItImageSlider() {
+            const modal = document.getElementById('docItImageSliderModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function resetDocItSlider() {
+            console.log('Resetting DocIt slider...'); // Debug log
+            window.currentDocItSlideIndex = 1;
+            showDocItSlide(window.currentDocItSlideIndex);
+        }
+
+        function showDocItSlide(n) {
+            // Use hardcoded fallback if global variable is undefined
+            const totalSlides = window.totalDocItSlidesCount || 2;
+            
+            console.log('Showing DocIt slide - input n:', n, 'totalSlides:', totalSlides, 'global var:', window.totalDocItSlidesCount); // Debug log
+            const modal = document.getElementById('docItImageSliderModal');
+            if (!modal) {
+                console.error('DocIt modal not found in showDocItSlider!');
+                return;
+            }
+            
+            const slides = modal.querySelectorAll('.slider-image');
+            const dots = modal.querySelectorAll('.slider-dot');
+            
+            console.log('Found slides:', slides.length, 'dots:', dots.length); // Debug
+            
+            // Fix bounds checking - update the input parameter n, not the global variable directly
+            if (n > totalSlides) { 
+                n = 1; 
+                console.log('Wrapped to slide 1 (was greater than', totalSlides, ')');
+            }
+            if (n < 1) { 
+                n = totalSlides; 
+                console.log('Wrapped to last slide:', totalSlides);
+            }
+            
+            // NOW update the global variable with the corrected value
+            window.currentDocItSlideIndex = n;
+            
+            console.log('Final slide index:', window.currentDocItSlideIndex); // Debug log
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (slides[window.currentDocItSlideIndex - 1]) {
+                slides[window.currentDocItSlideIndex - 1].classList.add('active');
+                console.log('Activated slide:', window.currentDocItSlideIndex);
+            } else {
+                console.error('Slide not found at index:', window.currentDocItSlideIndex - 1);
+            }
+            if (dots[window.currentDocItSlideIndex - 1]) {
+                dots[window.currentDocItSlideIndex - 1].classList.add('active');
+            }
+            
+            const counter = document.getElementById('currentDocItSlide');
+            if (counter) {
+                counter.textContent = window.currentDocItSlideIndex;
+            }
+        }
+
+        function nextDocItSlide() {
+            console.log('Next DocIt slide - current:', window.currentDocItSlideIndex); // Debug log
+            window.currentDocItSlideIndex++;
+            showDocItSlide(window.currentDocItSlideIndex);
+        }
+
+        function previousDocItSlide() {
+            console.log('Previous DocIt slide - current:', window.currentDocItSlideIndex); // Debug log
+            window.currentDocItSlideIndex--;
+            showDocItSlide(window.currentDocItSlideIndex);
+        }
+
+        function currentDocItSlide(n) {
+            console.log('Jump to DocIt slide:', n); // Debug log
+            window.currentDocItSlideIndex = n;
+            showDocItSlide(window.currentDocItSlideIndex);
+        }
+
+        // Close modal when clicking outside (with DOM check)
+        document.addEventListener('DOMContentLoaded', function() {
+            const docItModal = document.getElementById('docItImageSliderModal');
+            if (docItModal) {
+                docItModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeDocItImageSlider();
+                    }
+                });
+            }
+        });
+
+        // Customer Logos Manual Scroll Functionality - Initialize variables globally
+        window.customerScrollPosition = 0;
+        window.isCustomerAutoScrolling = true;
+        window.customerAutoScrollInterval = null;
+
+        // Define all functions after variables
+        function pauseCustomerAutoScroll() {
+            console.log('Pausing customer auto-scroll...'); // Debug log
+            window.isCustomerAutoScrolling = false;
+            const track = document.getElementById('customerScrollTrack');
+            if (track) {
+                track.style.animationPlayState = 'paused';
+            }
+        }
+
+        function resumeCustomerAutoScroll() {
+            console.log('Resuming customer auto-scroll...'); // Debug log
+            window.isCustomerAutoScrolling = true;
+            const track = document.getElementById('customerScrollTrack');
+            if (track) {
+                track.style.animationPlayState = 'running';
+                window.customerScrollPosition = 0;
+                track.style.transform = 'translateX(0)';
+            }
+        }
 
         function scrollCustomerLogos(direction) {
+            console.log('Scrolling customer logos:', direction); // Debug log
+            console.log('isCustomerAutoScrolling before:', window.isCustomerAutoScrolling); // Debug
+            
             const track = document.getElementById('customerScrollTrack');
-            const logoWidth = 160 + 48; // logo width + gap (3rem = 48px)
-            const containerWidth = track.parentElement.clientWidth;
-            const maxScroll = track.scrollWidth - containerWidth;
+            if (!track) {
+                console.error('Customer scroll track not found!');
+                return;
+            }
+            
+            // Get actual logo element width instead of hardcoded value
+            const logoElement = track.children[0];
+            const logoWidth = logoElement ? logoElement.offsetWidth + 48 : 160; // width + gap
+            
+            console.log('Logo width calculated:', logoWidth); // Debug
+            console.log('Current scroll position before:', window.customerScrollPosition); // Debug
             
             // Pause auto-scroll when user manually scrolls
             pauseCustomerAutoScroll();
             
             if (direction === 'left') {
-                customerScrollPosition = Math.max(customerScrollPosition - logoWidth * 3, -maxScroll);
+                window.customerScrollPosition -= logoWidth * 2;
             } else {
-                customerScrollPosition = Math.min(customerScrollPosition + logoWidth * 3, 0);
+                window.customerScrollPosition += logoWidth * 2;
             }
             
-            track.style.transform = `translateX(${customerScrollPosition}px)`;
+            // Apply bounds checking
+            const containerWidth = track.parentElement.clientWidth;
+            const totalWidth = track.scrollWidth;
+            const maxNegativeScroll = -(totalWidth - containerWidth);
+            
+            console.log('Container width:', containerWidth, 'Total width:', totalWidth); // Debug
+            
+            window.customerScrollPosition = Math.max(maxNegativeScroll, Math.min(0, window.customerScrollPosition));
+            
+            track.style.transform = `translateX(${window.customerScrollPosition}px)`;
+            track.style.transition = 'transform 0.3s ease';
+            
+            console.log('New scroll position:', window.customerScrollPosition); // Debug
             
             // Resume auto-scroll after 5 seconds of no manual interaction
             setTimeout(() => {
-                if (!isCustomerAutoScrolling) {
+                console.log('Timeout check - isCustomerAutoScrolling:', window.isCustomerAutoScrolling); // Debug
+                if (!window.isCustomerAutoScrolling) {
                     resumeCustomerAutoScroll();
                 }
             }, 5000);
-        }
-
-        function pauseCustomerAutoScroll() {
-            isCustomerAutoScrolling = false;
-            const track = document.getElementById('customerScrollTrack');
-            track.style.animationPlayState = 'paused';
-        }
-
-        function resumeCustomerAutoScroll() {
-            isCustomerAutoScrolling = true;
-            const track = document.getElementById('customerScrollTrack');
-            track.style.animationPlayState = 'running';
-            customerScrollPosition = 0;
-            track.style.transform = 'translateX(0)';
         }
 
         // Enhanced customer scroll container interactions
@@ -2709,12 +2893,59 @@
             // Resume auto-scroll when not hovering (with delay)
             container.addEventListener('mouseleave', function() {
                 setTimeout(() => {
-                    if (!isCustomerAutoScrolling) {
+                    if (!window.isCustomerAutoScrolling) {
                         resumeCustomerAutoScroll();
                     }
                 }, 2000);
             });
         });
     </script>
+
+    <!-- Litro Image Slider Modal -->
+    <div class="image-slider-modal" id="litroImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Litro Gas Distribution System - App Showcase</div>
+                <button class="close-slider" onclick="closeLitroImageSlider()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="slider-content">
+                <img src="images/lit/lit.png" alt="Litro App Screenshot" class="slider-image active" style="max-width: 100%; max-height: 80vh; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+
+    <!-- DocIt Image Slider Modal -->
+    <div class="image-slider-modal" id="docItImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">DocIt Document Management System - Project Screenshots</div>
+                <button class="close-slider" onclick="closeDocItImageSlider()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter">
+                    <span id="currentDocItSlide">1</span> / <span id="totalDocItSlides">2</span>
+                </div>
+                <img src="images/doc/d1.png" alt="DocIt Screenshot 1" class="slider-image active">
+                <img src="images/doc/d2.png" alt="DocIt Screenshot 2" class="slider-image">
+                
+                <button class="slider-nav slider-prev" onclick="previousDocItSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav slider-next" onclick="nextDocItSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="currentDocItSlide(1)"></div>
+                    <div class="slider-dot" onclick="currentDocItSlide(2)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
