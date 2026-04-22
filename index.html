@@ -708,16 +708,110 @@
         }
 
         .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            height: 240px;
+            background: #0d0d0d;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            color: var(--primary-color);
+            font-size: 3.5rem;
             position: relative;
             overflow: hidden;
+            border-radius: 16px 16px 0 0;
         }
+
+        /* Hive Trendz image carousel */
+        .project-carousel {
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+            background: #0d0d0d;
+            border-radius: 16px 16px 0 0;
+        }
+        .carousel-tabs {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 4px;
+            background: rgba(0,0,0,0.65);
+            border-radius: 20px;
+            padding: 4px;
+            white-space: nowrap;
+        }
+        .carousel-tab {
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .carousel-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .carousel-viewport {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .carousel-slide.active { opacity: 1; }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.55);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover { background: var(--primary-color); }
+        .carousel-btn.prev { left: 8px; }
+        .carousel-btn.next { right: 8px; }
+        .carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+        .carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+            cursor: pointer;
+            transition: background 0.2s;
+            border: none;
+            padding: 0;
+        }
+        .carousel-dot.active { background: var(--primary-color); }
 
         .project-image::before {
             content: '';
@@ -726,7 +820,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="20" cy="20" r="1"/></g></svg>');
+            background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.10) 0%, transparent 70%);
         }
 
         .project-content {
@@ -1890,6 +1984,70 @@
                 </p>
             </div>
             <div class="projects-grid">
+
+                <!-- Hive Trendz — featured first -->
+                <div class="project-card fade-in" style="grid-column: 1 / -1;">
+                    <div class="project-carousel">
+                        <div class="carousel-tabs">
+                            <button class="carousel-tab active" onclick="htTab(this,'mobile')">📱 Mobile</button>
+                            <button class="carousel-tab" onclick="htTab(this,'web')">🌐 Web Dashboard</button>
+                        </div>
+                        <div class="carousel-viewport">
+                            <img class="carousel-slide active" src="images/ht-mobile/ht1.png" data-group="mobile" alt="Hive Trendz mobile screenshot 1">
+                            <img class="carousel-slide" src="images/ht-mobile/ht2.png" data-group="mobile" alt="Hive Trendz mobile screenshot 2">
+                            <img class="carousel-slide" src="images/ht-mobile/ht3.png" data-group="mobile" alt="Hive Trendz mobile screenshot 3">
+                            <img class="carousel-slide" src="images/ht-mobile/ht4.png" data-group="mobile" alt="Hive Trendz mobile screenshot 4">
+                            <img class="carousel-slide" src="images/ht-web/ht1.png" data-group="web" alt="Hive Trendz web screenshot 1">
+                            <img class="carousel-slide" src="images/ht-web/ht2.png" data-group="web" alt="Hive Trendz web screenshot 2">
+                            <img class="carousel-slide" src="images/ht-web/ht3.png" data-group="web" alt="Hive Trendz web screenshot 3">
+                            <img class="carousel-slide" src="images/ht-web/ht4.png" data-group="web" alt="Hive Trendz web screenshot 4">
+                            <img class="carousel-slide" src="images/ht-web/ht5.png" data-group="web" alt="Hive Trendz web screenshot 5">
+                        </div>
+                        <button class="carousel-btn prev" onclick="htNav(-1)">&#8249;</button>
+                        <button class="carousel-btn next" onclick="htNav(1)">&#8250;</button>
+                        <div class="carousel-dots" id="ht-dots"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hive Trendz — AI Social Media Automation</h3>
+                        <div class="project-period">📅 Personal Project</div>
+                        <p class="project-description">
+                            AI-powered social media automation platform that discovers trending news, generates branded content using LLaMA 3.3 70B via Groq API, and autonomously publishes to Facebook and Instagram — zero manual effort after setup. Features a Flutter mobile app with on-device image compositing, FFmpeg video editor, and Android AlarmManager exact scheduling that posts even when the phone is locked. Backed by a Flask + APScheduler server hosted on Railway with a full web dashboard for post queue management and live scheduler logs.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Python / Flask</span>
+                            <span class="tech-tag">Groq API (LLaMA 3.3 70B)</span>
+                            <span class="tech-tag">Meta Graph API v24</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">FFmpeg</span>
+                            <span class="tech-tag">APScheduler</span>
+                            <span class="tech-tag">NewsAPI + RSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Flutter Feature Generator — CLI Scaffolding Tool</h3>
+                        <div class="project-period">📅 Personal Project</div>
+                        <p class="project-description">
+                            Production-grade Dart CLI that generates a complete, fully-wired Flutter feature in one command — ~25 files covering Clean Architecture, BLoC, Drift SQLite, offline-first sync, and a matching Java Spring Boot 3 REST backend. Eliminates days of boilerplate per feature. Supports 3 CLI modes (batch, interactive, positional), 4 auth variants (Firebase/email × Flutter/Spring Boot), and idempotent marker-based file merging so re-running never duplicates code. Published on pub.dev with 15 generator modules.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Dart 3 CLI</span>
+                            <span class="tech-tag">Flutter / BLoC</span>
+                            <span class="tech-tag">Clean Architecture</span>
+                            <span class="tech-tag">Drift SQLite</span>
+                            <span class="tech-tag">Java Spring Boot 3</span>
+                            <span class="tech-tag">Firebase Auth</span>
+                            <span class="tech-tag">Code Generation</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card fade-in">
                     <div class="project-image">
                         <i class="fas fa-chart-line"></i>
@@ -2117,6 +2275,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -3127,6 +3286,53 @@
                 }, 2000);
             });
         });
+    </script>
+
+    <script>
+        // Hive Trendz carousel
+        (function() {
+            var slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            var dotsContainer = document.getElementById('ht-dots');
+            var currentGroup = 'mobile';
+            var currentIndex = 0;
+
+            function getGroupSlides(group) {
+                return slides.filter(function(s) { return s.dataset.group === group; });
+            }
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                getGroupSlides(currentGroup).forEach(function(_, i) {
+                    var d = document.createElement('button');
+                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    d.onclick = function() { showSlide(i); };
+                    dotsContainer.appendChild(d);
+                });
+            }
+
+            function showSlide(idx) {
+                var group = getGroupSlides(currentGroup);
+                currentIndex = (idx + group.length) % group.length;
+                slides.forEach(function(s) { s.classList.remove('active'); });
+                group[currentIndex].classList.add('active');
+                var dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === currentIndex); });
+            }
+
+            window.htNav = function(dir) { showSlide(currentIndex + dir); };
+
+            window.htTab = function(btn, group) {
+                currentGroup = group;
+                currentIndex = 0;
+                document.querySelectorAll('.carousel-tab').forEach(function(t) { t.classList.remove('active'); });
+                btn.classList.add('active');
+                buildDots();
+                showSlide(0);
+            };
+
+            buildDots();
+        })();
     </script>
 
     <!-- Litro Image Slider Modal -->
