@@ -3,3383 +3,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachintha Madushan Antany - Software Engineer</title>
+    <title>Sachintha Antany — Senior Software Engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary-color: #0ea5e9;
-            --accent-color: #f59e0b;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-dark: #0f172a;
-            --bg-card: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        [data-theme="dark"] {
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --text-muted: #64748b;
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #1e293b;
-            --border-color: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            overflow-x: hidden;
-            transition: all 0.3s ease;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-lg);
-        }
-
-        [data-theme="dark"] .navbar {
-            background: rgba(15, 23, 42, 0.95);
-            border-bottom-color: var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-secondary);
-            color: var(--primary-color);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: var(--bg-primary);
-            z-index: 1000;
-            padding: 6rem 2rem 2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .mobile-menu-links li {
-            margin: 0;
-        }
-
-        .mobile-menu-links a {
-            display: block;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 600;
-            padding: 1rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            background: var(--bg-card);
-            border: 2px solid var(--border-color);
-        }
-
-        .mobile-menu-links a:hover,
-        .mobile-menu-links a.active {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-            border-color: var(--primary-color);
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%236366f1" fill-opacity="0.03"><circle cx="40" cy="40" r="1"/></g></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            margin-top: 50px;
-            animation: slideInLeft 1s ease-out;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            padding: 0.875rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .btn-secondary {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-secondary);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: var(--bg-card);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: slideInRight 1s ease-out;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .profile-card {
-            margin-top: 100px;
-            position: relative;
-            width: 400px;
-            height: auto;
-            min-height: 500px;
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 2rem;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 2rem;
-            display: block;
-            border: 4px solid var(--primary-color);
-            animation: profileFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes profileFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .profile-info h3 {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-info p {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .profile-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .skill-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-list li::before {
-            content: '✓';
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        /* Experience Section */
-        .experience-timeline {
-            position: relative;
-            margin: 3rem 0;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 2rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 5rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 1rem;
-            top: 1rem;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            border: 4px solid var(--bg-primary);
-        }
-
-        .experience-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .experience-card:hover {
-            transform: translateX(8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .experience-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-company {
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-period {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        .experience-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-highlights {
-            list-style: none;
-        }
-
-        .experience-highlights li {
-            padding: 0.25rem 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-
-        .experience-highlights li::before {
-            content: '→';
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-top: 0.1rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .project-image {
-            height: 240px;
-            background: #0d0d0d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 3.5rem;
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px 16px 0 0;
-        }
-
-        /* Hive Trendz image carousel */
-        .project-carousel {
-            height: 240px;
-            position: relative;
-            overflow: hidden;
-            background: #0d0d0d;
-            border-radius: 16px 16px 0 0;
-        }
-        .carousel-tabs {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: flex;
-            gap: 4px;
-            background: rgba(0,0,0,0.65);
-            border-radius: 20px;
-            padding: 4px;
-            white-space: nowrap;
-        }
-        .carousel-tab {
-            border: none;
-            background: transparent;
-            color: rgba(255,255,255,0.65);
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-        .carousel-tab.active {
-            background: var(--primary-color);
-            color: white;
-        }
-        .carousel-viewport {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .carousel-slide {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .carousel-slide.active { opacity: 1; }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.55);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1rem;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-        .carousel-btn:hover { background: var(--primary-color); }
-        .carousel-btn.prev { left: 8px; }
-        .carousel-btn.next { right: 8px; }
-        .carousel-dots {
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 5px;
-            z-index: 10;
-        }
-        .carousel-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.35);
-            cursor: pointer;
-            transition: background 0.2s;
-            border: none;
-            padding: 0;
-        }
-        .carousel-dot.active { background: var(--primary-color); }
-
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.10) 0%, transparent 70%);
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-period {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 0.5rem 1rem;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-        }
-
-        .project-link.secondary {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-
-        .project-link.secondary:hover {
-            background: var(--border-color);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-        }
-
-        .contact-form {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero {
-                padding: 2rem 0;
-                min-height: 100vh;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-                padding: 0 1.5rem;
-                max-width: 100%;
-            }
-
-            .hero-content {
-                
-                order: 1;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-                line-height: 1.2;
-                margin-bottom: 1rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-                line-height: 1.5;
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-                margin-bottom: 2rem;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-                padding: 1rem 2rem;
-            }
-
-            .social-links {
-                justify-content: center;
-                gap: 1.5rem;
-                margin-top: 1rem;
-            }
-
-            .profile-card {
-                width: 100%;
-                max-width: 280px;
-                margin: 0 auto;
-                order: 2;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Additional mobile breakpoint for smaller devices */
-        @media (max-width: 480px) {
-            .hero-container {
-                padding: 0 1rem;
-                gap: 2rem;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                padding: 0 0.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-buttons {
-                gap: 0.75rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .btn {
-                max-width: 260px;
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .social-links {
-                gap: 1rem;
-            }
-
-            .social-link {
-                width: 44px;
-                height: 44px;
-            }
-
-            .profile-card {
-                margin-top: 50px;
-                max-width: 340px;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .timeline-item {
-                padding-left: 3rem;
-            }
-
-            .timeline-line {
-                left: 1rem;
-            }
-
-            .timeline-dot {
-                left: 0.5rem;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            z-index: 9999;
-            transition: width 0.1s ease;
-        }
-
-        /* Image Slider Modal */
-        .image-slider-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 10000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-slider-container {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .slider-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .slider-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .close-slider {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: background 0.3s ease;
-        }
-
-        .close-slider:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .slider-content {
-            position: relative;
-            width: 800px;
-            height: 600px;
-            overflow: hidden;
-        }
-
-        .slider-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: none;
-            background: var(--bg-secondary);
-        }
-
-        .slider-image.active {
-            display: block;
-        }
-
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            font-size: 2rem;
-            padding: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slider-nav:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .slider-prev {
-            left: 20px;
-        }
-
-        .slider-next {
-            right: 20px;
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background: var(--primary-color);
-            transform: scale(1.2);
-        }
-
-        .slider-counter {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-        }
-
-        @media (max-width: 768px) {
-            .slider-content {
-                width: 90vw;
-                height: 70vh;
-            }
-
-            .slider-nav {
-                font-size: 1.5rem;
-                padding: 0.75rem;
-                width: 50px;
-                height: 50px;
-            }
-
-            .slider-prev {
-                left: 10px;
-            }
-
-            .slider-next {
-                right: 10px;
-            }
-        }
-
-        /* Customer Logos Scrolling Section */
-        .customers-scroll-container {
-            overflow: hidden;
-            padding: 2rem 0;
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            position: relative;
-            margin: 2rem 0;
-        }
-
-        .customer-scroll-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(99, 102, 241, 0.9);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
-            font-size: 1.2rem;
-        }
-
-        .customer-scroll-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .customer-scroll-prev {
-            left: 15px;
-        }
-
-        .customer-scroll-next {
-            right: 15px;
-        }
-
-        .customers-scroll-container::before,
-        .customers-scroll-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .customers-scroll-container::before {
-            left: 0;
-            background: linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%);
-        }
-
-        .customers-scroll-container::after {
-            right: 0;
-            background: linear-gradient(270deg, var(--bg-secondary) 0%, transparent 100%);
-        }
-
-        .customers-scroll-track {
-            display: flex;
-            animation: scroll-logos 30s linear infinite;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .customer-logo {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 160px;
-            height: 80px;
-            background: white;
-            border-radius: 12px;
-            padding: 1rem;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .customer-logo:visited,
-        .customer-logo:link {
-            text-decoration: none;
-        }
-
-        .customer-logo:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: var(--shadow-md);
-        }
-
-        .customer-logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: all 0.3s ease;
-        }
-
-        .customer-logo:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Text-based logo styles */
-        .text-logo {
-            text-align: center;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .company-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-            transition: all 0.3s ease;
-        }
-
-        .company-subtitle {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-        }
-
-        .customer-logo:hover .company-name {
-            color: var(--primary-color);
-            transform: scale(1.05);
-        }
-
-        .customer-logo:hover .company-subtitle {
-            color: var(--primary-color);
-        }
-
-        /* Brand-specific colors */
-        .dilmah .company-name {
-            color: #8B4513;
-        }
-
-        .dilmah .company-subtitle {
-            color: #228B22;
-        }
-
-        .customer-logo:hover .dilmah .company-name {
-            color: #8B4513;
-        }
-
-        .customer-logo:hover .dilmah .company-subtitle {
-            color: #228B22;
-        }
-
-        .litro .company-name {
-            color: #FF6B35;
-        }
-
-        .customer-logo:hover .litro .company-name {
-            color: #FF6B35;
-        }
-
-        .finetech .company-name {
-            color: var(--primary-color);
-        }
-
-        .customer-logo:hover .finetech .company-name {
-            color: var(--primary-dark);
-        }
-
-        .bns .company-name {
-            color: #9B59B6;
-        }
-
-        .customer-logo:hover .bns .company-name {
-            color: #8E44AD;
-        }
-
-        @keyframes scroll-logos {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .customers-scroll-track:hover {
-            animation-play-state: paused;
-        }
-
-        /* Dark theme adjustments */
-        [data-theme="dark"] .customer-logo {
-            background: var(--bg-card);
-            border-color: var(--border-color);
-        }
-
-        [data-theme="dark"] .customers-scroll-container::before {
-            background: linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%);
-        }
-
-        [data-theme="dark"] .customers-scroll-container::after {
-            background: linear-gradient(270deg, var(--bg-secondary) 0%, transparent 100%);
-        }
-
-        @media (max-width: 768px) {
-            .customers-scroll-track {
-                gap: 2rem;
-            }
-
-            .customer-logo {
-                width: 120px;
-                height: 60px;
-                padding: 0.75rem;
-            }
-
-            .customers-scroll-container::before,
-            .customers-scroll-container::after {
-                width: 50px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Sachintha</a>
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="sp"></div>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">SA<em>.</em></a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="nav-right">
+                <a href="cv/cv.pdf" class="nav-cv" download><i class="fas fa-download"></i> CV</a>
+                <button class="nav-burger" id="burgerBtn" onclick="openMob()"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" onclick="closeMobileMenu()">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="mobile-menu-links">
-            <li><a href="#home" onclick="navigateAndClose('home')">Home</a></li>
-            <li><a href="#about" onclick="navigateAndClose('about')">About</a></li>
-            <li><a href="#skills" onclick="navigateAndClose('skills')">Skills</a></li>
-            <li><a href="#experience" onclick="navigateAndClose('experience')">Experience</a></li>
-            <li><a href="#projects" onclick="navigateAndClose('projects')">Projects</a></li>
-            <li><a href="#contact" onclick="navigateAndClose('contact')">Contact</a></li>
+    <!-- Mobile menu -->
+    <div class="mob-menu" id="mobMenu">
+        <button class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></button>
+        <ul class="mob-links">
+            <li><a href="#about"      onclick="closeMob()">About</a></li>
+            <li><a href="#skills"     onclick="closeMob()">Skills</a></li>
+            <li><a href="#experience" onclick="closeMob()">Experience</a></li>
+            <li><a href="#projects"   onclick="closeMob()">Projects</a></li>
+            <li><a href="#contact"    onclick="closeMob()">Contact</a></li>
         </ul>
+        <a href="cv/cv.pdf" class="mob-cv" download><i class="fas fa-download"></i> Download CV</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ══ HERO ══════════════════════════════════════════════ -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <a href="https://www.credly.com/users/sachintha-antany.1f19a389" target="_blank" class="hero-badge" style="text-decoration: none; color: inherit;">
-                    <i class="fas fa-star"></i>
-                    Google Certified Professional
-                    <i class="fas fa-external-link-alt" style="font-size: 0.75rem; margin-left: 0.5rem; opacity: 0.8;"></i>
-                </a>
-                <h1 class="hero-title">Software Engineer & Cloud Architect</h1>
-                <p class="hero-subtitle">
-                    5+ years of experience in Flutter mobile development, cloud solutions, and workflow automation. 
-                    Passionate about building scalable, user-centric applications with modern technologies.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        View My Work
-                    </a>
-                    <a href="cv/cv.pdf" class="btn btn-secondary" download target="_blank">
-                        <i class="fas fa-download"></i>
-                        Download CV
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" class="social-link" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/sachiantany" class="social-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.facebook.com/sachintha.antany" class="social-link" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/sachi_antany/" class="social-link" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:sachi.antany@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
+        <div class="hero-grid"></div>
+        <div class="hero-vignette"></div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">
+                <i class="fas fa-circle" style="font-size:.35rem"></i>
+                Open to senior engineering roles
             </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <img src="images/pro.png" alt="Sachintha Madushan Antany" class="profile-image">
-                    <div class="profile-info">
-                        <h3>Sachintha Madushan Antany</h3>
-                        <p>Software Engineer</p>
-                        <p>BSc (Hons) in Information Technology<br>Specialising in Software Engineering, SLIIT</p>
-                        <div class="profile-stats">
-                            <div class="stat">
-                                <div class="stat-number">5+</div>
-                                <div class="stat-label">Years Experience</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-number">15+</div>
-                                <div class="stat-label">Projects</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">About Me</span>
-                <h2 class="section-title">Engineering Digital Transformation</h2>
-                <p class="section-subtitle">
-                    A seasoned Software Engineer with 5+ years of experience building enterprise-grade solutions that drive digital transformation. 
-                    I specialize in full-stack development, from high-performance mobile applications using Flutter to scalable cloud architectures 
-                    on Google Cloud Platform. My work spans complex system integrations, workflow automation, performance optimization 
-                    and achieved 80% paper reduction across multiple enterprise implementations.
-                </p>
-            </div>
-            <div class="section-container" style="margin-top: 3rem;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem;">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-mobile-alt"></i> Mobile Development Excellence
-                        </h3>
-                        <p style="color: var(--text-secondary); line-height: 1.6;">
-                            Led development of production mobile applications like Timespot Attendance Management, 
-                            published to both Play Store and App Store. Expert in Flutter with Clean Architecture, 
-                            implementing complex features including OCR document management, real-time attendance tracking, 
-                            and cross-platform synchronization.
-                        </p>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem;">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-cloud"></i> Cloud Architecture & Automation
-                        </h3>
-                        <p style="color: var(--text-secondary); line-height: 1.6;">
-                            Architect of large-scale workflow automation systems using Google Cloud Platform, AppSheet, and 
-                            Google App Script. Delivered digital transformation projects for major enterprises including 
-                            Dilmah, SANASA Life Insurance, and Sarvodaya Development Finance, streamlining operations 
-                            and eliminating manual processes.
-                        </p>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem;">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-cogs"></i> System Integration Specialist
-                        </h3>
-                        <p style="color: var(--text-secondary); line-height: 1.6;">
-                            Expert in complex enterprise system integrations, including SAP HANA/SQL integration, 
-                            API development, and third-party service connections. Successfully integrated payment workflows, 
-                            approval mechanisms, and automated business processes that scale across thousands of users 
-                            and multiple organizational hierarchies.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Trusted By Section -->
-            <div class="section-container" style="margin-top: 4rem;">
-                <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-                    <h3 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Trusted by Leading Organizations</h3>
-                    <p style="color: var(--text-secondary); font-size: 1rem;">Delivering enterprise solutions for industry leaders across multiple sectors</p>
-                </div>
-                <div class="customers-scroll-container" id="customerScrollContainer">
-                    <button class="customer-scroll-btn customer-scroll-prev" onclick="scrollCustomerLogos('left')">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="customer-scroll-btn customer-scroll-next" onclick="scrollCustomerLogos('right')">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="customers-scroll-track" id="customerScrollTrack">
-                        <a href="https://www.sanasalife.com" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA Life Insurance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SANASA</div><div class=&quot;company-subtitle&quot;>Life Insurance</div></div>'" />
-                        </a>
-                        <a href="https://www.dilmahtea.com" target="_blank" class="customer-logo">
-                            <img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah Tea" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text dilmah&quot;><div class=&quot;company-name&quot;>Dilmah</div><div class=&quot;company-subtitle&quot;>Ceylon Tea</div></div>'" />
-                        </a>
-                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="customer-logo">
-                            <img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya Development Finance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SDF</div><div class=&quot;company-subtitle&quot;>Sarvodaya Finance</div></div>'" />
-                        </a>
-                        <a href="https://www.litrogas.com/" target="_blank" class="customer-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro Gas Lanka" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text litro&quot;><div class=&quot;company-name&quot;>LITRO</div><div class=&quot;company-subtitle&quot;>Gas Lanka Ltd</div></div>'" />
-                        </a>
-                        <a href="https://fcpl.biz" target="_blank" class="customer-logo">
-                            <img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech Consultancy" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text finetech&quot;><div class=&quot;company-name&quot;>Finetech</div><div class=&quot;company-subtitle&quot;>Consultancy</div></div>'" />
-                        </a>
-                        <a href="https://www.dfcc.lk" target="_blank" class="customer-logo">
-                            <img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC Bank" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>DFCC</div><div class=&quot;company-subtitle&quot;>Bank PLC</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection (Pvt) Ltd" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Enfection</div><div class=&quot;company-subtitle&quot;>(Pvt) Ltd</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console Electronics" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Console</div><div class=&quot;company-subtitle&quot;>Electronics</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo text-logo">
-                            <div class="logo-text">
-                                <div class="company-name">OMC</div>
-                                <div class="company-subtitle">Ocean Maritime</div>
-                            </div>
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes & Walker Tea Brokers" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Forbes &amp; Walker</div><div class=&quot;company-subtitle&quot;>Tea Brokers</div></div>'" />
-                        </a>
-                        <a href="https://www.bnsmusic.com" target="_blank" class="customer-logo">
-                            <img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS Music" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text bns&quot;><div class=&quot;company-name&quot;>BNS</div><div class=&quot;company-subtitle&quot;>Music</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo text-logo">
-                            <div class="logo-text">
-                                <div class="company-name">GSSI</div>
-                                <div class="company-subtitle">Global Solutions</div>
-                            </div>
-                        </a>
-                        
-                        <!-- Duplicate set for seamless loop -->
-                        <a href="https://www.sanasalife.com" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA Life Insurance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SANASA</div><div class=&quot;company-subtitle&quot;>Life Insurance</div></div>'" />
-                        </a>
-                        <a href="https://www.dilmahtea.com" target="_blank" class="customer-logo">
-                            <img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah Tea" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text dilmah&quot;><div class=&quot;company-name&quot;>Dilmah</div><div class=&quot;company-subtitle&quot;>Ceylon Tea</div></div>'" />
-                        </a>
-                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="customer-logo">
-                            <img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya Development Finance" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>SDF</div><div class=&quot;company-subtitle&quot;>Sarvodaya Finance</div></div>'" />
-                        </a>
-                        <a href="https://www.litrogas.com/" target="_blank" class="customer-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro Gas Lanka" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text litro&quot;><div class=&quot;company-name&quot;>LITRO</div><div class=&quot;company-subtitle&quot;>Gas Lanka Ltd</div></div>'" />
-                        </a>
-                        <a href="https://finetech.lk" target="_blank" class="customer-logo">
-                            <img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech Consultancy" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text finetech&quot;><div class=&quot;company-name&quot;>Finetech</div><div class=&quot;company-subtitle&quot;>Consultancy</div></div>'" />
-                        </a>
-                        <a href="https://www.dfcc.lk" target="_blank" class="customer-logo">
-                            <img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC Bank" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>DFCC</div><div class=&quot;company-subtitle&quot;>Bank PLC</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection (Pvt) Ltd" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Enfection</div><div class=&quot;company-subtitle&quot;>(Pvt) Ltd</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console Electronics" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Console</div><div class=&quot;company-subtitle&quot;>Electronics</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo text-logo">
-                            <div class="logo-text">
-                                <div class="company-name">OMC</div>
-                                <div class="company-subtitle">Ocean Maritime</div>
-                            </div>
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes & Walker Tea Brokers" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text&quot;><div class=&quot;company-name&quot;>Forbes &amp; Walker</div><div class=&quot;company-subtitle&quot;>Tea Brokers</div></div>'" />
-                        </a>
-                        <a href="https://www.bnsmusic.com" target="_blank" class="customer-logo">
-                            <img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS Music" onerror="this.parentElement.innerHTML='<div class=&quot;logo-text bns&quot;><div class=&quot;company-name&quot;>BNS</div><div class=&quot;company-subtitle&quot;>Music</div></div>'" />
-                        </a>
-                        <a href="#" target="_blank" class="customer-logo text-logo">
-                            <div class="logo-text">
-                                <div class="company-name">GSSI</div>
-                                <div class="company-subtitle">Global Solutions</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">Technical Skills</span>
-                <h2 class="section-title">Technologies I Work With</h2>
-                <p class="section-subtitle">
-                    A comprehensive toolkit for building modern, scalable applications
-                </p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="skill-title">Programming Languages</h3>
-                    <ul class="skill-list">
-                        <li>Dart</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>SQL</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="skill-title">Mobile Development</h3>
-                    <ul class="skill-list">
-                        <li>Flutter</li>
-                        <li>Android (Native)</li>
-                        <li>iOS (Native)</li>
-                        <li>Cross-Platform Apps</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3 class="skill-title">Frameworks & Libraries</h3>
-                    <ul class="skill-list">
-                        <li>React</li>
-                        <li>Angular</li>
-                        <li>Spring Boot</li>
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                        <li>Angular Material</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h3 class="skill-title">Architecture & Patterns</h3>
-                    <ul class="skill-list">
-                        <li>Clean Architecture</li>
-                        <li>Bloc Pattern</li>
-                        <li>MVVM</li>
-                        <li>MVC</li>
-                        <li>RESTful APIs</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3 class="skill-title">Cloud & DevOps</h3>
-                    <ul class="skill-list">
-                        <li>Google Cloud Platform (GCP)</li>
-                        <li>Cloud Run</li>
-                        <li>Docker</li>
-                        <li>Firebase</li>
-                        <li>AppSheet</li>
-                        <li>Google App Script</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="skill-title">Development Tools</h3>
-                    <ul class="skill-list">
-                        <li>Git & Bitbucket</li>
-                        <li>Figma</li>
-                        <li>Redis</li>
-                        <li>Tailwind CSS</li>
-                        <li>Spring Security</li>
-                        <li>RDP Server Management</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="skill-title">Databases</h3>
-                    <ul class="skill-list">
-                        <li>PostgreSQL</li>
-                        <li>MySQL</li>
-                        <li>SAP HANA</li>
-                        <li>Cloud SQL</li>
-                        <li>Firestore</li>
-                    </ul>
-                </div>
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="skill-title">Specializations</h3>
-                    <ul class="skill-list">
-                        <li>API Integration & Development</li>
-                        <li>Workflow Automation</li>
-                        <li>System Integration</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">Experience</span>
-                <h2 class="section-title">Professional Journey</h2>
-                <p class="section-subtitle">
-                    Building innovative solutions and leading technical implementations
-                </p>
-            </div>
-            <div class="experience-timeline">
-                <div class="timeline-line"></div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Software Engineer</h3>
-                            <div class="experience-company">Finetech Consultancy Pvt Ltd</div>
-                            <div class="experience-period">December 2019 – Present | Nawala, Sri Lanka</div>
-                        </div>
-                        <p class="experience-description">
-                            Leading development of mobile applications and workflow automation solutions for enterprise clients.
-                        </p>
-                        <ul class="experience-highlights">
-                            <li>Led development and maintenance of Timespot Attendance Management App with Flutter</li>
-                            <li>Built enhanced features: attendance tracking, leave management, and WFH workflows</li>
-                            <li>Published applications to Play Store and App Store</li>
-                            <li>Developed DocIt Document Management System with OCR and dynamic search</li>
-                            <li>Created digital workflows using AppSheet & Google App Script for major clients</li>
-                            <li>Achieved 80% paper reduction and improved processing time across implementations</li>
-                            <li>Integrated SAP B1 (HANA/SQL) into payment workflows and approval mechanisms</li>
-                            <li>Guided teams in implementing technical architecture and integrations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">Projects</span>
-                <h2 class="section-title">Featured Work</h2>
-                <p class="section-subtitle">
-                    A showcase of innovative solutions and technical implementations
-                </p>
-            </div>
-            <div class="projects-grid">
-
-                <!-- Hive Trendz — featured first -->
-                <div class="project-card fade-in" style="grid-column: 1 / -1;">
-                    <div class="project-carousel">
-                        <div class="carousel-tabs">
-                            <button class="carousel-tab active" onclick="htTab(this,'mobile')">📱 Mobile</button>
-                            <button class="carousel-tab" onclick="htTab(this,'web')">🌐 Web Dashboard</button>
-                        </div>
-                        <div class="carousel-viewport">
-                            <img class="carousel-slide active" src="images/ht-mobile/ht1.png" data-group="mobile" alt="Hive Trendz mobile screenshot 1">
-                            <img class="carousel-slide" src="images/ht-mobile/ht2.png" data-group="mobile" alt="Hive Trendz mobile screenshot 2">
-                            <img class="carousel-slide" src="images/ht-mobile/ht3.png" data-group="mobile" alt="Hive Trendz mobile screenshot 3">
-                            <img class="carousel-slide" src="images/ht-mobile/ht4.png" data-group="mobile" alt="Hive Trendz mobile screenshot 4">
-                            <img class="carousel-slide" src="images/ht-web/ht1.png" data-group="web" alt="Hive Trendz web screenshot 1">
-                            <img class="carousel-slide" src="images/ht-web/ht2.png" data-group="web" alt="Hive Trendz web screenshot 2">
-                            <img class="carousel-slide" src="images/ht-web/ht3.png" data-group="web" alt="Hive Trendz web screenshot 3">
-                            <img class="carousel-slide" src="images/ht-web/ht4.png" data-group="web" alt="Hive Trendz web screenshot 4">
-                            <img class="carousel-slide" src="images/ht-web/ht5.png" data-group="web" alt="Hive Trendz web screenshot 5">
-                        </div>
-                        <button class="carousel-btn prev" onclick="htNav(-1)">&#8249;</button>
-                        <button class="carousel-btn next" onclick="htNav(1)">&#8250;</button>
-                        <div class="carousel-dots" id="ht-dots"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Hive Trendz — AI Social Media Automation</h3>
-                        <div class="project-period">📅 Personal Project</div>
-                        <p class="project-description">
-                            AI-powered social media automation platform that discovers trending news, generates branded content using LLaMA 3.3 70B via Groq API, and autonomously publishes to Facebook and Instagram — zero manual effort after setup. Features a Flutter mobile app with on-device image compositing, FFmpeg video editor, and Android AlarmManager exact scheduling that posts even when the phone is locked. Backed by a Flask + APScheduler server hosted on Railway with a full web dashboard for post queue management and live scheduler logs.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Python / Flask</span>
-                            <span class="tech-tag">Groq API (LLaMA 3.3 70B)</span>
-                            <span class="tech-tag">Meta Graph API v24</span>
-                            <span class="tech-tag">Supabase</span>
-                            <span class="tech-tag">FFmpeg</span>
-                            <span class="tech-tag">APScheduler</span>
-                            <span class="tech-tag">NewsAPI + RSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Flutter Feature Generator — CLI Scaffolding Tool</h3>
-                        <div class="project-period">📅 Personal Project</div>
-                        <p class="project-description">
-                            Production-grade Dart CLI that generates a complete, fully-wired Flutter feature in one command — ~25 files covering Clean Architecture, BLoC, Drift SQLite, offline-first sync, and a matching Java Spring Boot 3 REST backend. Eliminates days of boilerplate per feature. Supports 3 CLI modes (batch, interactive, positional), 4 auth variants (Firebase/email × Flutter/Spring Boot), and idempotent marker-based file merging so re-running never duplicates code. Published on pub.dev with 15 generator modules.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Dart 3 CLI</span>
-                            <span class="tech-tag">Flutter / BLoC</span>
-                            <span class="tech-tag">Clean Architecture</span>
-                            <span class="tech-tag">Drift SQLite</span>
-                            <span class="tech-tag">Java Spring Boot 3</span>
-                            <span class="tech-tag">Firebase Auth</span>
-                            <span class="tech-tag">Code Generation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Enterprise Dealer Stock Recommendation Module</h3>
-                        <div class="project-period">📅 Cloud-based Solution</div>
-                        <p class="project-description">
-                            This stock recommendation module for Litro Gas distribution network. Built recommendation algorithms for the 3-application ecosystem: Litro Sales Data Tracker, Litro Sales POS, and Litro SPO Hub - tracking island-wide gas cylinder distribution across all dealers and truck drivers. Developed the algorithms to calculate optimal stock recommendations using historical sales data and predictive analytics.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">Redis</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Google Cloud Run</span>
-                            <span class="tech-tag">Cloud Tasks</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Memorystore</span>
-                            <span class="tech-tag">AppSheet</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link" onclick="openLitroImageSlider()">
-                                <i class="fas fa-mobile-alt"></i> View App
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Timespot Attendance & Task Management</h3>
-                        <div class="project-period">📅 September 2023 – Present</div>
-                        <p class="project-description">
-                            Cross-platform mobile app for attendance management with daily task tracking, leave requests, and WFH approvals. Published to both Play Store and App Store.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">iOS</span>
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://finetech.timespotonline.com/#/signin" class="project-link" target="_blank">
-                                <i class="fas fa-globe"></i> Web App
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.app.fcpl.timespot&hl=en" class="project-link" target="_blank">
-                                <i class="fab fa-google-play"></i> Play Store
-                            </a>
-                            <a href="https://apps.apple.com/us/app/timespot/id1467717734" class="project-link" target="_blank">
-                                <i class="fab fa-app-store-ios"></i> App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">RhythmCore - Event Management & Ticketing System</h3>
-                        <div class="project-period">📅 Freelance Project</div>
-                        <p class="project-description">
-                            Full-stack event management and ticketing system with QR code verification, role-based access control, and automated email notifications. Features dual deployment environments and integrated frontend-backend architecture.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java 21</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">Angular 19</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Firebase Auth</span>
-                            <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Spring Security</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link" onclick="openImageSlider()">
-                                <i class="fas fa-images"></i> View Images
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">DocIt – Document Management System</h3>
-                        <div class="project-period">📅 April 2024 – Present</div>
-                        <p class="project-description">
-                            Built using Flutter with Clean Architecture and Bloc Pattern. Features dynamic document field indexing and OCR-based search with advanced filtering capabilities.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Dart</span>
-                            <span class="tech-tag">Clean Architecture</span>
-                            <span class="tech-tag">Bloc Pattern</span>
-                            <span class="tech-tag">OCR</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link" onclick="openDocItImageSlider()">
-                                <i class="fas fa-images"></i> View Images
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                
-
-<div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Ceylon Explorer Travel System</h3>
-                        <div class="project-period">📅 March 2024 – May 2024</div>
-                        <p class="project-description">
-                            Travel booking and management system built with Flutter using Clean Architecture and Bloc Pattern. Designed for scalability and modularity.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Clean Architecture</span>
-                            <span class="tech-tag">Bloc Pattern</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/sachiantany/ceylonExplorer" class="project-link" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">SANASA Life Insurance Integration</h3>
-                        <div class="project-period">📅 June 2023 – September 2023</div>
-                        <p class="project-description">
-                            Led design and architecture of workflows using SAP HANA, Google AppSheet, and RDP Windows Server. Integrated with SAP and AYU systems.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">SAP HANA</span>
-                            <span class="tech-tag">Google AppSheet</span>
-                            <span class="tech-tag">AppScript</span>
-                            <span class="tech-tag">RDP Server</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link" onclick="openSanasaImageSlider()">
-                                <i class="fas fa-images"></i> View Images
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Dilmah Product Development Workflow</h3>
-                        <div class="project-period">📅 June 2022 – February 2023</div>
-                        <p class="project-description">
-                            Automated new product development process using Google AppSheet and Cloud SQL. Streamlined product creation and approval workflows.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Google AppSheet</span>
-                            <span class="tech-tag">Cloud SQL</span>
-                            <span class="tech-tag">Workflow Automation</span>
-                        </div>
-                        <div class="project-links">
-                            <button class="project-link" onclick="openDilmahImageSlider()">
-                                <i class="fas fa-images"></i> View Images
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Sarvodaya Development Finance Workflow Suite</h3>
-                        <div class="project-period">📅 March 2020 – September 2021</div>
-                        <p class="project-description">
-                            Comprehensive digital transformation project developing 10+ workflows including Travel & Subsistence, Fund Transfers, HRIS, Stock Management, and Bank Reconciliation. Built centralized Access Management App with SMS integration.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Google AppSheet</span>
-                            <span class="tech-tag">Google AppScript</span>
-                            <span class="tech-tag">Cloud SQL</span>
-                            <span class="tech-tag">SMS Integration</span>
-                            <span class="tech-tag">Workflow Automation</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-parking"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Smart Urban Parking Solution</h3>
-                        <div class="project-period">📅 Research Project</div>
-                        <p class="project-description">
-                            Innovative parking solution with mobile app for drivers and web platform for lot owners. Features real-time availability and machine learning validation.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Web Platform</span>
-                            <span class="tech-tag">Mobile App</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/sachiantany/Pay-As-You-Park/tree/master/payp-web" class="project-link" target="_blank">Web App</a>
-                            <a href="https://github.com/sachiantany/payp-surface-detection-model" class="project-link secondary" target="_blank">ML Model</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">Contact</span>
-                <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-subtitle">
-                    Ready to discuss your next project or collaboration opportunity
-                </p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info fade-in">
-                    <h3 style="margin-bottom: 2rem;">Get In Touch</h3>
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div style="width: 48px; height: 48px; background: var(--primary-color); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Email</div>
-                                <a href="mailto:sachi.antany@gmail.com" style="color: var(--text-secondary); text-decoration: none;">sachi.antany@gmail.com</a>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div style="width: 48px; height: 48px; background: var(--primary-color); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Phone</div>
-                                <a href="tel:+94717804901" style="color: var(--text-secondary); text-decoration: none;">+94 717 804 901</a>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <div style="width: 48px; height: 48px; background: var(--primary-color); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Location</div>
-                                <span style="color: var(--text-secondary);">Veyangoda, Sri Lanka</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <h4 style="margin-bottom: 1rem;">Follow Me</h4>
-                        <div style="display: flex; gap: 1rem;">
-                            <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" class="social-link" target="_blank">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/sachiantany" class="social-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.facebook.com/sachintha.antany" class="social-link" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://www.instagram.com/sachi_antany/" class="social-link" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form fade-in">
-                    <h3 style="margin-bottom: 2rem;">Send Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Image Slider Modal -->
-    <div class="image-slider-modal" id="imageSliderModal">
-        <div class="image-slider-container">
-            <div class="slider-header">
-                <div class="slider-title">RhythmCore - Project Screenshots</div>
-                <button class="close-slider" onclick="closeImageSlider()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="slider-content">
-                <div class="slider-counter">
-                    <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
-                </div>
-                <img src="images/rc/rc1.png" alt="RhythmCore Screenshot 1" class="slider-image active">
-                <img src="images/rc/rc2.png" alt="RhythmCore Screenshot 2" class="slider-image">
-                <img src="images/rc/rc3.png" alt="RhythmCore Screenshot 3" class="slider-image">
-                <img src="images/rc/rc4.png" alt="RhythmCore Screenshot 4" class="slider-image">
-                <img src="images/rc/rc5.png" alt="RhythmCore Screenshot 5" class="slider-image">
-                <img src="images/rc/rc6.png" alt="RhythmCore Screenshot 6" class="slider-image">
-                <img src="images/rc/rc7.png" alt="RhythmCore Screenshot 7" class="slider-image">
-                
-                <button class="slider-nav slider-prev" onclick="previousSlide()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-nav slider-next" onclick="nextSlide()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <div class="slider-dots">
-                    <div class="slider-dot active" onclick="currentSlide(1)"></div>
-                    <div class="slider-dot" onclick="currentSlide(2)"></div>
-                    <div class="slider-dot" onclick="currentSlide(3)"></div>
-                    <div class="slider-dot" onclick="currentSlide(4)"></div>
-                    <div class="slider-dot" onclick="currentSlide(5)"></div>
-                    <div class="slider-dot" onclick="currentSlide(6)"></div>
-                    <div class="slider-dot" onclick="currentSlide(7)"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dilmah Image Slider Modal -->
-    <div class="image-slider-modal" id="dilmahImageSliderModal">
-        <div class="image-slider-container">
-            <div class="slider-header">
-                <div class="slider-title">Dilmah Product Development Workflow - Project Screenshots</div>
-                <button class="close-slider" onclick="closeDilmahImageSlider()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="slider-content">
-                <div class="slider-counter">
-                    <span id="currentDilmahSlide">1</span> / <span id="totalDilmahSlides">5</span>
-                </div>
-                <img src="images/dl/dl1.png" alt="Dilmah Project Screenshot 1" class="slider-image active">
-                <img src="images/dl/dl2.png" alt="Dilmah Project Screenshot 2" class="slider-image">
-                <img src="images/dl/dl3.png" alt="Dilmah Project Screenshot 3" class="slider-image">
-                <img src="images/dl/dl4.png" alt="Dilmah Project Screenshot 4" class="slider-image">
-                <img src="images/dl/dl5.png" alt="Dilmah Project Screenshot 5" class="slider-image">
-                
-                <button class="slider-nav slider-prev" onclick="previousDilmahSlide()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-nav slider-next" onclick="nextDilmahSlide()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <div class="slider-dots">
-                    <div class="slider-dot active" onclick="currentDilmahSlide(1)"></div>
-                    <div class="slider-dot" onclick="currentDilmahSlide(2)"></div>
-                    <div class="slider-dot" onclick="currentDilmahSlide(3)"></div>
-                    <div class="slider-dot" onclick="currentDilmahSlide(4)"></div>
-                    <div class="slider-dot" onclick="currentDilmahSlide(5)"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SANASA Image Slider Modal -->
-    <div class="image-slider-modal" id="sanasaImageSliderModal">
-        <div class="image-slider-container">
-            <div class="slider-header">
-                <div class="slider-title">SANASA Life Insurance Integration - Project Screenshots</div>
-                <button class="close-slider" onclick="closeSanasaImageSlider()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="slider-content">
-                <div class="slider-counter">
-                    <span id="currentSanasaSlide">1</span> / <span id="totalSanasaSlides">3</span>
-                </div>
-                <img src="images/san/san1.png" alt="SANASA Project Screenshot 1" class="slider-image active">
-                <img src="images/san/san2.png" alt="SANASA Project Screenshot 2" class="slider-image">
-                <img src="images/san/san3.png" alt="SANASA Project Screenshot 3" class="slider-image">
-                
-                <button class="slider-nav slider-prev" onclick="previousSanasaSlide()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-nav slider-next" onclick="nextSanasaSlide()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <div class="slider-dots">
-                    <div class="slider-dot active" onclick="currentSanasaSlide(1)"></div>
-                    <div class="slider-dot" onclick="currentSanasaSlide(2)"></div>
-                    <div class="slider-dot" onclick="currentSanasaSlide(3)"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/sachiantany" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.facebook.com/sachintha.antany" target="_blank">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/sachi_antany/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:sachi.antany@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p>&copy; 2025 Sachintha Madushan Antany. All rights reserved.</p>
-            <p style="color: rgba(255, 255, 255, 0.6); margin-top: 1rem;">
-                Built with AI
+            <h1 class="hero-name">Sachintha<em>Antany.</em></h1>
+            <p class="hero-tagline">
+                Senior Software Engineer specialising in Flutter mobile architecture, cloud-native backends,
+                and full-stack enterprise systems. 5+ years delivering production systems for leading organisations.
             </p>
+            <div class="hero-ctas">
+                <a href="#projects" class="btn-fill"><i class="fas fa-arrow-right"></i> View Work</a>
+                <a href="cv/cv.pdf" class="btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+                <a href="https://www.credly.com/users/sachintha-antany.1f19a389" target="_blank" class="hero-badge">
+                    <i class="fas fa-certificate"></i> Google Certified Professional
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-n">5<em>+</em></div>
+                    <div class="stat-l">Years Experience</div>
+                </div>
+                <div>
+                    <div class="stat-n">15<em>+</em></div>
+                    <div class="stat-l">Projects Shipped</div>
+                </div>
+                <div>
+                    <div class="stat-n">12<em>+</em></div>
+                    <div class="stat-l">Enterprise Clients</div>
+                </div>
+                <div>
+                    <div class="stat-n">80<em>%</em></div>
+                    <div class="stat-l">Paper Reduction</div>
+                </div>
+            </div>
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/sachiantany" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/sachintha.antany" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sachi_antany/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:sachi.antany@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ ABOUT ═════════════════════════════════════════════ -->
+    <section id="about" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">01 —</span> About</div>
+            <h2 class="sec-title">Engineering Digital<br>Transformation</h2>
+            <p class="sec-sub">
+                5+ years architecting enterprise-grade systems across mobile, cloud, and automation.
+                I design for scale, write for maintainability, and ship for real users.
+            </p>
+            <div class="about-cards fu">
+                <div class="ac">
+                    <div class="ac-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Architecture</h3>
+                    <p>Production Flutter apps on Play Store & App Store. Expert in Clean Architecture + BLoC, offline-first Drift SQLite, and cross-platform sync pipelines.</p>
+                </div>
+                <div class="ac">
+                    <div class="ac-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud & Automation</h3>
+                    <p>GCP, Cloud Run, Docker, Firebase. Delivered workflow automation for Dilmah, SANASA, and Sarvodaya — achieving 80% paper reduction across enterprise implementations.</p>
+                </div>
+                <div class="ac">
+                    <div class="ac-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Systems Integration</h3>
+                    <p>SAP HANA, Meta Graph API, Google App Script, REST architectures. Wired payment workflows, HRIS, and approval chains across complex organisational hierarchies.</p>
+                </div>
+            </div>
+
+            <!-- Clients -->
+            <div class="clients-wrap fu fu-2">
+                <div class="clients-label">Trusted by leading organisations</div>
+                <div class="clients-mask">
+                    <div class="clients-track">
+                        <a href="https://www.sanasalife.com" target="_blank" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SANASA</div><div class=&quot;company-subtitle&quot;>Life Insurance</div></div>'"></a>
+                        <a href="https://www.dilmahtea.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Dilmah</div><div class=&quot;company-subtitle&quot;>Ceylon Tea</div></div>'"></a>
+                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="cl"><img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SDF</div><div class=&quot;company-subtitle&quot;>Sarvodaya Finance</div></div>'"></a>
+                        <a href="https://www.litrogas.com/" target="_blank" class="cl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro Gas" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>LITRO</div><div class=&quot;company-subtitle&quot;>Gas Lanka</div></div>'"></a>
+                        <a href="https://fcpl.biz" target="_blank" class="cl"><img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Finetech</div><div class=&quot;company-subtitle&quot;>Consultancy</div></div>'"></a>
+                        <a href="https://www.dfcc.lk" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>DFCC</div><div class=&quot;company-subtitle&quot;>Bank PLC</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Enfection</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Console</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">OMC</div><div class="company-subtitle">Ocean Maritime</div></div></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes Walker" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Forbes &amp; Walker</div></div>'"></a>
+                        <a href="https://www.bnsmusic.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS Music" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>BNS</div><div class=&quot;company-subtitle&quot;>Music</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">GSSI</div><div class="company-subtitle">Global Solutions</div></div></a>
+                        <!-- duplicate for seamless loop -->
+                        <a href="https://www.sanasalife.com" target="_blank" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SANASA</div></div>'"></a>
+                        <a href="https://www.dilmahtea.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Dilmah</div></div>'"></a>
+                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="cl"><img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SDF</div></div>'"></a>
+                        <a href="https://www.litrogas.com/" target="_blank" class="cl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>LITRO</div></div>'"></a>
+                        <a href="https://fcpl.biz" target="_blank" class="cl"><img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Finetech</div></div>'"></a>
+                        <a href="https://www.dfcc.lk" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>DFCC</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Enfection</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Console</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">OMC</div><div class="company-subtitle">Ocean Maritime</div></div></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes Walker" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Forbes &amp; Walker</div></div>'"></a>
+                        <a href="https://www.bnsmusic.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>BNS</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">GSSI</div><div class="company-subtitle">Global Solutions</div></div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ SKILLS ════════════════════════════════════════════ -->
+    <section id="skills" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">02 —</span> Skills</div>
+            <h2 class="sec-title">Technical Stack</h2>
+            <p class="sec-sub">The tools and technologies I rely on to build production systems.</p>
+            <div class="skill-grid fu">
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-code sg-icon"></i><span class="sg-title">Languages</span></div>
+                    <div class="tags">
+                        <span class="tag">Dart</span><span class="tag">Java</span><span class="tag">Python</span>
+                        <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-mobile-alt sg-icon"></i><span class="sg-title">Mobile</span></div>
+                    <div class="tags">
+                        <span class="tag">Flutter</span><span class="tag">Clean Architecture</span>
+                        <span class="tag">BLoC Pattern</span><span class="tag">Drift SQLite</span>
+                        <span class="tag">Offline-first</span><span class="tag">Android</span><span class="tag">iOS</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-layer-group sg-icon"></i><span class="sg-title">Frameworks</span></div>
+                    <div class="tags">
+                        <span class="tag">Spring Boot 3</span><span class="tag">Flask</span>
+                        <span class="tag">Node.js</span><span class="tag">Express.js</span>
+                        <span class="tag">Angular 19</span><span class="tag">React</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-cloud sg-icon"></i><span class="sg-title">Cloud & DevOps</span></div>
+                    <div class="tags">
+                        <span class="tag">Google Cloud Platform</span><span class="tag">Cloud Run</span>
+                        <span class="tag">Docker</span><span class="tag">Firebase</span>
+                        <span class="tag">Supabase</span><span class="tag">Railway</span><span class="tag">AppSheet</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-database sg-icon"></i><span class="sg-title">Databases</span></div>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+                        <span class="tag">SAP HANA</span><span class="tag">Cloud SQL</span>
+                        <span class="tag">Firestore</span><span class="tag">Redis</span><span class="tag">SQLite</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-robot sg-icon"></i><span class="sg-title">AI & Automation</span></div>
+                    <div class="tags">
+                        <span class="tag">Groq API</span><span class="tag">LLaMA 3.3 70B</span>
+                        <span class="tag">Google App Script</span><span class="tag">APScheduler</span>
+                        <span class="tag">FFmpeg</span><span class="tag">Workflow Automation</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-drafting-compass sg-icon"></i><span class="sg-title">Architecture</span></div>
+                    <div class="tags">
+                        <span class="tag">Clean Architecture</span><span class="tag">MVVM</span>
+                        <span class="tag">MVC</span><span class="tag">RESTful APIs</span>
+                        <span class="tag">Offline-first</span><span class="tag">Code Generation</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-tools sg-icon"></i><span class="sg-title">Tools & APIs</span></div>
+                    <div class="tags">
+                        <span class="tag">Git / Bitbucket</span><span class="tag">Figma</span>
+                        <span class="tag">Tailwind CSS</span><span class="tag">Spring Security</span>
+                        <span class="tag">Meta Graph API v24</span><span class="tag">NewsAPI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ EXPERIENCE ════════════════════════════════════════ -->
+    <section id="experience" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">03 —</span> Experience</div>
+            <h2 class="sec-title">Professional Journey</h2>
+            <p class="sec-sub">Building and shipping production systems across mobile, cloud, and enterprise automation.</p>
+            <div class="exp-card fu">
+                <div class="exp-ghost">01</div>
+                <span class="exp-pill">Current · December 2019 – Present</span>
+                <div class="exp-role">Software Engineer</div>
+                <div class="exp-co">Finetech Consultancy Pvt Ltd</div>
+                <div class="exp-period">Nawala, Sri Lanka · 5+ Years</div>
+                <p class="exp-desc">
+                    Leading development of production mobile applications and enterprise workflow automation for major Sri Lankan organisations.
+                    Architecting scalable solutions from Flutter mobile to GCP cloud infrastructure — integrating with SAP, social APIs, and third-party enterprise systems.
+                </p>
+                <ul class="exp-list">
+                    <li>Led full-cycle development of Timespot Attendance Management App — published on Play Store & App Store</li>
+                    <li>Architected DocIt Document Management System with OCR-based full-text search and dynamic field indexing</li>
+                    <li>Delivered 10+ workflow automation systems for Sarvodaya, Dilmah, SANASA, Litro Gas, and DFCC</li>
+                    <li>Achieved 80% paper reduction across enterprise implementations using AppSheet & Google App Script</li>
+                    <li>Integrated SAP B1 (HANA/SQL) into payment workflows, approval mechanisms, and HRIS systems</li>
+                    <li>Built Hive Trendz — AI-powered social media automation with LLaMA 3.3 70B on-device pipeline</li>
+                    <li>Developed Flutter Feature Generator CLI — scaffolds ~25-file full-stack features in one command</li>
+                    <li>Guided teams on architecture decisions, code reviews, and system integration patterns</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ PROJECTS ══════════════════════════════════════════ -->
+    <section id="projects" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">04 —</span> Projects</div>
+            <h2 class="sec-title">Selected Work</h2>
+            <p class="sec-sub">Production systems, personal builds, and open tooling.</p>
+
+            <div class="proj-list fu">
+
+                <!-- 01 — Hive Trendz (featured) -->
+                <div class="proj-feat">
+                    <div class="proj-feat-media">
+                        <div class="project-carousel">
+                            <div class="carousel-tabs">
+                                <button class="carousel-tab active" onclick="htTab(this,'mobile')">Mobile</button>
+                                <button class="carousel-tab" onclick="htTab(this,'web')">Web Dashboard</button>
+                            </div>
+                            <div class="carousel-viewport">
+                                <img class="carousel-slide active" src="images/ht-mobile/ht1.png" data-group="mobile" alt="Hive Trendz mobile 1">
+                                <img class="carousel-slide" src="images/ht-mobile/ht2.png" data-group="mobile" alt="Hive Trendz mobile 2">
+                                <img class="carousel-slide" src="images/ht-mobile/ht3.png" data-group="mobile" alt="Hive Trendz mobile 3">
+                                <img class="carousel-slide" src="images/ht-mobile/ht4.png" data-group="mobile" alt="Hive Trendz mobile 4">
+                                <img class="carousel-slide" src="images/ht-web/ht1.png" data-group="web" alt="Hive Trendz web 1">
+                                <img class="carousel-slide" src="images/ht-web/ht2.png" data-group="web" alt="Hive Trendz web 2">
+                                <img class="carousel-slide" src="images/ht-web/ht3.png" data-group="web" alt="Hive Trendz web 3">
+                                <img class="carousel-slide" src="images/ht-web/ht4.png" data-group="web" alt="Hive Trendz web 4">
+                                <img class="carousel-slide" src="images/ht-web/ht5.png" data-group="web" alt="Hive Trendz web 5">
+                            </div>
+                            <button class="carousel-btn prev" onclick="htNav(-1)">&#8249;</button>
+                            <button class="carousel-btn next" onclick="htNav(1)">&#8250;</button>
+                            <div class="carousel-dots" id="ht-dots"></div>
+                        </div>
+                    </div>
+                    <div class="proj-feat-body">
+                        <div>
+                            <div class="proj-num-l">01 — Personal Project</div>
+                            <h3 class="proj-feat-title">Hive Trendz</h3>
+                            <div class="proj-type">AI Social Media Automation</div>
+                            <p class="proj-feat-desc">
+                                Autonomous news-to-post pipeline: discovers trending articles, generates branded content via LLaMA 3.3 70B (Groq API), and publishes to Facebook & Instagram with zero manual effort. Flutter app with on-device image compositing, FFmpeg video editor, and AlarmManager exact scheduling. Flask + APScheduler backend on Railway with a full web dashboard for queue management and live logs.
+                            </p>
+                            <div class="proj-tags">
+                                <span class="ptag">Flutter</span><span class="ptag">Python/Flask</span>
+                                <span class="ptag">LLaMA 3.3 70B</span><span class="ptag">Meta Graph API v24</span>
+                                <span class="ptag">Supabase</span><span class="ptag">FFmpeg</span>
+                                <span class="ptag">APScheduler</span><span class="ptag">NewsAPI + RSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02 — Flutter Feature Generator -->
+                <div class="proj-row">
+                    <div class="proj-n">02</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Flutter Feature Generator — CLI Scaffolding Tool</div>
+                                <div class="proj-row-per">Personal Project</div>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Production-grade Dart CLI that generates a complete Flutter feature (~25 files) in one command — Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend. 15 generator modules, 3 CLI modes, idempotent marker-based file merging so re-running never duplicates code.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Dart 3 CLI</span><span class="ptag">Flutter / BLoC</span>
+                            <span class="ptag">Drift SQLite</span><span class="ptag">Spring Boot 3</span><span class="ptag">Code Generation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 — Litro Gas -->
+                <div class="proj-row">
+                    <div class="proj-n">03</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Enterprise Dealer Stock Recommendation Module</div>
+                                <div class="proj-row-per">Litro Gas Lanka · Cloud-based Solution</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openLitroImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Intelligent stock recommendation algorithms for the Litro Gas island-wide distribution network — 3-app ecosystem tracking gas cylinder flow across all dealers and drivers. Historical sales analytics with predictive modelling on GCP.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Node.js</span><span class="ptag">Express.js</span>
+                            <span class="ptag">Redis</span><span class="ptag">MySQL</span>
+                            <span class="ptag">Cloud Run</span><span class="ptag">Docker</span><span class="ptag">AppSheet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 — Timespot -->
+                <div class="proj-row">
+                    <div class="proj-n">04</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Timespot Attendance & Task Management</div>
+                                <div class="proj-row-per">Finetech Consultancy · September 2023 – Present</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://finetech.timespotonline.com/#/signin" class="plink" target="_blank"><i class="fas fa-globe"></i> Web</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.app.fcpl.timespot&hl=en" class="plink dim" target="_blank"><i class="fab fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/us/app/timespot/id1467717734" class="plink dim" target="_blank"><i class="fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Cross-platform Flutter app for enterprise attendance management — daily task tracking, leave requests, and WFH approvals. Live on Play Store and App Store.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Firebase</span><span class="ptag">iOS</span><span class="ptag">Android</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05 — RhythmCore -->
+                <div class="proj-row">
+                    <div class="proj-n">05</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">RhythmCore — Event Management & Ticketing</div>
+                                <div class="proj-row-per">Freelance Project</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Full-stack event management with QR code verification, role-based access control, and automated email notifications. Dual deployment environments, Spring Security, Angular 19.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Java 21</span><span class="ptag">Spring Boot</span>
+                            <span class="ptag">Angular 19</span><span class="ptag">PostgreSQL</span><span class="ptag">Firebase Auth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 06 — DocIt -->
+                <div class="proj-row">
+                    <div class="proj-n">06</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">DocIt — Document Management System</div>
+                                <div class="proj-row-per">Finetech Consultancy · April 2024 – Present</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openDocItImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Flutter DMS with Clean Architecture + BLoC. Dynamic document field indexing, OCR-based full-text search, and advanced multi-field filtering.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span><span class="ptag">OCR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 07 — Ceylon Explorer -->
+                <div class="proj-row">
+                    <div class="proj-n">07</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Ceylon Explorer — Travel Booking System</div>
+                                <div class="proj-row-per">March 2024 – May 2024</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://github.com/sachiantany/ceylonExplorer" class="plink" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Modular travel booking and management system built with Flutter, Clean Architecture, and BLoC. Designed for scalability across multiple travel verticals.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 08 — SANASA -->
+                <div class="proj-row">
+                    <div class="proj-n">08</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">SANASA Life Insurance Integration</div>
+                                <div class="proj-row-per">June 2023 – September 2023</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openSanasaImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Designed and architected workflow systems integrating SAP HANA with Google AppSheet on RDP Windows Server. Connected SAP and AYU enterprise systems via custom API layer.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">SAP HANA</span><span class="ptag">Google AppSheet</span><span class="ptag">AppScript</span><span class="ptag">RDP Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 09 — Dilmah -->
+                <div class="proj-row">
+                    <div class="proj-n">09</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Dilmah Product Development Workflow</div>
+                                <div class="proj-row-per">June 2022 – February 2023</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openDilmahImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Automated new product development pipeline for Dilmah Tea — multi-stage product creation and approval workflows across departments, eliminating manual paper processes.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Google AppSheet</span><span class="ptag">Cloud SQL</span><span class="ptag">Workflow Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 — Sarvodaya -->
+                <div class="proj-row">
+                    <div class="proj-n">10</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Sarvodaya Development Finance Workflow Suite</div>
+                                <div class="proj-row-per">March 2020 – September 2021</div>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Digital transformation: 10+ workflows including Travel & Subsistence, Fund Transfers, HRIS, Stock Management, and Bank Reconciliation. Centralised Access Management App with SMS integration.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Google AppSheet</span><span class="ptag">AppScript</span>
+                            <span class="ptag">Cloud SQL</span><span class="ptag">SMS Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11 — Parking -->
+                <div class="proj-row">
+                    <div class="proj-n">11</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Smart Urban Parking Solution</div>
+                                <div class="proj-row-per">Research Project</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://github.com/sachiantany/Pay-As-You-Park/tree/master/payp-web" class="plink" target="_blank"><i class="fab fa-github"></i> Web</a>
+                                <a href="https://github.com/sachiantany/payp-surface-detection-model" class="plink dim" target="_blank">ML Model</a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Real-time urban parking with mobile app for drivers and web platform for lot owners. ML surface detection model for space validation.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Machine Learning</span><span class="ptag">Mobile App</span><span class="ptag">Web Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CONTACT ═══════════════════════════════════════════ -->
+    <section id="contact" class="sec" style="background: var(--bg-2);">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">05 —</span> Contact</div>
+            <h2 class="sec-title">Let's Work Together</h2>
+            <p class="sec-sub">Open to senior engineering roles, technical consulting, and interesting build collaborations.</p>
+            <div class="contact-grid fu">
+                <div>
+                    <div class="c-row">
+                        <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                        <div><div class="c-lbl">Email</div><a href="mailto:sachi.antany@gmail.com" class="c-val">sachi.antany@gmail.com</a></div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-icon"><i class="fas fa-phone"></i></div>
+                        <div><div class="c-lbl">Phone</div><a href="tel:+94717804901" class="c-val">+94 717 804 901</a></div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><div class="c-lbl">Location</div><span class="c-val">Veyangoda, Sri Lanka</span></div>
+                    </div>
+                    <div class="c-socials">
+                        <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" class="c-soc" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/sachiantany" class="c-soc" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/sachintha.antany" class="c-soc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/sachi_antany/" class="c-soc" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form id="contactForm">
+                    <div class="form-f"><label class="form-l" for="name">Name</label><input type="text" id="name" name="name" class="form-i" required></div>
+                    <div class="form-f"><label class="form-l" for="email">Email</label><input type="email" id="email" name="email" class="form-i" required></div>
+                    <div class="form-f"><label class="form-l" for="subject">Subject</label><input type="text" id="subject" name="subject" class="form-i" required></div>
+                    <div class="form-f"><label class="form-l" for="message">Message</label><textarea id="message" name="message" class="form-i form-ta" required></textarea></div>
+                    <button type="submit" class="btn-fill" style="width:100%; justify-content:center;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 Sachintha Madushan Antany — BSc (Hons) IT, SLIIT</div>
+            <div class="footer-socs">
+                <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/sachiantany" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/sachintha.antany" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sachi_antany/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const body = document.body;
-            const themeToggle = document.querySelector('.theme-toggle i');
-            
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                themeToggle.className = 'fas fa-moon';
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                themeToggle.className = 'fas fa-sun';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeToggle = document.querySelector('.theme-toggle i');
-            
-            if (savedTheme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-                themeToggle.className = 'fas fa-sun';
-            }
-        });
-
-        // Scroll Progress Bar
-        window.addEventListener('scroll', function() {
-            const scrollProgress = document.querySelector('.scroll-progress');
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Contact Form Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Create email body
-            const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:sachi.antany@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message (optional)
-            alert('Opening your email client...');
-        });
-
-        // Mobile Menu Functionality
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const body = document.body;
-            
-            if (mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            } else {
-                mobileMenu.style.display = 'block';
-                setTimeout(() => {
-                    mobileMenu.classList.add('active');
-                }, 10);
-                body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const body = document.body;
-            
-            mobileMenu.classList.remove('active');
-            body.style.overflow = 'auto';
-            
-            setTimeout(() => {
-                mobileMenu.style.display = 'none';
-            }, 300);
-        }
-
-        function navigateAndClose(sectionId) {
-            // Close the mobile menu
-            closeMobileMenu();
-            
-            // Navigate to the section
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }, 100);
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (mobileMenu.classList.contains('active') && 
-                !mobileMenu.contains(event.target) && 
-                !mobileMenuBtn.contains(event.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close mobile menu on escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMobileMenu();
-            }
-        });
-
-        // Add some interactive hover effects
-        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Typing Animation for Hero Title (optional enhancement)
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize typing animation when page loads
-        window.addEventListener('load', function() {
-            const heroTitle = document.querySelector('.hero-title');
-            const originalText = heroTitle.textContent;
-            typeWriter(heroTitle, originalText, 50);
-        });
-
-        // Image Slider Functionality
-        let currentSlideIndex = 1;
-        const totalSlidesCount = 7;
-
-        function openImageSlider() {
-            document.getElementById('imageSliderModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeImageSlider() {
-            document.getElementById('imageSliderModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        function showSlide(n) {
-            const slides = document.querySelectorAll('.slider-image');
-            const dots = document.querySelectorAll('.slider-dot');
-            
-            if (n > totalSlidesCount) { currentSlideIndex = 1; }
-            if (n < 1) { currentSlideIndex = totalSlidesCount; }
-            
-            // Hide all slides and remove active class from dots
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show current slide and activate corresponding dot
-            slides[currentSlideIndex - 1].classList.add('active');
-            dots[currentSlideIndex - 1].classList.add('active');
-            
-            // Update counter
-            document.getElementById('currentSlide').textContent = currentSlideIndex;
-        }
-
-        function nextSlide() {
-            currentSlideIndex++;
-            showSlide(currentSlideIndex);
-        }
-
-        function previousSlide() {
-            currentSlideIndex--;
-            showSlide(currentSlideIndex);
-        }
-
-        function currentSlide(n) {
-            currentSlideIndex = n;
-            showSlide(currentSlideIndex);
-        }
-
-        // Keyboard navigation for slider
-        document.addEventListener('keydown', function(e) {
-            const modal = document.getElementById('imageSliderModal');
-            if (modal.style.display === 'flex') {
-                switch(e.key) {
-                    case 'ArrowLeft':
-                        previousSlide();
-                        break;
-                    case 'ArrowRight':
-                        nextSlide();
-                        break;
-                    case 'Escape':
-                        closeImageSlider();
-                        break;
-                }
-            }
-        });
-
-        // Close modal when clicking outside the slider container
-        document.getElementById('imageSliderModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeImageSlider();
-            }
-        });
-
-        // Auto-advance slider (optional - every 5 seconds)
-        let sliderInterval;
-        function startSliderAutoplay() {
-            sliderInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopSliderAutoplay() {
-            clearInterval(sliderInterval);
-        }
-
-        // Start autoplay when modal opens, stop when it closes
-        function openImageSliderWithAutoplay() {
-            openImageSlider();
-            startSliderAutoplay();
-        }
-
-        function closeImageSliderWithAutoplay() {
-            closeImageSlider();
-            stopSliderAutoplay();
-        }
-
-        // Touch/swipe support for mobile
-        let startX = 0;
-        let endX = 0;
-
-        document.querySelector('.slider-content').addEventListener('touchstart', function(e) {
-            startX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        document.querySelector('.slider-content').addEventListener('touchend', function(e) {
-            endX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const threshold = 50; // Minimum swipe distance
-            const diff = startX - endX;
-            
-            if (Math.abs(diff) > threshold) {
-                if (diff > 0) {
-                    nextSlide(); // Swipe left - next slide
-                } else {
-                    previousSlide(); // Swipe right - previous slide
-                }
-            }
-        }
-
-        // Dilmah Image Slider Functionality
-        let currentDilmahSlideIndex = 1;
-        const totalDilmahSlidesCount = 5;
-
-        function openDilmahImageSlider() {
-            document.getElementById('dilmahImageSliderModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            resetDilmahSlider(); // Reset to first slide when opening
-        }
-
-        function closeDilmahImageSlider() {
-            document.getElementById('dilmahImageSliderModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        function resetDilmahSlider() {
-            currentDilmahSlideIndex = 1;
-            showDilmahSlide(currentDilmahSlideIndex);
-        }
-
-        function showDilmahSlide(n) {
-            const modal = document.getElementById('dilmahImageSliderModal');
-            const slides = modal.querySelectorAll('.slider-image');
-            const dots = modal.querySelectorAll('.slider-dot');
-            
-            if (n > totalDilmahSlidesCount) { currentDilmahSlideIndex = 1; }
-            if (n < 1) { currentDilmahSlideIndex = totalDilmahSlidesCount; }
-            
-            // Hide all slides and remove active class from dots
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show current slide and activate corresponding dot
-            slides[currentDilmahSlideIndex - 1].classList.add('active');
-            dots[currentDilmahSlideIndex - 1].classList.add('active');
-            
-            // Update counter
-            document.getElementById('currentDilmahSlide').textContent = currentDilmahSlideIndex;
-        }
-
-        function nextDilmahSlide() {
-            currentDilmahSlideIndex++;
-            showDilmahSlide(currentDilmahSlideIndex);
-        }
-
-        function previousDilmahSlide() {
-            currentDilmahSlideIndex--;
-            showDilmahSlide(currentDilmahSlideIndex);
-        }
-
-        function currentDilmahSlide(n) {
-            currentDilmahSlideIndex = n;
-            showDilmahSlide(currentDilmahSlideIndex);
-        }
-
-        // Enhanced keyboard navigation to handle all sliders
-        document.addEventListener('keydown', function(e) {
-            const rhythmModal = document.getElementById('imageSliderModal');
-            const dilmahModal = document.getElementById('dilmahImageSliderModal');
-            const sanasaModal = document.getElementById('sanasaImageSliderModal');
-            
-            if (rhythmModal && rhythmModal.style.display === 'flex') {
-                switch(e.key) {
-                    case 'ArrowLeft':
-                        previousSlide();
-                        break;
-                    case 'ArrowRight':
-                        nextSlide();
-                        break;
-                    case 'Escape':
-                        closeImageSlider();
-                        break;
-                }
-            } else if (dilmahModal && dilmahModal.style.display === 'flex') {
-                switch(e.key) {
-                    case 'ArrowLeft':
-                        previousDilmahSlide();
-                        break;
-                    case 'ArrowRight':
-                        nextDilmahSlide();
-                        break;
-                    case 'Escape':
-                        closeDilmahImageSlider();
-                        break;
-                }
-            } else if (sanasaModal && sanasaModal.style.display === 'flex') {
-                switch(e.key) {
-                    case 'ArrowLeft':
-                        previousSanasaSlide();
-                        break;
-                    case 'ArrowRight':
-                        nextSanasaSlide();
-                        break;
-                    case 'Escape':
-                        closeSanasaImageSlider();
-                        break;
-                }
-            }
-        });
-
-        // Close Dilmah modal when clicking outside the slider container
-        document.getElementById('dilmahImageSliderModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeDilmahImageSlider();
-            }
-        });
-
-        // Touch/swipe support for Dilmah slider
-        let dilmahStartX = 0;
-        let dilmahEndX = 0;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const dilmahSliderContent = document.querySelector('#dilmahImageSliderModal .slider-content');
-            if (dilmahSliderContent) {
-                dilmahSliderContent.addEventListener('touchstart', function(e) {
-                    dilmahStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-
-                dilmahSliderContent.addEventListener('touchend', function(e) {
-                    dilmahEndX = e.changedTouches[0].screenX;
-                    handleDilmahSwipe();
-                }, { passive: true });
-            }
-        });
-
-        function handleDilmahSwipe() {
-            const threshold = 50; // Minimum swipe distance
-            const diff = dilmahStartX - dilmahEndX;
-            
-            if (Math.abs(diff) > threshold) {
-                if (diff > 0) {
-                    nextDilmahSlide(); // Swipe left - next slide
-                } else {
-                    previousDilmahSlide(); // Swipe right - previous slide
-                }
-            }
-        }
-
-        // SANASA Image Slider Functionality
-        let currentSanasaSlideIndex = 1;
-        const totalSanasaSlidesCount = 3;
-
-        function openSanasaImageSlider() {
-            document.getElementById('sanasaImageSliderModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            resetSanasaSlider(); // Reset to first slide when opening
-        }
-
-        function closeSanasaImageSlider() {
-            document.getElementById('sanasaImageSliderModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        function resetSanasaSlider() {
-            currentSanasaSlideIndex = 1;
-            showSanasaSlide(currentSanasaSlideIndex);
-        }
-
-        function showSanasaSlide(n) {
-            const modal = document.getElementById('sanasaImageSliderModal');
-            const slides = modal.querySelectorAll('.slider-image');
-            const dots = modal.querySelectorAll('.slider-dot');
-            
-            if (n > totalSanasaSlidesCount) { currentSanasaSlideIndex = 1; }
-            if (n < 1) { currentSanasaSlideIndex = totalSanasaSlidesCount; }
-            
-            // Hide all slides and remove active class from dots
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show current slide and activate corresponding dot
-            slides[currentSanasaSlideIndex - 1].classList.add('active');
-            dots[currentSanasaSlideIndex - 1].classList.add('active');
-            
-            // Update counter
-            document.getElementById('currentSanasaSlide').textContent = currentSanasaSlideIndex;
-        }
-
-        function nextSanasaSlide() {
-            currentSanasaSlideIndex++;
-            showSanasaSlide(currentSanasaSlideIndex);
-        }
-
-        function previousSanasaSlide() {
-            currentSanasaSlideIndex--;
-            showSanasaSlide(currentSanasaSlideIndex);
-        }
-
-        function currentSanasaSlide(n) {
-            currentSanasaSlideIndex = n;
-            showSanasaSlide(currentSanasaSlideIndex);
-        }
-
-        // Close SANASA modal when clicking outside the slider container
-        document.getElementById('sanasaImageSliderModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeSanasaImageSlider();
-            }
-        });
-
-        // Touch/swipe support for SANASA slider
-        let sanasaStartX = 0;
-        let sanasaEndX = 0;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const sanasaSliderContent = document.querySelector('#sanasaImageSliderModal .slider-content');
-            if (sanasaSliderContent) {
-                sanasaSliderContent.addEventListener('touchstart', function(e) {
-                    sanasaStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-
-                sanasaSliderContent.addEventListener('touchend', function(e) {
-                    sanasaEndX = e.changedTouches[0].screenX;
-                    handleSanasaSwipe();
-                }, { passive: true });
-            }
-        });
-
-        function handleSanasaSwipe() {
-            const threshold = 50; // Minimum swipe distance
-            const diff = sanasaStartX - sanasaEndX;
-            
-            if (Math.abs(diff) > threshold) {
-                if (diff > 0) {
-                    nextSanasaSlide(); // Swipe left - next slide
-                } else {
-                    previousSanasaSlide(); // Swipe right - previous slide
-                }
-            }
-        }
-
-        // Litro Image Slider Functionality
-        function openLitroImageSlider() {
-            document.getElementById('litroImageSliderModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLitroImageSlider() {
-            document.getElementById('litroImageSliderModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('litroImageSliderModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLitroImageSlider();
-            }
-        });
-
-        // DocIt Image Slider Functionality - Initialize variables globally
-        window.currentDocItSlideIndex = 1;
-        window.totalDocItSlidesCount = 2;
-
-        // Immediate debug check
-        console.log('DocIt variables initialized:', {
-            currentIndex: window.currentDocItSlideIndex,
-            totalCount: window.totalDocItSlidesCount
-        });
-
-        function openDocItImageSlider() {
-            console.log('Opening DocIt slider...'); // Debug log
-            console.log('Variables at open:', {
-                currentIndex: window.currentDocItSlideIndex,
-                totalCount: window.totalDocItSlidesCount
-            });
-            const modal = document.getElementById('docItImageSliderModal');
-            if (modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                resetDocItSlider();
-            } else {
-                console.error('DocIt modal not found!');
-            }
-        }
-
-        function closeDocItImageSlider() {
-            const modal = document.getElementById('docItImageSliderModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function resetDocItSlider() {
-            console.log('Resetting DocIt slider...'); // Debug log
-            window.currentDocItSlideIndex = 1;
-            showDocItSlide(window.currentDocItSlideIndex);
-        }
-
-        function showDocItSlide(n) {
-            // Use hardcoded fallback if global variable is undefined
-            const totalSlides = window.totalDocItSlidesCount || 2;
-            
-            console.log('Showing DocIt slide - input n:', n, 'totalSlides:', totalSlides, 'global var:', window.totalDocItSlidesCount); // Debug log
-            const modal = document.getElementById('docItImageSliderModal');
-            if (!modal) {
-                console.error('DocIt modal not found in showDocItSlider!');
-                return;
-            }
-            
-            const slides = modal.querySelectorAll('.slider-image');
-            const dots = modal.querySelectorAll('.slider-dot');
-            
-            console.log('Found slides:', slides.length, 'dots:', dots.length); // Debug
-            
-            // Fix bounds checking - update the input parameter n, not the global variable directly
-            if (n > totalSlides) { 
-                n = 1; 
-                console.log('Wrapped to slide 1 (was greater than', totalSlides, ')');
-            }
-            if (n < 1) { 
-                n = totalSlides; 
-                console.log('Wrapped to last slide:', totalSlides);
-            }
-            
-            // NOW update the global variable with the corrected value
-            window.currentDocItSlideIndex = n;
-            
-            console.log('Final slide index:', window.currentDocItSlideIndex); // Debug log
-            
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            if (slides[window.currentDocItSlideIndex - 1]) {
-                slides[window.currentDocItSlideIndex - 1].classList.add('active');
-                console.log('Activated slide:', window.currentDocItSlideIndex);
-            } else {
-                console.error('Slide not found at index:', window.currentDocItSlideIndex - 1);
-            }
-            if (dots[window.currentDocItSlideIndex - 1]) {
-                dots[window.currentDocItSlideIndex - 1].classList.add('active');
-            }
-            
-            const counter = document.getElementById('currentDocItSlide');
-            if (counter) {
-                counter.textContent = window.currentDocItSlideIndex;
-            }
-        }
-
-        function nextDocItSlide() {
-            console.log('Next DocIt slide - current:', window.currentDocItSlideIndex); // Debug log
-            window.currentDocItSlideIndex++;
-            showDocItSlide(window.currentDocItSlideIndex);
-        }
-
-        function previousDocItSlide() {
-            console.log('Previous DocIt slide - current:', window.currentDocItSlideIndex); // Debug log
-            window.currentDocItSlideIndex--;
-            showDocItSlide(window.currentDocItSlideIndex);
-        }
-
-        function currentDocItSlide(n) {
-            console.log('Jump to DocIt slide:', n); // Debug log
-            window.currentDocItSlideIndex = n;
-            showDocItSlide(window.currentDocItSlideIndex);
-        }
-
-        // Close modal when clicking outside (with DOM check)
-        document.addEventListener('DOMContentLoaded', function() {
-            const docItModal = document.getElementById('docItImageSliderModal');
-            if (docItModal) {
-                docItModal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        closeDocItImageSlider();
-                    }
-                });
-            }
-        });
-
-        // Customer Logos Manual Scroll Functionality - Initialize variables globally
-        window.customerScrollPosition = 0;
-        window.isCustomerAutoScrolling = true;
-        window.customerAutoScrollInterval = null;
-
-        // Define all functions after variables
-        function pauseCustomerAutoScroll() {
-            console.log('Pausing customer auto-scroll...'); // Debug log
-            window.isCustomerAutoScrolling = false;
-            const track = document.getElementById('customerScrollTrack');
-            if (track) {
-                track.style.animationPlayState = 'paused';
-            }
-        }
-
-        function resumeCustomerAutoScroll() {
-            console.log('Resuming customer auto-scroll...'); // Debug log
-            window.isCustomerAutoScrolling = true;
-            const track = document.getElementById('customerScrollTrack');
-            if (track) {
-                track.style.animationPlayState = 'running';
-                window.customerScrollPosition = 0;
-                track.style.transform = 'translateX(0)';
-            }
-        }
-
-        function scrollCustomerLogos(direction) {
-            console.log('Scrolling customer logos:', direction); // Debug log
-            console.log('isCustomerAutoScrolling before:', window.isCustomerAutoScrolling); // Debug
-            
-            const track = document.getElementById('customerScrollTrack');
-            if (!track) {
-                console.error('Customer scroll track not found!');
-                return;
-            }
-            
-            // Get actual logo element width instead of hardcoded value
-            const logoElement = track.children[0];
-            const logoWidth = logoElement ? logoElement.offsetWidth + 48 : 160; // width + gap
-            
-            console.log('Logo width calculated:', logoWidth); // Debug
-            console.log('Current scroll position before:', window.customerScrollPosition); // Debug
-            
-            // Pause auto-scroll when user manually scrolls
-            pauseCustomerAutoScroll();
-            
-            if (direction === 'left') {
-                window.customerScrollPosition -= logoWidth * 2;
-            } else {
-                window.customerScrollPosition += logoWidth * 2;
-            }
-            
-            // Apply bounds checking
-            const containerWidth = track.parentElement.clientWidth;
-            const totalWidth = track.scrollWidth;
-            const maxNegativeScroll = -(totalWidth - containerWidth);
-            
-            console.log('Container width:', containerWidth, 'Total width:', totalWidth); // Debug
-            
-            window.customerScrollPosition = Math.max(maxNegativeScroll, Math.min(0, window.customerScrollPosition));
-            
-            track.style.transform = `translateX(${window.customerScrollPosition}px)`;
-            track.style.transition = 'transform 0.3s ease';
-            
-            console.log('New scroll position:', window.customerScrollPosition); // Debug
-            
-            // Resume auto-scroll after 5 seconds of no manual interaction
-            setTimeout(() => {
-                console.log('Timeout check - isCustomerAutoScrolling:', window.isCustomerAutoScrolling); // Debug
-                if (!window.isCustomerAutoScrolling) {
-                    resumeCustomerAutoScroll();
-                }
-            }, 5000);
-        }
-
-        // Enhanced customer scroll container interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('customerScrollContainer');
-            
-            // Pause auto-scroll on hover
-            container.addEventListener('mouseenter', function() {
-                pauseCustomerAutoScroll();
-            });
-            
-            // Resume auto-scroll when not hovering (with delay)
-            container.addEventListener('mouseleave', function() {
-                setTimeout(() => {
-                    if (!window.isCustomerAutoScrolling) {
-                        resumeCustomerAutoScroll();
-                    }
-                }, 2000);
-            });
-        });
-    </script>
-
-    <script>
-        // Hive Trendz carousel
-        (function() {
-            var slides = Array.from(document.querySelectorAll('.carousel-slide'));
-            var dotsContainer = document.getElementById('ht-dots');
-            var currentGroup = 'mobile';
-            var currentIndex = 0;
-
-            function getGroupSlides(group) {
-                return slides.filter(function(s) { return s.dataset.group === group; });
-            }
-
-            function buildDots() {
-                dotsContainer.innerHTML = '';
-                getGroupSlides(currentGroup).forEach(function(_, i) {
-                    var d = document.createElement('button');
-                    d.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-                    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-                    d.onclick = function() { showSlide(i); };
-                    dotsContainer.appendChild(d);
-                });
-            }
-
-            function showSlide(idx) {
-                var group = getGroupSlides(currentGroup);
-                currentIndex = (idx + group.length) % group.length;
-                slides.forEach(function(s) { s.classList.remove('active'); });
-                group[currentIndex].classList.add('active');
-                var dots = dotsContainer.querySelectorAll('.carousel-dot');
-                dots.forEach(function(d, i) { d.classList.toggle('active', i === currentIndex); });
-            }
-
-            window.htNav = function(dir) { showSlide(currentIndex + dir); };
-
-            window.htTab = function(btn, group) {
-                currentGroup = group;
-                currentIndex = 0;
-                document.querySelectorAll('.carousel-tab').forEach(function(t) { t.classList.remove('active'); });
-                btn.classList.add('active');
-                buildDots();
-                showSlide(0);
-            };
-
-            buildDots();
-        })();
-    </script>
-
-    <!-- Litro Image Slider Modal -->
+    <!-- ══ MODALS ════════════════════════════════════════════ -->
+
+    <!-- RhythmCore -->
+    <div class="image-slider-modal" id="imageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">RhythmCore — Project Screenshots</div>
+                <button class="close-slider" onclick="closeImageSlider()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentSlide">1</span> / <span id="totalSlides">7</span></div>
+                <img src="images/rc/rc1.png" alt="" class="slider-image active">
+                <img src="images/rc/rc2.png" alt="" class="slider-image">
+                <img src="images/rc/rc3.png" alt="" class="slider-image">
+                <img src="images/rc/rc4.png" alt="" class="slider-image">
+                <img src="images/rc/rc5.png" alt="" class="slider-image">
+                <img src="images/rc/rc6.png" alt="" class="slider-image">
+                <img src="images/rc/rc7.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('rc')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('rc')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('rc',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',3)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',4)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',5)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',6)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',7)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dilmah -->
+    <div class="image-slider-modal" id="dilmahImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Dilmah Product Development Workflow — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('dilmahImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentDilmahSlide">1</span> / <span id="totalDilmahSlides">5</span></div>
+                <img src="images/dl/dl1.png" alt="" class="slider-image active">
+                <img src="images/dl/dl2.png" alt="" class="slider-image">
+                <img src="images/dl/dl3.png" alt="" class="slider-image">
+                <img src="images/dl/dl4.png" alt="" class="slider-image">
+                <img src="images/dl/dl5.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('dl')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('dl')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('dl',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',3)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',4)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',5)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SANASA -->
+    <div class="image-slider-modal" id="sanasaImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">SANASA Life Insurance Integration — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('sanasaImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentSanasaSlide">1</span> / <span id="totalSanasaSlides">3</span></div>
+                <img src="images/san/san1.png" alt="" class="slider-image active">
+                <img src="images/san/san2.png" alt="" class="slider-image">
+                <img src="images/san/san3.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('san')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('san')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('san',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('san',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('san',3)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Litro -->
     <div class="image-slider-modal" id="litroImageSliderModal">
         <div class="image-slider-container">
             <div class="slider-header">
-                <div class="slider-title">Litro Gas Distribution System - App Showcase</div>
-                <button class="close-slider" onclick="closeLitroImageSlider()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <div class="slider-title">Litro Gas Distribution System — App Showcase</div>
+                <button class="close-slider" onclick="closeModal('litroImageSliderModal')"><i class="fas fa-times"></i></button>
             </div>
             <div class="slider-content">
-                <img src="images/lit/lit.png" alt="Litro App Screenshot" class="slider-image active" style="max-width: 100%; max-height: 80vh; object-fit: contain;">
+                <img src="images/lit/lit.png" alt="Litro App" class="slider-image active" style="max-width:100%;max-height:72vh;object-fit:contain;">
             </div>
         </div>
     </div>
 
-    <!-- DocIt Image Slider Modal -->
+    <!-- DocIt -->
     <div class="image-slider-modal" id="docItImageSliderModal">
         <div class="image-slider-container">
             <div class="slider-header">
-                <div class="slider-title">DocIt Document Management System - Project Screenshots</div>
-                <button class="close-slider" onclick="closeDocItImageSlider()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <div class="slider-title">DocIt Document Management System — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('docItImageSliderModal')"><i class="fas fa-times"></i></button>
             </div>
             <div class="slider-content">
-                <div class="slider-counter">
-                    <span id="currentDocItSlide">1</span> / <span id="totalDocItSlides">2</span>
-                </div>
-                <img src="images/doc/d1.png" alt="DocIt Screenshot 1" class="slider-image active">
-                <img src="images/doc/d2.png" alt="DocIt Screenshot 2" class="slider-image">
-                
-                <button class="slider-nav slider-prev" onclick="previousDocItSlide()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="slider-nav slider-next" onclick="nextDocItSlide()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
+                <div class="slider-counter"><span id="currentDocItSlide">1</span> / <span id="totalDocItSlides">2</span></div>
+                <img src="images/doc/d1.png" alt="" class="slider-image active">
+                <img src="images/doc/d2.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('doc')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('doc')"><i class="fas fa-chevron-right"></i></button>
                 <div class="slider-dots">
-                    <div class="slider-dot active" onclick="currentDocItSlide(1)"></div>
-                    <div class="slider-dot" onclick="currentDocItSlide(2)"></div>
+                    <div class="slider-dot active" onclick="goSlide('doc',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('doc',2)"></div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
