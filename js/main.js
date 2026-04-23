@@ -24,10 +24,12 @@ document.querySelectorAll('.fu').forEach(el => fuObs.observe(el));
 
 /* ── Unified modal system ── */
 const modalMap = {
-    rc:    { id: 'imageSliderModal',       total: 7, counter: 'currentSlide' },
+    ht:    { id: 'htImageSliderModal',      total: 9, counter: 'currentHtSlide' },
+    rc:    { id: 'imageSliderModal',        total: 7, counter: 'currentSlide' },
     dl:    { id: 'dilmahImageSliderModal',  total: 5, counter: 'currentDilmahSlide' },
     san:   { id: 'sanasaImageSliderModal',  total: 3, counter: 'currentSanasaSlide' },
     doc:   { id: 'docItImageSliderModal',   total: 2, counter: 'currentDocItSlide' },
+    bns:   { id: 'bnsImageSliderModal',     total: 2, counter: 'currentBnsSlide' },
 };
 const sliderIdx = {};
 
@@ -77,6 +79,10 @@ function openLitroImageSlider()  { openModal('litroImageSliderModal', null); }
 function closeLitroImageSlider() { closeModal('litroImageSliderModal'); }
 function openDocItImageSlider()  { openModal('docItImageSliderModal', 'doc'); }
 function closeDocItImageSlider() { closeModal('docItImageSliderModal'); }
+function openHtImageSlider()     { openModal('htImageSliderModal', 'ht'); }
+function closeHtImageSlider()    { closeModal('htImageSliderModal'); }
+function openBnsImageSlider()    { openModal('bnsImageSliderModal', 'bns'); }
+function closeBnsImageSlider()   { closeModal('bnsImageSliderModal'); }
 
 /* Backdrop click closes modal */
 document.querySelectorAll('.image-slider-modal').forEach(m => {
@@ -93,39 +99,6 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') nextSlide(key);
     if (e.key === 'ArrowLeft')  prevSlide(key);
 });
-
-/* ── Hive Trendz Carousel ── */
-(function() {
-    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-    const dotsEl = document.getElementById('ht-dots');
-    let group = 'mobile', idx = 0;
-
-    function groupSlides(g) { return slides.filter(s => s.dataset.group === g); }
-    function buildDots() {
-        dotsEl.innerHTML = '';
-        groupSlides(group).forEach((_, i) => {
-            const d = document.createElement('button');
-            d.className = 'carousel-dot' + (i === idx ? ' active' : '');
-            d.onclick = () => show(i);
-            dotsEl.appendChild(d);
-        });
-    }
-    function show(n) {
-        const g = groupSlides(group);
-        idx = (n + g.length) % g.length;
-        slides.forEach(s => s.classList.remove('active'));
-        g[idx].classList.add('active');
-        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-    window.htNav = dir => show(idx + dir);
-    window.htTab = (btn, g) => {
-        group = g; idx = 0;
-        document.querySelectorAll('.carousel-tab').forEach(t => t.classList.remove('active'));
-        btn.classList.add('active');
-        buildDots(); show(0);
-    };
-    buildDots();
-})();
 
 /* ── Contact form ── */
 document.getElementById('contactForm').addEventListener('submit', function(e) {

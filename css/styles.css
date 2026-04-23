@@ -144,8 +144,8 @@ body {
 }
 .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--green); }
 .hero-name {
-    font-family: var(--fd); font-size: clamp(3.5rem, 9vw, 7.5rem);
-    font-weight: 800; line-height: 0.92; letter-spacing: -0.025em;
+    font-family: var(--fd); font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
     color: var(--text); margin-bottom: 1.75rem;
 }
 .hero-name em { display: block; color: var(--green); font-style: normal; }
@@ -272,7 +272,8 @@ body {
     flex-shrink: 0;
 }
 .cl:hover { opacity: 1; }
-.cl img { max-height: 34px; max-width: 110px; object-fit: contain; filter: grayscale(1) brightness(2); }
+.cl img { max-height: 34px; max-width: 110px; object-fit: contain; filter: grayscale(1) brightness(2); transition: filter 0.3s; }
+.cl:hover img { filter: grayscale(0) brightness(1); }
 .cl .company-name { font-family: var(--fd); font-size: 0.85rem; font-weight: 700; color: var(--text-2); }
 .cl .company-subtitle { font-family: var(--fm); font-size: 0.58rem; color: var(--text-3); }
 

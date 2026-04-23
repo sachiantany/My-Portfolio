@@ -56,7 +56,7 @@
             <h1 class="hero-name">Sachintha<em>Antany.</em></h1>
             <p class="hero-tagline">
                 Senior Software Engineer specialising in Flutter mobile architecture, cloud-native backends,
-                and full-stack enterprise systems. 5+ years delivering production systems for leading organisations.
+                and full-stack enterprise systems. 6+ years delivering production systems for leading organisations.
             </p>
             <div class="hero-ctas">
                 <a href="#projects" class="btn-fill"><i class="fas fa-arrow-right"></i> View Work</a>
@@ -67,7 +67,7 @@
             </div>
             <div class="hero-stats">
                 <div>
-                    <div class="stat-n">5<em>+</em></div>
+                    <div class="stat-n">6<em>+</em></div>
                     <div class="stat-l">Years Experience</div>
                 </div>
                 <div>
@@ -241,15 +241,15 @@
                 <span class="exp-pill">Current · December 2019 – Present</span>
                 <div class="exp-role">Software Engineer</div>
                 <div class="exp-co">Finetech Consultancy Pvt Ltd</div>
-                <div class="exp-period">Nawala, Sri Lanka · 5+ Years</div>
+                <div class="exp-period">Nawala, Sri Lanka · 6+ Years</div>
                 <p class="exp-desc">
                     Leading development of production mobile applications and enterprise workflow automation for major Sri Lankan organisations.
                     Architecting scalable solutions from Flutter mobile to GCP cloud infrastructure — integrating with SAP, social APIs, and third-party enterprise systems.
                 </p>
                 <ul class="exp-list">
-                    <li>Led full-cycle development of Timespot Attendance Management App — published on Play Store & App Store</li>
+                    <li>Led full-cycle development of Timespot — attendance, task & sub-task progress tracking, leave and WFH approvals — published on Play Store & App Store</li>
                     <li>Architected DocIt Document Management System with OCR-based full-text search and dynamic field indexing</li>
-                    <li>Delivered 10+ workflow automation systems for Sarvodaya, Dilmah, SANASA, Litro Gas, and DFCC</li>
+                    <li>Delivered 20+ workflow automation systems for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, and BNS Music</li>
                     <li>Achieved 80% paper reduction across enterprise implementations using AppSheet & Google App Script</li>
                     <li>Integrated SAP B1 (HANA/SQL) into payment workflows, approval mechanisms, and HRIS systems</li>
                     <li>Built Hive Trendz — AI-powered social media automation with LLaMA 3.3 70B on-device pipeline</li>
@@ -269,44 +269,25 @@
 
             <div class="proj-list fu">
 
-                <!-- 01 — Hive Trendz (featured) -->
-                <div class="proj-feat">
-                    <div class="proj-feat-media">
-                        <div class="project-carousel">
-                            <div class="carousel-tabs">
-                                <button class="carousel-tab active" onclick="htTab(this,'mobile')">Mobile</button>
-                                <button class="carousel-tab" onclick="htTab(this,'web')">Web Dashboard</button>
+                <!-- 01 — Hive Trendz -->
+                <div class="proj-row">
+                    <div class="proj-n">01</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Hive Trendz — AI Social Media Automation</div>
+                                <div class="proj-row-per">Personal Project</div>
                             </div>
-                            <div class="carousel-viewport">
-                                <img class="carousel-slide active" src="images/ht-mobile/ht1.png" data-group="mobile" alt="Hive Trendz mobile 1">
-                                <img class="carousel-slide" src="images/ht-mobile/ht2.png" data-group="mobile" alt="Hive Trendz mobile 2">
-                                <img class="carousel-slide" src="images/ht-mobile/ht3.png" data-group="mobile" alt="Hive Trendz mobile 3">
-                                <img class="carousel-slide" src="images/ht-mobile/ht4.png" data-group="mobile" alt="Hive Trendz mobile 4">
-                                <img class="carousel-slide" src="images/ht-web/ht1.png" data-group="web" alt="Hive Trendz web 1">
-                                <img class="carousel-slide" src="images/ht-web/ht2.png" data-group="web" alt="Hive Trendz web 2">
-                                <img class="carousel-slide" src="images/ht-web/ht3.png" data-group="web" alt="Hive Trendz web 3">
-                                <img class="carousel-slide" src="images/ht-web/ht4.png" data-group="web" alt="Hive Trendz web 4">
-                                <img class="carousel-slide" src="images/ht-web/ht5.png" data-group="web" alt="Hive Trendz web 5">
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openHtImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
                             </div>
-                            <button class="carousel-btn prev" onclick="htNav(-1)">&#8249;</button>
-                            <button class="carousel-btn next" onclick="htNav(1)">&#8250;</button>
-                            <div class="carousel-dots" id="ht-dots"></div>
                         </div>
-                    </div>
-                    <div class="proj-feat-body">
-                        <div>
-                            <div class="proj-num-l">01 — Personal Project</div>
-                            <h3 class="proj-feat-title">Hive Trendz</h3>
-                            <div class="proj-type">AI Social Media Automation</div>
-                            <p class="proj-feat-desc">
-                                Autonomous news-to-post pipeline: discovers trending articles, generates branded content via LLaMA 3.3 70B (Groq API), and publishes to Facebook & Instagram with zero manual effort. Flutter app with on-device image compositing, FFmpeg video editor, and AlarmManager exact scheduling. Flask + APScheduler backend on Railway with a full web dashboard for queue management and live logs.
-                            </p>
-                            <div class="proj-tags">
-                                <span class="ptag">Flutter</span><span class="ptag">Python/Flask</span>
-                                <span class="ptag">LLaMA 3.3 70B</span><span class="ptag">Meta Graph API v24</span>
-                                <span class="ptag">Supabase</span><span class="ptag">FFmpeg</span>
-                                <span class="ptag">APScheduler</span><span class="ptag">NewsAPI + RSS</span>
-                            </div>
+                        <p class="proj-row-desc">Autonomous news-to-post pipeline: discovers trending articles, generates branded content via LLaMA 3.3 70B (Groq API), and publishes to Facebook & Instagram with zero manual effort. Flutter app with on-device image compositing, FFmpeg video editor, and AlarmManager exact scheduling. Flask + APScheduler backend on Railway with a full web dashboard for queue management and live logs.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Python/Flask</span>
+                            <span class="ptag">LLaMA 3.3 70B</span><span class="ptag">Meta Graph API v24</span>
+                            <span class="ptag">Supabase</span><span class="ptag">FFmpeg</span>
+                            <span class="ptag">APScheduler</span><span class="ptag">NewsAPI + RSS</span>
                         </div>
                     </div>
                 </div>
@@ -318,13 +299,92 @@
                         <div class="proj-row-top">
                             <div>
                                 <div class="proj-row-title">Flutter Feature Generator — CLI Scaffolding Tool</div>
-                                <div class="proj-row-per">Personal Project</div>
+                                <div class="proj-row-per">Personal Project · Born from Litro Gas offline-first implementation</div>
                             </div>
                         </div>
-                        <p class="proj-row-desc">Production-grade Dart CLI that generates a complete Flutter feature (~25 files) in one command — Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend. 15 generator modules, 3 CLI modes, idempotent marker-based file merging so re-running never duplicates code.</p>
+                        <p class="proj-row-desc">Born while architecting the offline-first sync pipeline for the Litro Gas Sales POS app, this production-grade Dart CLI scaffolds an entire full-stack feature (~25 files) in one command — Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend. 15 generator modules, 3 CLI modes (interactive, args, init), and idempotent marker-based file merging so re-running never duplicates code.</p>
+                        <div id="ffg-more" style="display:none">
+                            <p class="proj-row-desc" style="margin-top:0.5rem">One command generates ~25 files across the full stack. Auth generation (<code style="font-family:var(--fm);font-size:0.75rem;color:var(--green)">--auth firebase</code>) wires the complete auth layer across both stacks automatically. Platform-aware <code style="font-family:var(--fm);font-size:0.75rem;color:var(--green)">ApiConfig</code> auto-selects the correct backend URL for emulator, device, or web — zero manual config.</p>
+                            <pre style="font-family:var(--fm);font-size:0.62rem;line-height:1.7;color:var(--text-2);background:var(--bg-3);border:1px solid var(--border);padding:1.25rem;margin:0.875rem 0;overflow-x:auto;white-space:pre">workspace/
+│
+├── my_app/                          ← Flutter (frontend)
+│   └── lib/
+│       ├── core/
+│       │   ├── config/
+│       │   │   └── api_config.dart  ← smart URL (emulator/device/web)
+│       │   ├── database/
+│       │   │   ├── app_database.dart         ← Drift SQLite (offline-first)
+│       │   │   ├── tables/products_table.dart
+│       │   │   └── daos/products_dao.dart
+│       │   ├── di/injection.dart             ← GetIt + Injectable
+│       │   ├── network/
+│       │   │   ├── api_client.dart           ← HTTP wrapper (Spring Boot aware)
+│       │   │   └── network_info.dart
+│       │   ├── router/app_router.dart        ← GoRouter (auth guard auto-wired)
+│       │   ├── theme/app_theme.dart          ← Material 3
+│       │   └── errors/failures.dart
+│       ├── shared/widgets/
+│       │   └── adaptive_navigation_shell.dart  ← bottom nav / rail / drawer
+│       └── features/
+│           └── products/            ← generated feature (Clean Architecture)
+│               ├── domain/
+│               │   ├── entities/product.dart
+│               │   ├── repositories/product_repository.dart
+│               │   └── usecases/
+│               │       ├── create_product_usecase.dart
+│               │       ├── update_product_usecase.dart
+│               │       ├── delete_product_usecase.dart
+│               │       ├── get_all_products_usecase.dart
+│               │       ├── get_by_id_product_usecase.dart
+│               │       ├── search_product_usecase.dart
+│               │       └── sync_pending_product_usecase.dart
+│               ├── data/
+│               │   ├── models/product_model.dart
+│               │   ├── datasources/
+│               │   │   ├── product_local_data_source.dart   ← Drift DAO
+│               │   │   └── product_remote_data_source.dart  ← REST API
+│               │   └── repositories/
+│               │       └── product_repository_impl.dart     ← offline-first sync
+│               └── presentation/
+│                   ├── bloc/
+│                   │   ├── product_bloc.dart
+│                   │   ├── product_event.dart
+│                   │   └── product_state.dart
+│                   └── pages/
+│                       ├── product_list_page.dart    ← search, pull-to-refresh
+│                       ├── product_detail_page.dart
+│                       └── product_form_page.dart    ← create / edit
+│
+└── my_app-backend/                  ← Java Spring Boot (auto-generated)
+    ├── pom.xml                      ← Maven, H2 (dev) + PostgreSQL (prod)
+    ├── Dockerfile
+    ├── docker-compose.yml           ← API + PostgreSQL, one command
+    ├── .env.example
+    └── src/main/java/com/myapp/
+        ├── MyAppApplication.java
+        ├── common/
+        │   ├── ApiResponse.java     ← unified response envelope
+        │   ├── GlobalExceptionHandler.java
+        │   └── exceptions/
+        │       ├── ResourceNotFoundException.java
+        │       └── ValidationException.java
+        ├── config/CorsConfig.java
+        └── features/product/
+            ├── Product.java         ← JPA entity
+            ├── ProductRepository.java
+            ├── ProductService.java
+            ├── ProductServiceImpl.java
+            ├── ProductController.java  ← 9 REST endpoints (CRUD + search + page)
+            └── dto/
+                ├── CreateProductRequest.java
+                ├── UpdateProductRequest.java
+                └── ProductResponse.java</pre>
+                        </div>
+                        <button class="plink" style="margin-bottom:0.875rem;margin-top:0.25rem" onclick="(function(b){const m=document.getElementById('ffg-more');const show=m.style.display==='none';m.style.display=show?'block':'none';b.innerHTML=show?'<i class=&quot;fas fa-chevron-up&quot;></i> See less':'<i class=&quot;fas fa-chevron-down&quot;></i> See more'})(this)"><i class="fas fa-chevron-down"></i> See more</button>
                         <div class="proj-tags">
                             <span class="ptag">Dart 3 CLI</span><span class="ptag">Flutter / BLoC</span>
-                            <span class="ptag">Drift SQLite</span><span class="ptag">Spring Boot 3</span><span class="ptag">Code Generation</span>
+                            <span class="ptag">Drift SQLite</span><span class="ptag">Spring Boot 3</span>
+                            <span class="ptag">Code Generation</span><span class="ptag">Firebase Auth</span><span class="ptag">Docker</span>
                         </div>
                     </div>
                 </div>
@@ -351,13 +411,32 @@
                     </div>
                 </div>
 
-                <!-- 04 — Timespot -->
+                <!-- 04 — Litro SPO Hub & Sales POS -->
                 <div class="proj-row">
                     <div class="proj-n">04</div>
                     <div class="proj-row-body">
                         <div class="proj-row-top">
                             <div>
-                                <div class="proj-row-title">Timespot Attendance & Task Management</div>
+                                <div class="proj-row-title">Litro Gas — SPO Hub & Sales POS</div>
+                                <div class="proj-row-per">Litro Gas Lanka · Combined Flutter Application</div>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Single Flutter app with two distinct tools behind one login. SPO Hub: Sales Promotion Officers manage dealer visits, record commercial customer promotions, track competitor outlets, and conduct dealer evaluations. Sales POS: fully offline-capable gas distribution tracker for Litro drivers covering island-wide rural areas — Drift SQLite offline-first sync. Architecting this offline pipeline directly inspired the Flutter Feature Generator CLI.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span>
+                            <span class="ptag">BLoC</span><span class="ptag">Drift SQLite</span>
+                            <span class="ptag">Offline-first</span><span class="ptag">AppSheet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05 — Timespot (already correct number) -->
+                <div class="proj-row">
+                    <div class="proj-n">05</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Timespot — Attendance & Project Management</div>
                                 <div class="proj-row-per">Finetech Consultancy · September 2023 – Present</div>
                             </div>
                             <div class="proj-row-links">
@@ -366,16 +445,16 @@
                                 <a href="https://apps.apple.com/us/app/timespot/id1467717734" class="plink dim" target="_blank"><i class="fab fa-apple"></i></a>
                             </div>
                         </div>
-                        <p class="proj-row-desc">Cross-platform Flutter app for enterprise attendance management — daily task tracking, leave requests, and WFH approvals. Live on Play Store and App Store.</p>
+                        <p class="proj-row-desc">Cross-platform Flutter app for enterprise attendance management — GPS-based check-in/out, daily task creation with sub-task breakdown and real-time progress tracking, leave requests with multi-level approvals, and WFH request workflows. Tasks support status updates, completion percentages, and sub-task checklists so managers get live visibility into team progress. Live on Play Store and App Store.</p>
                         <div class="proj-tags">
-                            <span class="ptag">Flutter</span><span class="ptag">Firebase</span><span class="ptag">iOS</span><span class="ptag">Android</span>
+                            <span class="ptag">Flutter</span><span class="ptag">Firebase</span><span class="ptag">Task Management</span><span class="ptag">iOS</span><span class="ptag">Android</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 05 — RhythmCore -->
+                <!-- 06 — RhythmCore -->
                 <div class="proj-row">
-                    <div class="proj-n">05</div>
+                    <div class="proj-n">06</div>
                     <div class="proj-row-body">
                         <div class="proj-row-top">
                             <div>
@@ -394,9 +473,9 @@
                     </div>
                 </div>
 
-                <!-- 06 — DocIt -->
+                <!-- 07 — DocIt -->
                 <div class="proj-row">
-                    <div class="proj-n">06</div>
+                    <div class="proj-n">07</div>
                     <div class="proj-row-body">
                         <div class="proj-row-top">
                             <div>
@@ -410,26 +489,6 @@
                         <p class="proj-row-desc">Flutter DMS with Clean Architecture + BLoC. Dynamic document field indexing, OCR-based full-text search, and advanced multi-field filtering.</p>
                         <div class="proj-tags">
                             <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span><span class="ptag">OCR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 07 — Ceylon Explorer -->
-                <div class="proj-row">
-                    <div class="proj-n">07</div>
-                    <div class="proj-row-body">
-                        <div class="proj-row-top">
-                            <div>
-                                <div class="proj-row-title">Ceylon Explorer — Travel Booking System</div>
-                                <div class="proj-row-per">March 2024 – May 2024</div>
-                            </div>
-                            <div class="proj-row-links">
-                                <a href="https://github.com/sachiantany/ceylonExplorer" class="plink" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            </div>
-                        </div>
-                        <p class="proj-row-desc">Modular travel booking and management system built with Flutter, Clean Architecture, and BLoC. Designed for scalability across multiple travel verticals.</p>
-                        <div class="proj-tags">
-                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span>
                         </div>
                     </div>
                 </div>
@@ -492,9 +551,30 @@
                     </div>
                 </div>
 
-                <!-- 11 — Parking -->
+                <!-- 11 — BNS OPMS -->
                 <div class="proj-row">
                     <div class="proj-n">11</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">BNS Music — Organisational Project Management System</div>
+                                <div class="proj-row-per">BNS Music · Enterprise Workflow Solution</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openBnsImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Web & mobile OPMS replacing manual job sheet processes for BNS Music's two organisational clusters. Multi-level digital approval workflow (Production → Cluster Finance → Director → Central Finance), budgeted vs actual cost tracking, job sheet lifecycle management, and cluster-level segregation of duties — all built on AppSheet, Apps Script, and Cloud SQL.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Google AppSheet</span><span class="ptag">Apps Script</span>
+                            <span class="ptag">Cloud SQL</span><span class="ptag">Workflow Automation</span><span class="ptag">Multi-level Approval</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12 — Parking -->
+                <div class="proj-row">
+                    <div class="proj-n">12</div>
                     <div class="proj-row-body">
                         <div class="proj-row-top">
                             <div>
@@ -509,6 +589,26 @@
                         <p class="proj-row-desc">Real-time urban parking with mobile app for drivers and web platform for lot owners. ML surface detection model for space validation.</p>
                         <div class="proj-tags">
                             <span class="ptag">Machine Learning</span><span class="ptag">Mobile App</span><span class="ptag">Web Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13 — Ceylon Explorer -->
+                <div class="proj-row">
+                    <div class="proj-n">13</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Ceylon Explorer — Travel Booking System</div>
+                                <div class="proj-row-per">March 2024 – May 2024</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://github.com/sachiantany/ceylonExplorer" class="plink" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Modular travel booking and management system built with Flutter, Clean Architecture, and BLoC. Designed for scalability across multiple travel verticals.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span>
                         </div>
                     </div>
                 </div>
@@ -571,6 +671,41 @@
     </footer>
 
     <!-- ══ MODALS ════════════════════════════════════════════ -->
+
+    <!-- Hive Trendz -->
+    <div class="image-slider-modal" id="htImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Hive Trendz — Mobile & Web Screenshots</div>
+                <button class="close-slider" onclick="closeModal('htImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentHtSlide">1</span> / <span id="totalHtSlides">9</span></div>
+                <img src="images/ht-mobile/ht1.png" alt="Hive Trendz Mobile 1" class="slider-image active">
+                <img src="images/ht-mobile/ht2.png" alt="Hive Trendz Mobile 2" class="slider-image">
+                <img src="images/ht-mobile/ht3.png" alt="Hive Trendz Mobile 3" class="slider-image">
+                <img src="images/ht-mobile/ht4.png" alt="Hive Trendz Mobile 4" class="slider-image">
+                <img src="images/ht-web/ht1.png" alt="Hive Trendz Web 1" class="slider-image">
+                <img src="images/ht-web/ht2.png" alt="Hive Trendz Web 2" class="slider-image">
+                <img src="images/ht-web/ht3.png" alt="Hive Trendz Web 3" class="slider-image">
+                <img src="images/ht-web/ht4.png" alt="Hive Trendz Web 4" class="slider-image">
+                <img src="images/ht-web/ht5.png" alt="Hive Trendz Web 5" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('ht')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('ht')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('ht',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',3)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',4)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',5)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',6)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',7)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',8)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',9)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- RhythmCore -->
     <div class="image-slider-modal" id="imageSliderModal">
@@ -682,6 +817,27 @@
                 <div class="slider-dots">
                     <div class="slider-dot active" onclick="goSlide('doc',1)"></div>
                     <div class="slider-dot" onclick="goSlide('doc',2)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BNS -->
+    <div class="image-slider-modal" id="bnsImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">BNS Music OPMS — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('bnsImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentBnsSlide">1</span> / <span id="totalBnsSlides">2</span></div>
+                <img src="images/bns/web.png" alt="BNS OPMS Web" class="slider-image active">
+                <img src="images/bns/mobile.png" alt="BNS OPMS Mobile" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('bns')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('bns')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('bns',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('bns',2)"></div>
                 </div>
             </div>
         </div>
