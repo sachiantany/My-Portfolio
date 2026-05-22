@@ -30,6 +30,7 @@ const modalMap = {
     san:   { id: 'sanasaImageSliderModal',  total: 3, counter: 'currentSanasaSlide' },
     doc:   { id: 'docItImageSliderModal',   total: 2, counter: 'currentDocItSlide' },
     bns:   { id: 'bnsImageSliderModal',     total: 2, counter: 'currentBnsSlide' },
+    lh:    { id: 'lhImageSliderModal',      total: 2, counter: 'currentLhSlide' },
 };
 const sliderIdx = {};
 
@@ -83,6 +84,8 @@ function openHtImageSlider()     { openModal('htImageSliderModal', 'ht'); }
 function closeHtImageSlider()    { closeModal('htImageSliderModal'); }
 function openBnsImageSlider()    { openModal('bnsImageSliderModal', 'bns'); }
 function closeBnsImageSlider()   { closeModal('bnsImageSliderModal'); }
+function openLhImageSlider()     { openModal('lhImageSliderModal', 'lh'); }
+function closeLhImageSlider()    { closeModal('lhImageSliderModal'); }
 
 /* Backdrop click closes modal */
 document.querySelectorAll('.image-slider-modal').forEach(m => {

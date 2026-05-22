@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachintha Antany — Senior Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="sp"></div>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">SA<em>.</em></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="cv/cv.pdf" class="nav-cv" download><i class="fas fa-download"></i> CV</a>
+                <button class="nav-burger" id="burgerBtn" onclick="openMob()"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mob-menu" id="mobMenu">
+        <button class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></button>
+        <ul class="mob-links">
+            <li><a href="#about"      onclick="closeMob()">About</a></li>
+            <li><a href="#skills"     onclick="closeMob()">Skills</a></li>
+            <li><a href="#experience" onclick="closeMob()">Experience</a></li>
+            <li><a href="#projects"   onclick="closeMob()">Projects</a></li>
+            <li><a href="#contact"    onclick="closeMob()">Contact</a></li>
+        </ul>
+        <a href="cv/cv.pdf" class="mob-cv" download><i class="fas fa-download"></i> Download CV</a>
+    </div>
+
+    <!-- ══ HERO ══════════════════════════════════════════════ -->
+    <section id="home" class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-vignette"></div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">
+                <i class="fas fa-circle" style="font-size:.35rem"></i>
+                Open to senior engineering roles
+            </div>
+            <h1 class="hero-name">Sachintha<em>Antany.</em></h1>
+            <p class="hero-tagline">
+                Senior Software Engineer specialising in Flutter mobile architecture, cloud-native backends,
+                and full-stack enterprise systems. 6+ years delivering production systems for leading organisations.
+            </p>
+            <div class="hero-ctas">
+                <a href="#projects" class="btn-fill"><i class="fas fa-arrow-right"></i> View Work</a>
+                <a href="cv/cv.pdf" class="btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+                <a href="https://www.credly.com/users/sachintha-antany.1f19a389" target="_blank" class="hero-badge">
+                    <i class="fas fa-certificate"></i> Google Certified Professional
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-n">6<em>+</em></div>
+                    <div class="stat-l">Years Experience</div>
+                </div>
+                <div>
+                    <div class="stat-n">15<em>+</em></div>
+                    <div class="stat-l">Projects Shipped</div>
+                </div>
+                <div>
+                    <div class="stat-n">12<em>+</em></div>
+                    <div class="stat-l">Enterprise Clients</div>
+                </div>
+                <div>
+                    <div class="stat-n">80<em>%</em></div>
+                    <div class="stat-l">Paper Reduction</div>
+                </div>
+            </div>
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/sachiantany" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/sachintha.antany" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sachi_antany/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:sachi.antany@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ ABOUT ═════════════════════════════════════════════ -->
+    <section id="about" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">01 —</span> About</div>
+            <h2 class="sec-title">Engineering Digital<br>Transformation</h2>
+            <p class="sec-sub">
+                5+ years architecting enterprise-grade systems across mobile, cloud, and automation.
+                I design for scale, write for maintainability, and ship for real users.
+            </p>
+            <div class="about-cards fu">
+                <div class="ac">
+                    <div class="ac-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Architecture</h3>
+                    <p>Production Flutter apps on Play Store & App Store. Expert in Clean Architecture + BLoC, offline-first Drift SQLite, and cross-platform sync pipelines.</p>
+                </div>
+                <div class="ac">
+                    <div class="ac-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud & Automation</h3>
+                    <p>GCP, Cloud Run, Docker, Firebase. Delivered workflow automation for Dilmah, SANASA, and Sarvodaya — achieving 80% paper reduction across enterprise implementations.</p>
+                </div>
+                <div class="ac">
+                    <div class="ac-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Systems Integration</h3>
+                    <p>SAP HANA, Meta Graph API, Google App Script, REST architectures. Wired payment workflows, HRIS, and approval chains across complex organisational hierarchies.</p>
+                </div>
+            </div>
+
+            <!-- Clients -->
+            <div class="clients-wrap fu fu-2">
+                <div class="clients-label">Trusted by leading organisations</div>
+                <div class="clients-mask">
+                    <div class="clients-track">
+                        <a href="https://www.sanasalife.com" target="_blank" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SANASA</div><div class=&quot;company-subtitle&quot;>Life Insurance</div></div>'"></a>
+                        <a href="https://www.dilmahtea.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Dilmah</div><div class=&quot;company-subtitle&quot;>Ceylon Tea</div></div>'"></a>
+                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="cl"><img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SDF</div><div class=&quot;company-subtitle&quot;>Sarvodaya Finance</div></div>'"></a>
+                        <a href="https://www.litrogas.com/" target="_blank" class="cl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro Gas" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>LITRO</div><div class=&quot;company-subtitle&quot;>Gas Lanka</div></div>'"></a>
+                        <a href="https://fcpl.biz" target="_blank" class="cl"><img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Finetech</div><div class=&quot;company-subtitle&quot;>Consultancy</div></div>'"></a>
+                        <a href="https://www.dfcc.lk" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>DFCC</div><div class=&quot;company-subtitle&quot;>Bank PLC</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Enfection</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Console</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">OMC</div><div class="company-subtitle">Ocean Maritime</div></div></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes Walker" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Forbes &amp; Walker</div></div>'"></a>
+                        <a href="https://www.bnsmusic.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS Music" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>BNS</div><div class=&quot;company-subtitle&quot;>Music</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">GSSI</div><div class="company-subtitle">Global Solutions</div></div></a>
+                        <!-- duplicate for seamless loop -->
+                        <a href="https://www.sanasalife.com" target="_blank" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMpfIv51zeL8h8cisTs6UkibhSe0WatIX2A&s" alt="SANASA" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SANASA</div></div>'"></a>
+                        <a href="https://www.dilmahtea.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idWwaZdId_/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668076337130" alt="Dilmah" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Dilmah</div></div>'"></a>
+                        <a href="https://www.sarvodayafinance.lk" target="_blank" class="cl"><img src="https://www.sarvodayafinance.lk/images/logo.webp" alt="Sarvodaya" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>SDF</div></div>'"></a>
+                        <a href="https://www.litrogas.com/" target="_blank" class="cl"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Litro_Gas_Lanka.png/250px-Litro_Gas_Lanka.png" alt="Litro" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>LITRO</div></div>'"></a>
+                        <a href="https://fcpl.biz" target="_blank" class="cl"><img src="https://fcpl.biz/wp-content/uploads/2023/08/finetech-logo.png" alt="Finetech" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Finetech</div></div>'"></a>
+                        <a href="https://www.dfcc.lk" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idYLigX_1Z/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1760352810129" alt="DFCC" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>DFCC</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtxptkSjeIDHpKPxukJQhp5XCYoXyJ9KJg&s" alt="Enfection" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Enfection</div></div>'"></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XsXD0T_a_ix_5Ji5Mdt7MLgK_3xfP-NkbQ&s" alt="Console" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Console</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">OMC</div><div class="company-subtitle">Ocean Maritime</div></div></a>
+                        <a href="#" class="cl"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1KRvTUvX3KBGwdDZF_CNXZ8Iqtm48mBNE9w&s" alt="Forbes Walker" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>Forbes &amp; Walker</div></div>'"></a>
+                        <a href="https://www.bnsmusic.com" target="_blank" class="cl"><img src="https://cdn.brandfetch.io/idaq9uZpP2/w/355/h/160/theme/light/logo.png?c=1bxid64Mup7aczewSAYMX&t=1738309051625" alt="BNS" onerror="this.parentElement.innerHTML='<div><div class=&quot;company-name&quot;>BNS</div></div>'"></a>
+                        <a href="#" class="cl"><div><div class="company-name">GSSI</div><div class="company-subtitle">Global Solutions</div></div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ SKILLS ════════════════════════════════════════════ -->
+    <section id="skills" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">02 —</span> Skills</div>
+            <h2 class="sec-title">Technical Stack</h2>
+            <p class="sec-sub">The tools and technologies I rely on to build production systems.</p>
+            <div class="skill-grid fu">
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-code sg-icon"></i><span class="sg-title">Languages</span></div>
+                    <div class="tags">
+                        <span class="tag">Dart</span><span class="tag">Java</span><span class="tag">Python</span>
+                        <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-mobile-alt sg-icon"></i><span class="sg-title">Mobile</span></div>
+                    <div class="tags">
+                        <span class="tag">Flutter</span><span class="tag">Clean Architecture</span>
+                        <span class="tag">BLoC Pattern</span><span class="tag">Drift SQLite</span>
+                        <span class="tag">Offline-first</span><span class="tag">Android</span><span class="tag">iOS</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-layer-group sg-icon"></i><span class="sg-title">Frameworks</span></div>
+                    <div class="tags">
+                        <span class="tag">Spring Boot 3</span><span class="tag">Flask</span>
+                        <span class="tag">Node.js</span><span class="tag">Express.js</span>
+                        <span class="tag">Angular 19</span><span class="tag">React</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-cloud sg-icon"></i><span class="sg-title">Cloud & DevOps</span></div>
+                    <div class="tags">
+                        <span class="tag">Google Cloud Platform</span><span class="tag">Cloud Run</span>
+                        <span class="tag">Docker</span><span class="tag">Firebase</span>
+                        <span class="tag">Supabase</span><span class="tag">Railway</span><span class="tag">AppSheet</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-database sg-icon"></i><span class="sg-title">Databases</span></div>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+                        <span class="tag">SAP HANA</span><span class="tag">Cloud SQL</span>
+                        <span class="tag">Firestore</span><span class="tag">Redis</span><span class="tag">SQLite</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-robot sg-icon"></i><span class="sg-title">AI & Automation</span></div>
+                    <div class="tags">
+                        <span class="tag">Groq API</span><span class="tag">LLaMA 3.3 70B</span>
+                        <span class="tag">Google App Script</span><span class="tag">APScheduler</span>
+                        <span class="tag">FFmpeg</span><span class="tag">Workflow Automation</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-drafting-compass sg-icon"></i><span class="sg-title">Architecture</span></div>
+                    <div class="tags">
+                        <span class="tag">Clean Architecture</span><span class="tag">MVVM</span>
+                        <span class="tag">MVC</span><span class="tag">RESTful APIs</span>
+                        <span class="tag">Offline-first</span><span class="tag">Code Generation</span>
+                    </div>
+                </div>
+                <div class="sg">
+                    <div class="sg-head"><i class="fas fa-tools sg-icon"></i><span class="sg-title">Tools & APIs</span></div>
+                    <div class="tags">
+                        <span class="tag">Git / Bitbucket</span><span class="tag">Figma</span>
+                        <span class="tag">Tailwind CSS</span><span class="tag">Spring Security</span>
+                        <span class="tag">Meta Graph API v24</span><span class="tag">NewsAPI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ EXPERIENCE ════════════════════════════════════════ -->
+    <section id="experience" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">03 —</span> Experience</div>
+            <h2 class="sec-title">Professional Journey</h2>
+            <p class="sec-sub">Building and shipping production systems across mobile, cloud, and enterprise automation.</p>
+            <div class="exp-card fu">
+                <div class="exp-ghost">01</div>
+                <span class="exp-pill">Current · December 2019 – Present</span>
+                <div class="exp-role">Software Engineer</div>
+                <div class="exp-co">Finetech Consultancy Pvt Ltd</div>
+                <div class="exp-period">Nawala, Sri Lanka · 6+ Years</div>
+                <p class="exp-desc">
+                    Leading development of production mobile applications and enterprise workflow automation for major Sri Lankan organisations.
+                    Architecting scalable solutions from Flutter mobile to GCP cloud infrastructure — integrating with SAP, social APIs, and third-party enterprise systems.
+                </p>
+                <ul class="exp-list">
+                    <li>Led full-cycle development of Timespot — attendance, task & sub-task progress tracking, leave and WFH approvals — published on Play Store & App Store</li>
+                    <li>Architected DocIt Document Management System with OCR-based full-text search and dynamic field indexing</li>
+                    <li>Delivered 20+ workflow automation systems for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, and BNS Music</li>
+                    <li>Achieved 80% paper reduction across enterprise implementations using AppSheet & Google App Script</li>
+                    <li>Integrated SAP B1 (HANA/SQL) into payment workflows, approval mechanisms, and HRIS systems</li>
+                    <li>Built Hive Trendz — AI-powered social media automation with LLaMA 3.3 70B on-device pipeline</li>
+                    <li>Developed Flutter Feature Generator CLI — scaffolds ~25-file full-stack features in one command</li>
+                    <li>Guided teams on architecture decisions, code reviews, and system integration patterns</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ PROJECTS ══════════════════════════════════════════ -->
+    <section id="projects" class="sec">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">04 —</span> Projects</div>
+            <h2 class="sec-title">Selected Work</h2>
+            <p class="sec-sub">Production systems, personal builds, and open tooling.</p>
+
+            <div class="proj-list fu">
+
+                <!-- 01 — Hive Trendz -->
+                <div class="proj-row">
+                    <div class="proj-n">01</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Hive Trendz — AI Social Media Automation</div>
+                                <div class="proj-row-per">Personal Project</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openHtImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Autonomous news-to-post pipeline: discovers trending articles, generates branded content via LLaMA 3.3 70B (Groq API), and publishes to Facebook & Instagram with zero manual effort. Flutter app with on-device image compositing, FFmpeg video editor, and AlarmManager exact scheduling. Flask + APScheduler backend on Railway with a full web dashboard for queue management and live logs.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Python/Flask</span>
+                            <span class="ptag">LLaMA 3.3 70B</span><span class="ptag">Meta Graph API v24</span>
+                            <span class="ptag">Supabase</span><span class="ptag">FFmpeg</span>
+                            <span class="ptag">APScheduler</span><span class="ptag">NewsAPI + RSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02 — Flutter Feature Generator -->
+                <div class="proj-row">
+                    <div class="proj-n">02</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Flutter Feature Generator — CLI Scaffolding Tool</div>
+                                <div class="proj-row-per">Personal Project · Born from Litro Gas offline-first implementation</div>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Born while architecting the offline-first sync pipeline for the Litro Gas Sales POS app, this production-grade Dart CLI scaffolds an entire full-stack feature (~25 files) in one command — Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend. 15 generator modules, 3 CLI modes (interactive, args, init), and idempotent marker-based file merging so re-running never duplicates code.</p>
+                        <div id="ffg-more" style="display:none">
+                            <p class="proj-row-desc" style="margin-top:0.5rem">One command generates ~25 files across the full stack. Auth generation (<code style="font-family:var(--fm);font-size:0.75rem;color:var(--green)">--auth firebase</code>) wires the complete auth layer across both stacks automatically. Platform-aware <code style="font-family:var(--fm);font-size:0.75rem;color:var(--green)">ApiConfig</code> auto-selects the correct backend URL for emulator, device, or web — zero manual config.</p>
+                            <pre style="font-family:var(--fm);font-size:0.62rem;line-height:1.7;color:var(--text-2);background:var(--bg-3);border:1px solid var(--border);padding:1.25rem;margin:0.875rem 0;overflow-x:auto;white-space:pre">workspace/
+│
+├── my_app/                          ← Flutter (frontend)
+│   └── lib/
+│       ├── core/
+│       │   ├── config/
+│       │   │   └── api_config.dart  ← smart URL (emulator/device/web)
+│       │   ├── database/
+│       │   │   ├── app_database.dart         ← Drift SQLite (offline-first)
+│       │   │   ├── tables/products_table.dart
+│       │   │   └── daos/products_dao.dart
+│       │   ├── di/injection.dart             ← GetIt + Injectable
+│       │   ├── network/
+│       │   │   ├── api_client.dart           ← HTTP wrapper (Spring Boot aware)
+│       │   │   └── network_info.dart
+│       │   ├── router/app_router.dart        ← GoRouter (auth guard auto-wired)
+│       │   ├── theme/app_theme.dart          ← Material 3
+│       │   └── errors/failures.dart
+│       ├── shared/widgets/
+│       │   └── adaptive_navigation_shell.dart  ← bottom nav / rail / drawer
+│       └── features/
+│           └── products/            ← generated feature (Clean Architecture)
+│               ├── domain/
+│               │   ├── entities/product.dart
+│               │   ├── repositories/product_repository.dart
+│               │   └── usecases/
+│               │       ├── create_product_usecase.dart
+│               │       ├── update_product_usecase.dart
+│               │       ├── delete_product_usecase.dart
+│               │       ├── get_all_products_usecase.dart
+│               │       ├── get_by_id_product_usecase.dart
+│               │       ├── search_product_usecase.dart
+│               │       └── sync_pending_product_usecase.dart
+│               ├── data/
+│               │   ├── models/product_model.dart
+│               │   ├── datasources/
+│               │   │   ├── product_local_data_source.dart   ← Drift DAO
+│               │   │   └── product_remote_data_source.dart  ← REST API
+│               │   └── repositories/
+│               │       └── product_repository_impl.dart     ← offline-first sync
+│               └── presentation/
+│                   ├── bloc/
+│                   │   ├── product_bloc.dart
+│                   │   ├── product_event.dart
+│                   │   └── product_state.dart
+│                   └── pages/
+│                       ├── product_list_page.dart    ← search, pull-to-refresh
+│                       ├── product_detail_page.dart
+│                       └── product_form_page.dart    ← create / edit
+│
+└── my_app-backend/                  ← Java Spring Boot (auto-generated)
+    ├── pom.xml                      ← Maven, H2 (dev) + PostgreSQL (prod)
+    ├── Dockerfile
+    ├── docker-compose.yml           ← API + PostgreSQL, one command
+    ├── .env.example
+    └── src/main/java/com/myapp/
+        ├── MyAppApplication.java
+        ├── common/
+        │   ├── ApiResponse.java     ← unified response envelope
+        │   ├── GlobalExceptionHandler.java
+        │   └── exceptions/
+        │       ├── ResourceNotFoundException.java
+        │       └── ValidationException.java
+        ├── config/CorsConfig.java
+        └── features/product/
+            ├── Product.java         ← JPA entity
+            ├── ProductRepository.java
+            ├── ProductService.java
+            ├── ProductServiceImpl.java
+            ├── ProductController.java  ← 9 REST endpoints (CRUD + search + page)
+            └── dto/
+                ├── CreateProductRequest.java
+                ├── UpdateProductRequest.java
+                └── ProductResponse.java</pre>
+                        </div>
+                        <button class="plink" style="margin-bottom:0.875rem;margin-top:0.25rem" onclick="(function(b){const m=document.getElementById('ffg-more');const show=m.style.display==='none';m.style.display=show?'block':'none';b.innerHTML=show?'<i class=&quot;fas fa-chevron-up&quot;></i> See less':'<i class=&quot;fas fa-chevron-down&quot;></i> See more'})(this)"><i class="fas fa-chevron-down"></i> See more</button>
+                        <div class="proj-tags">
+                            <span class="ptag">Dart 3 CLI</span><span class="ptag">Flutter / BLoC</span>
+                            <span class="ptag">Drift SQLite</span><span class="ptag">Spring Boot 3</span>
+                            <span class="ptag">Code Generation</span><span class="ptag">Firebase Auth</span><span class="ptag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 — Litro Gas -->
+                <div class="proj-row">
+                    <div class="proj-n">03</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Enterprise Dealer Stock Recommendation Module</div>
+                                <div class="proj-row-per">Litro Gas Lanka · Cloud-based Solution</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openLitroImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Intelligent stock recommendation algorithms for the Litro Gas island-wide distribution network — 3-app ecosystem tracking gas cylinder flow across all dealers and drivers. Historical sales analytics with predictive modelling on GCP.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Node.js</span><span class="ptag">Express.js</span>
+                            <span class="ptag">Redis</span><span class="ptag">MySQL</span>
+                            <span class="ptag">Cloud Run</span><span class="ptag">Docker</span><span class="ptag">AppSheet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 — Litro SPO Hub & Sales POS -->
+                <div class="proj-row">
+                    <div class="proj-n">04</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Litro Gas — SPO Hub & Sales POS</div>
+                                <div class="proj-row-per">Litro Gas Lanka · Combined Flutter Application</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openLhImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Single Flutter app with two distinct tools behind one login. SPO Hub: Sales Promotion Officers manage dealer visits, record commercial customer promotions, track competitor outlets, and conduct dealer evaluations. Sales POS: fully offline-capable gas distribution tracker for Litro drivers covering island-wide rural areas — Drift SQLite offline-first sync. Architecting this offline pipeline directly inspired the Flutter Feature Generator CLI.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span>
+                            <span class="ptag">BLoC</span><span class="ptag">Drift SQLite</span>
+                            <span class="ptag">Offline-first</span><span class="ptag">AppSheet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05 — Timespot (already correct number) -->
+                <div class="proj-row">
+                    <div class="proj-n">05</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Timespot — Attendance & Project Management</div>
+                                <div class="proj-row-per">Finetech Consultancy · September 2023 – Present</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://finetech.timespotonline.com/#/signin" class="plink" target="_blank"><i class="fas fa-globe"></i> Web</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.app.fcpl.timespot&hl=en" class="plink dim" target="_blank"><i class="fab fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/us/app/timespot/id1467717734" class="plink dim" target="_blank"><i class="fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Cross-platform Flutter app for enterprise attendance management — GPS-based check-in/out, daily task creation with sub-task breakdown and real-time progress tracking, leave requests with multi-level approvals, and WFH request workflows. Tasks support status updates, completion percentages, and sub-task checklists so managers get live visibility into team progress. Live on Play Store and App Store.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Firebase</span><span class="ptag">Task Management</span><span class="ptag">iOS</span><span class="ptag">Android</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 06 — RhythmCore -->
+                <div class="proj-row">
+                    <div class="proj-n">06</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">RhythmCore — Event Management & Ticketing</div>
+                                <div class="proj-row-per">Freelance Project</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Full-stack event management with QR code verification, role-based access control, and automated email notifications. Dual deployment environments, Spring Security, Angular 19.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Java 21</span><span class="ptag">Spring Boot</span>
+                            <span class="ptag">Angular 19</span><span class="ptag">PostgreSQL</span><span class="ptag">Firebase Auth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 07 — DocIt -->
+                <div class="proj-row">
+                    <div class="proj-n">07</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">DocIt — Document Management System</div>
+                                <div class="proj-row-per">Finetech Consultancy · April 2024 – Present</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openDocItImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Flutter DMS with Clean Architecture + BLoC. Dynamic document field indexing, OCR-based full-text search, and advanced multi-field filtering.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span><span class="ptag">OCR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 08 — SANASA -->
+                <div class="proj-row">
+                    <div class="proj-n">08</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">SANASA Life Insurance Integration</div>
+                                <div class="proj-row-per">June 2023 – September 2023</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openSanasaImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Designed and architected workflow systems integrating SAP HANA with Google AppSheet on RDP Windows Server. Connected SAP and AYU enterprise systems via custom API layer.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">SAP HANA</span><span class="ptag">Google AppSheet</span><span class="ptag">AppScript</span><span class="ptag">RDP Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 09 — Dilmah -->
+                <div class="proj-row">
+                    <div class="proj-n">09</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Dilmah Product Development Workflow</div>
+                                <div class="proj-row-per">June 2022 – February 2023</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openDilmahImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Automated new product development pipeline for Dilmah Tea — multi-stage product creation and approval workflows across departments, eliminating manual paper processes.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Google AppSheet</span><span class="ptag">Cloud SQL</span><span class="ptag">Workflow Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 — Sarvodaya -->
+                <div class="proj-row">
+                    <div class="proj-n">10</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Sarvodaya Development Finance Workflow Suite</div>
+                                <div class="proj-row-per">March 2020 – September 2021</div>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Digital transformation: 10+ workflows including Travel & Subsistence, Fund Transfers, HRIS, Stock Management, and Bank Reconciliation. Centralised Access Management App with SMS integration.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Google AppSheet</span><span class="ptag">AppScript</span>
+                            <span class="ptag">Cloud SQL</span><span class="ptag">SMS Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11 — BNS OPMS -->
+                <div class="proj-row">
+                    <div class="proj-n">11</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">BNS Music — Organisational Project Management System</div>
+                                <div class="proj-row-per">BNS Music · Enterprise Workflow Solution</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <button class="plink" onclick="openBnsImageSlider()"><i class="fas fa-images"></i> Screenshots</button>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Web & mobile OPMS replacing manual job sheet processes for BNS Music's two organisational clusters. Multi-level digital approval workflow (Production → Cluster Finance → Director → Central Finance), budgeted vs actual cost tracking, job sheet lifecycle management, and cluster-level segregation of duties — all built on AppSheet, Apps Script, and Cloud SQL.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Google AppSheet</span><span class="ptag">Apps Script</span>
+                            <span class="ptag">Cloud SQL</span><span class="ptag">Workflow Automation</span><span class="ptag">Multi-level Approval</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12 — Parking -->
+                <div class="proj-row">
+                    <div class="proj-n">12</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Smart Urban Parking Solution</div>
+                                <div class="proj-row-per">Research Project</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://github.com/sachiantany/Pay-As-You-Park/tree/master/payp-web" class="plink" target="_blank"><i class="fab fa-github"></i> Web</a>
+                                <a href="https://github.com/sachiantany/payp-surface-detection-model" class="plink dim" target="_blank">ML Model</a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Real-time urban parking with mobile app for drivers and web platform for lot owners. ML surface detection model for space validation.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Machine Learning</span><span class="ptag">Mobile App</span><span class="ptag">Web Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13 — Ceylon Explorer -->
+                <div class="proj-row">
+                    <div class="proj-n">13</div>
+                    <div class="proj-row-body">
+                        <div class="proj-row-top">
+                            <div>
+                                <div class="proj-row-title">Ceylon Explorer — Travel Booking System</div>
+                                <div class="proj-row-per">March 2024 – May 2024</div>
+                            </div>
+                            <div class="proj-row-links">
+                                <a href="https://github.com/sachiantany/ceylonExplorer" class="plink" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <p class="proj-row-desc">Modular travel booking and management system built with Flutter, Clean Architecture, and BLoC. Designed for scalability across multiple travel verticals.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Flutter</span><span class="ptag">Clean Architecture</span><span class="ptag">BLoC</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CONTACT ═══════════════════════════════════════════ -->
+    <section id="contact" class="sec" style="background: var(--bg-2);">
+        <div class="sec-inner">
+            <div class="sec-label"><span class="n">05 —</span> Contact</div>
+            <h2 class="sec-title">Let's Work Together</h2>
+            <p class="sec-sub">Open to senior engineering roles, technical consulting, and interesting build collaborations.</p>
+            <div class="contact-grid fu">
+                <div>
+                    <div class="c-row">
+                        <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                        <div><div class="c-lbl">Email</div><a href="mailto:sachi.antany@gmail.com" class="c-val">sachi.antany@gmail.com</a></div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-icon"><i class="fas fa-phone"></i></div>
+                        <div><div class="c-lbl">Phone</div><a href="tel:+94717804901" class="c-val">+94 717 804 901</a></div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><div class="c-lbl">Location</div><span class="c-val">Veyangoda, Sri Lanka</span></div>
+                    </div>
+                    <div class="c-socials">
+                        <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" class="c-soc" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/sachiantany" class="c-soc" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/sachintha.antany" class="c-soc" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/sachi_antany/" class="c-soc" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form id="contactForm">
+                    <div class="form-f"><label class="form-l" for="name">Name</label><input type="text" id="name" name="name" class="form-i" required></div>
+                    <div class="form-f"><label class="form-l" for="email">Email</label><input type="email" id="email" name="email" class="form-i" required></div>
+                    <div class="form-f"><label class="form-l" for="subject">Subject</label><input type="text" id="subject" name="subject" class="form-i" required></div>
+                    <div class="form-f"><label class="form-l" for="message">Message</label><textarea id="message" name="message" class="form-i form-ta" required></textarea></div>
+                    <button type="submit" class="btn-fill" style="width:100%; justify-content:center;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-copy">© 2025 Sachintha Madushan Antany — BSc (Hons) IT, SLIIT</div>
+            <div class="footer-socs">
+                <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/sachiantany" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/sachintha.antany" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sachi_antany/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══ MODALS ════════════════════════════════════════════ -->
+
+    <!-- Hive Trendz -->
+    <div class="image-slider-modal" id="htImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Hive Trendz — Mobile & Web Screenshots</div>
+                <button class="close-slider" onclick="closeModal('htImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentHtSlide">1</span> / <span id="totalHtSlides">9</span></div>
+                <img src="images/ht-mobile/ht1.png" alt="Hive Trendz Mobile 1" class="slider-image active">
+                <img src="images/ht-mobile/ht2.png" alt="Hive Trendz Mobile 2" class="slider-image">
+                <img src="images/ht-mobile/ht3.png" alt="Hive Trendz Mobile 3" class="slider-image">
+                <img src="images/ht-mobile/ht4.png" alt="Hive Trendz Mobile 4" class="slider-image">
+                <img src="images/ht-web/ht1.png" alt="Hive Trendz Web 1" class="slider-image">
+                <img src="images/ht-web/ht2.png" alt="Hive Trendz Web 2" class="slider-image">
+                <img src="images/ht-web/ht3.png" alt="Hive Trendz Web 3" class="slider-image">
+                <img src="images/ht-web/ht4.png" alt="Hive Trendz Web 4" class="slider-image">
+                <img src="images/ht-web/ht5.png" alt="Hive Trendz Web 5" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('ht')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('ht')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('ht',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',3)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',4)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',5)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',6)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',7)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',8)"></div>
+                    <div class="slider-dot" onclick="goSlide('ht',9)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RhythmCore -->
+    <div class="image-slider-modal" id="imageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">RhythmCore — Project Screenshots</div>
+                <button class="close-slider" onclick="closeImageSlider()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentSlide">1</span> / <span id="totalSlides">7</span></div>
+                <img src="images/rc/rc1.png" alt="" class="slider-image active">
+                <img src="images/rc/rc2.png" alt="" class="slider-image">
+                <img src="images/rc/rc3.png" alt="" class="slider-image">
+                <img src="images/rc/rc4.png" alt="" class="slider-image">
+                <img src="images/rc/rc5.png" alt="" class="slider-image">
+                <img src="images/rc/rc6.png" alt="" class="slider-image">
+                <img src="images/rc/rc7.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('rc')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('rc')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('rc',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',3)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',4)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',5)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',6)"></div>
+                    <div class="slider-dot" onclick="goSlide('rc',7)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dilmah -->
+    <div class="image-slider-modal" id="dilmahImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Dilmah Product Development Workflow — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('dilmahImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentDilmahSlide">1</span> / <span id="totalDilmahSlides">5</span></div>
+                <img src="images/dl/dl1.png" alt="" class="slider-image active">
+                <img src="images/dl/dl2.png" alt="" class="slider-image">
+                <img src="images/dl/dl3.png" alt="" class="slider-image">
+                <img src="images/dl/dl4.png" alt="" class="slider-image">
+                <img src="images/dl/dl5.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('dl')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('dl')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('dl',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',3)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',4)"></div>
+                    <div class="slider-dot" onclick="goSlide('dl',5)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SANASA -->
+    <div class="image-slider-modal" id="sanasaImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">SANASA Life Insurance Integration — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('sanasaImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentSanasaSlide">1</span> / <span id="totalSanasaSlides">3</span></div>
+                <img src="images/san/san1.png" alt="" class="slider-image active">
+                <img src="images/san/san2.png" alt="" class="slider-image">
+                <img src="images/san/san3.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('san')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('san')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('san',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('san',2)"></div>
+                    <div class="slider-dot" onclick="goSlide('san',3)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Litro -->
+    <div class="image-slider-modal" id="litroImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Litro Gas Distribution System — App Showcase</div>
+                <button class="close-slider" onclick="closeModal('litroImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <img src="images/lit/lit.png" alt="Litro App" class="slider-image active" style="max-width:100%;max-height:72vh;object-fit:contain;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Litro SPO Hub -->
+    <div class="image-slider-modal" id="lhImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">Litro Gas — SPO Hub & Sales POS — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('lhImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentLhSlide">1</span> / <span id="totalLhSlides">2</span></div>
+                <img src="images/lh/lh1.png" alt="Litro SPO Hub Screenshot 1" class="slider-image active">
+                <img src="images/lh/lh2.png" alt="Litro SPO Hub Screenshot 2" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('lh')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('lh')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('lh',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('lh',2)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DocIt -->
+    <div class="image-slider-modal" id="docItImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">DocIt Document Management System — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('docItImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentDocItSlide">1</span> / <span id="totalDocItSlides">2</span></div>
+                <img src="images/doc/d1.png" alt="" class="slider-image active">
+                <img src="images/doc/d2.png" alt="" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('doc')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('doc')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('doc',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('doc',2)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BNS -->
+    <div class="image-slider-modal" id="bnsImageSliderModal">
+        <div class="image-slider-container">
+            <div class="slider-header">
+                <div class="slider-title">BNS Music OPMS — Screenshots</div>
+                <button class="close-slider" onclick="closeModal('bnsImageSliderModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slider-content">
+                <div class="slider-counter"><span id="currentBnsSlide">1</span> / <span id="totalBnsSlides">2</span></div>
+                <img src="images/bns/web.png" alt="BNS OPMS Web" class="slider-image active">
+                <img src="images/bns/mobile.png" alt="BNS OPMS Mobile" class="slider-image">
+                <button class="slider-nav slider-prev" onclick="prevSlide('bns')"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav slider-next" onclick="nextSlide('bns')"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <div class="slider-dot active" onclick="goSlide('bns',1)"></div>
+                    <div class="slider-dot" onclick="goSlide('bns',2)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

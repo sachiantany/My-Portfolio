@@ -1,0 +1,13 @@
+{
+  "active": "blue-theme",
+  "themes": {
+    "blue-theme": {
+      "file": "assets/themes/blue-theme.html",
+      "description": "Blue ocean \u2014 Inter + Instrument Serif + JetBrains Mono"
+    },
+    "dark-theme": {
+      "file": "assets/themes/dark-theme.html",
+      "description": "Dark green \u2014 Syne + Space Mono, with image sliders"
+    }
+  }
+}

@@ -1,10 +1,13 @@
 {
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [
-      "Bash(python generate_cv.py)"
+      "Bash(python generate_cv.py)",
+      "Bash(chmod +x *)",
+      "Bash(./apply-theme.sh blue-theme *)",
+      "Bash(./apply-theme.sh *)"
     ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
   }
 }
