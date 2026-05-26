@@ -783,6 +783,94 @@
   .store-badge:hover { border-color: var(--cyan); color: var(--paper); }
   .store-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
 
+  /* ───── CERTIFICATIONS ───── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .cert-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 20px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .2s, background .2s, transform .2s;
+  }
+  .cert-card:hover {
+    border-color: var(--cyan);
+    background: rgba(73,136,196,0.06);
+    transform: translateY(-2px);
+  }
+  .cert-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+  .cert-body { flex: 1; min-width: 0; }
+  .cert-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--paper);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .cert-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cert-level {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .cert-level.adv { color: var(--cyan); border-color: rgba(73,136,196,0.4); background: rgba(73,136,196,0.08); }
+  .cert-level.int { color: var(--blue); border-color: rgba(38,88,154,0.5); background: rgba(38,88,154,0.08); }
+  .cert-level.fnd { color: var(--dim); border-color: var(--line-2); background: rgba(255,255,255,0.03); }
+  .cert-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--dimmer);
+    letter-spacing: 0.06em;
+  }
+  .cert-issuer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.06em;
+    margin-top: 5px;
+  }
+  .certs-footer {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .certs-footer a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(73,136,196,0.35);
+    padding-bottom: 2px;
+    transition: border-color .2s;
+  }
+  .certs-footer a:hover { border-color: var(--cyan); }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .container { padding: 0 28px; }
@@ -807,6 +895,10 @@
     .exp-header, .exp-body { padding: 24px; }
     .contact-row { grid-template-columns: 1fr; gap: 4px; }
     .contact-row .arrow { display: none; }
+    .certs-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 1024px) and (min-width: 641px) {
+    .certs-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -1086,11 +1178,104 @@
   </div>
 </section>
 
+<!-- ─── CERTIFICATIONS ─── -->
+<section class="section" id="certifications">
+  <div class="container">
+    <div class="section-head">
+      <div class="sec-label"><b>04</b> &nbsp;/&nbsp; Certifications</div>
+      <div>
+        <h2 class="sec-title">Google Cloud <span class="it">credentials</span></h2>
+        <p class="sec-blurb">Verified badges on <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank" style="color:var(--cyan);text-decoration:none;">Credly</a> — 13 badges earned across GCP infrastructure, AI, and serverless</p>
+      </div>
+    </div>
+
+    <div class="certs-grid">
+
+      <a class="cert-card" href="https://www.credly.com/badges/cb7d2b30-ca64-49c6-aa33-8b89923df6d9" target="_blank">
+        <img class="cert-img" src="https://images.credly.com/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png" alt="Professional Cloud Architect" loading="lazy">
+        <div class="cert-body">
+          <div class="cert-name">Professional Cloud Architect Certification</div>
+          <div class="cert-meta">
+            <span class="cert-level adv">Advanced</span>
+            <span class="cert-date">Dec 2022</span>
+          </div>
+          <div class="cert-issuer">Google Cloud</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/4652af21-f3e8-4c99-bf62-2119e81b9474" target="_blank">
+        <img class="cert-img" src="https://images.credly.com/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Associate Cloud Engineer" loading="lazy">
+        <div class="cert-body">
+          <div class="cert-name">Associate Cloud Engineer Certification</div>
+          <div class="cert-meta">
+            <span class="cert-level int">Intermediate</span>
+            <span class="cert-date">Mar 2023</span>
+          </div>
+          <div class="cert-issuer">Google Cloud</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/ddb2bba7-a6fa-420f-8853-19b8d0c9d99f" target="_blank">
+        <img class="cert-img" src="https://images.credly.com/images/7b366a6a-fd35-463f-bec3-682e1b612a44/blob" alt="Configure AI Applications" loading="lazy">
+        <div class="cert-body">
+          <div class="cert-name">Configure AI Applications to Optimize Search Results</div>
+          <div class="cert-meta">
+            <span class="cert-level adv">Advanced</span>
+            <span class="cert-date">May 2026</span>
+          </div>
+          <div class="cert-issuer">Google Cloud</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/6b326bbb-cc72-41c5-88e3-3b6358f4f98f" target="_blank">
+        <img class="cert-img" src="https://images.credly.com/images/06a71375-44a3-4702-83db-90fa8b47aa1c/blob" alt="Vertex AI Search" loading="lazy">
+        <div class="cert-body">
+          <div class="cert-name">Create and Maintain Vertex AI Search Data Stores</div>
+          <div class="cert-meta">
+            <span class="cert-level adv">Advanced</span>
+            <span class="cert-date">May 2026</span>
+          </div>
+          <div class="cert-issuer">Google Cloud</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/c69787c3-af65-4dee-af08-cf750600c3b2" target="_blank">
+        <img class="cert-img" src="https://images.credly.com/images/96153eb1-e9b1-496f-9278-e0dd26a76af3/blob" alt="AI Applications" loading="lazy">
+        <div class="cert-body">
+          <div class="cert-name">Build Search &amp; Recommendations with AI Applications</div>
+          <div class="cert-meta">
+            <span class="cert-level int">Intermediate</span>
+            <span class="cert-date">Apr 2026</span>
+          </div>
+          <div class="cert-issuer">Google Cloud</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/9012073e-f9e0-43fd-839b-98adff1f2adc" target="_blank">
+        <img class="cert-img" src="https://images.credly.com/images/71b9b0df-64f1-4c0a-867f-942e2a5a5a14/image.png" alt="Cloud Run" loading="lazy">
+        <div class="cert-body">
+          <div class="cert-name">Develop Serverless Applications on Cloud Run</div>
+          <div class="cert-meta">
+            <span class="cert-level int">Intermediate</span>
+            <span class="cert-date">Mar 2026</span>
+          </div>
+          <div class="cert-issuer">Google Cloud</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="certs-footer">
+      <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank">View all 13 badges on Credly →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── PROJECTS ─── -->
 <section class="section" id="projects">
   <div class="container">
     <div class="section-head">
-      <div class="sec-label"><b>04</b> &nbsp;/&nbsp; Projects</div>
+      <div class="sec-label"><b>05</b> &nbsp;/&nbsp; Projects</div>
       <div>
         <h2 class="sec-title">Selected <span class="it">work</span></h2>
         <p class="sec-blurb">
@@ -1454,7 +1639,7 @@
 <section class="contact" id="contact">
   <div class="container">
     <div class="section-head">
-      <div class="sec-label"><b>05</b> &nbsp;/&nbsp; Contact</div>
+      <div class="sec-label"><b>06</b> &nbsp;/&nbsp; Contact</div>
       <div>
         <h2 class="sec-title">Let's <span class="it">work</span> together</h2>
         <p class="sec-blurb">
