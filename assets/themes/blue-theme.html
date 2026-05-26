@@ -452,8 +452,32 @@
     grid-template-columns: 1fr 1fr;
     gap: 48px;
   }
-  .exp-summary { color: var(--dim); font-size: 18px; line-height: 1.75; }
+  .exp-summary { color: var(--dim); font-size: 18px; line-height: 1.75; display: flex; flex-direction: column; gap: 18px; }
+  .exp-summary p { margin: 0; }
   .exp-summary b { color: var(--paper); font-weight: 500; }
+  .exp-kpis {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .exp-kpi { display: flex; flex-direction: column; gap: 3px; }
+  .exp-kpi-num {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--cyan);
+    line-height: 1;
+  }
+  .exp-kpi-lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dimmer);
+  }
   .exp-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
   .exp-list li {
     display: flex;
@@ -1159,19 +1183,37 @@
       </div>
       <div class="exp-body">
         <div class="exp-summary">
-          Leading development of <b>production mobile applications</b> and enterprise workflow automation
-          for major Sri Lankan organisations. Architecting scalable solutions from Flutter mobile to
-          GCP cloud infrastructure — integrating with SAP, social APIs, and third-party enterprise systems.
+          <p>Leading development of <b>production mobile applications</b> and <b>enterprise workflow automation</b> for major Sri Lankan organisations across finance, insurance, manufacturing, and distribution sectors. Architecting end-to-end solutions from Flutter mobile to GCP cloud infrastructure — integrating SAP B1 (HANA/SQL), social APIs, and third-party enterprise systems.</p>
+          <p>Mobile products are built on <b>Clean Architecture + BLoC</b> with offline-first <b>Drift SQLite</b> sync, GPS check-in, OCR document processing, and deep ERP integration. Automation spans <b>AppSheet</b> low-code forms, <b>Google Apps Script</b> orchestration, and Cloud Run microservices — replacing paper-based operations across 12+ client organisations.</p>
+          <div class="exp-kpis">
+            <div class="exp-kpi">
+              <span class="exp-kpi-num">6+</span>
+              <span class="exp-kpi-lbl">Years at Finetech</span>
+            </div>
+            <div class="exp-kpi">
+              <span class="exp-kpi-num">20+</span>
+              <span class="exp-kpi-lbl">Automation Systems</span>
+            </div>
+            <div class="exp-kpi">
+              <span class="exp-kpi-num">80%</span>
+              <span class="exp-kpi-lbl">Paper Reduction</span>
+            </div>
+            <div class="exp-kpi">
+              <span class="exp-kpi-num">12+</span>
+              <span class="exp-kpi-lbl">Enterprise Clients</span>
+            </div>
+          </div>
         </div>
         <ul class="exp-list">
-          <li>Led full-cycle development of <b>Timespot</b> — attendance, task tracking, leave &amp; WFH approvals — live on Play &amp; App Store</li>
-          <li>Architected <b>DocIt</b> Document Management System with OCR-based full-text search and dynamic field indexing</li>
+          <li>Led full-cycle development of <b>Timespot</b> — GPS check-in/out, task &amp; sub-task tracking, leave &amp; WFH approval workflows — live on Play &amp; App Store</li>
+          <li>Built <b>Litro Gas SPO Hub &amp; Sales POS</b> — offline-first dealer visit management, promotions tracking, and island-wide gas distribution recording with Drift SQLite background sync</li>
+          <li>Architected <b>DocIt</b> — OCR-powered Document Management System with full-text search, dynamic field indexing, and Flutter Clean Architecture</li>
           <li>Delivered <b>20+ workflow automation systems</b> for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, BNS Music</li>
-          <li>Achieved <b>80% paper reduction</b> across enterprise implementations using AppSheet &amp; Google App Script</li>
-          <li>Integrated <b>SAP B1 (HANA/SQL)</b> into payment workflows, approval mechanisms, and HRIS systems</li>
-          <li>Built <b>Hive Trendz</b> — AI-powered social media automation with LLaMA 3.3 70B on-device pipeline</li>
-          <li>Developed <b>Flutter Feature Generator CLI</b> — scaffolds ~25-file full-stack features in one command</li>
-          <li>Guided teams on architecture decisions, code reviews, and system integration patterns</li>
+          <li>Integrated <b>SAP B1 (HANA/SQL)</b> into payment workflows, multi-level approval mechanisms, and HRIS digitisation</li>
+          <li>Built <b>BNS Music OPMS</b> — multi-level digital approval workflow (Production → Finance → Director) replacing manual job sheets, with budgeted vs actual cost tracking</li>
+          <li>Built <b>Hive Trendz</b> — autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), FFmpeg video editing, and direct Facebook &amp; Instagram publishing</li>
+          <li>Developed <b>Flutter Feature Generator CLI</b> — scaffolds ~25-file Clean Architecture + BLoC + Drift + Spring Boot features in one command</li>
+          <li>Mentored developers on Clean Architecture patterns, GCP integration, and cross-team system design</li>
         </ul>
       </div>
     </div>
