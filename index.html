@@ -452,12 +452,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 48px;
   }
-  .exp-summary { color: var(--dim); font-size: 16px; line-height: 1.7; }
+  .exp-summary { color: var(--dim); font-size: 18px; line-height: 1.75; }
   .exp-summary b { color: var(--paper); font-weight: 500; }
   .exp-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
   .exp-list li {
-    display: grid;
-    grid-template-columns: 28px 1fr;
+    display: flex;
+    align-items: flex-start;
     gap: 14px;
     font-size: 14.5px;
     color: var(--paper);
@@ -469,6 +469,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
     padding-top: 2px;
+    flex-shrink: 0;
   }
 
   /* ───── PROJECTS ───── */
@@ -614,6 +615,8 @@
     border-bottom: 1px solid var(--line);
     align-items: center;
     transition: padding .2s;
+    text-decoration: none;
+    color: inherit;
   }
   .contact-row:hover { padding-left: 18px; }
   .contact-row .lbl {

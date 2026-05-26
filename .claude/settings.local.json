@@ -4,7 +4,12 @@
       "Bash(python generate_cv.py)",
       "Bash(chmod +x *)",
       "Bash(./apply-theme.sh blue-theme *)",
-      "Bash(./apply-theme.sh *)"
+      "Bash(./apply-theme.sh *)",
+      "Bash(curl -s \"https://www.credly.com/users/sachintha-antany.1f19a389/badges.json\" -H \"Accept: application/json\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s \"https://www.credly.com/users/sachintha-antany.1f19a389/badges.json?page=1&page_size=50\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -sI \"https://www.credly.com/users/sachintha-antany.1f19a389/badges.json\")"
     ]
   },
   "enabledPlugins": {
