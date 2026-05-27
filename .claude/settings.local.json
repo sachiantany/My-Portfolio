@@ -10,7 +10,15 @@
       "Bash(curl -s \"https://www.credly.com/users/sachintha-antany.1f19a389/badges.json?page=1&page_size=50\")",
       "Bash(python3 -c ' *)",
       "Bash(curl -sI \"https://www.credly.com/users/sachintha-antany.1f19a389/badges.json\")",
-      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio status)"
+      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio status)",
+      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio log --oneline -5)",
+      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio diff HEAD -- index.html)",
+      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio add google2eb713537cc4dc5c.html)",
+      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio commit -m \"feat: add Google Search Console verification file\")",
+      "Bash(git -C /Users/sachiantany/Dev/My/My-Portfolio push)",
+      "Bash(gh api *)",
+      "WebFetch(domain:github.com)",
+      "WebSearch"
     ]
   },
   "enabledPlugins": {

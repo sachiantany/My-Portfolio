@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sachiantany.github.io/My-Portfolio/sitemap.xml
+Sitemap: https://sachintha-antany.netlify.app/sitemap.xml

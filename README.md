@@ -1,6 +1,6 @@
 # Sachintha Antany - Portfolio Website
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://sachiantany.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://sachintha-antany.netlify.app)
 [![Flutter](https://img.shields.io/badge/Flutter-Expert-blue)](https://flutter.dev)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Professional-orange)](https://cloud.google.com)
 
@@ -125,4 +125,4 @@ This portfolio is built using HTML5 UP Editorial template under CCA 3.0 license,
 *"Passionate about building scalable, user-centric applications with modern technologies"*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sachintha-antany-b48784168/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=for-the-badge&logo=web)](https://sachiantany.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=for-the-badge&logo=web)](https://sachintha-antany.netlify.app)
