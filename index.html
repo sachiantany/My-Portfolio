@@ -155,6 +155,22 @@
   }
   .nav-cv::before { display: none; }
   .nav-cv:hover { background: var(--cyan); color: var(--ink) !important; border-color: var(--cyan); }
+  .nav-toggle {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 42px; padding: 0;
+    background: rgba(6,23,49,0.4);
+    border: 1px solid var(--line-2); border-radius: 10px;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block; width: 18px; height: 2px; margin: 0 auto;
+    background: var(--cyan); border-radius: 2px;
+    transition: transform .25s, opacity .2s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* ───── HERO ───── */
   section.hero {
@@ -979,7 +995,25 @@
     .exp-body { grid-template-columns: 1fr; gap: 28px; }
     .projects-grid > * { grid-column: span 12 !important; }
     .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    .nav-links a:not(.nav-cv) { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: rgba(6,23,49,0.97);
+      backdrop-filter: blur(14px) saturate(1.2);
+      border-bottom: 1px solid var(--line);
+      padding: 0 28px;
+      max-height: 0; overflow: hidden; opacity: 0;
+      pointer-events: none;
+      transition: max-height .32s ease, opacity .25s ease, padding .32s ease;
+    }
+    .nav-links.open {
+      max-height: 70vh; opacity: 1; pointer-events: auto;
+      padding: 8px 28px 22px;
+    }
+    .nav-links a { padding: 15px 4px; font-size: 13px; border-bottom: 1px solid var(--line); }
+    .nav-links a:last-child { border-bottom: none; }
+    .nav-cv { margin-top: 14px; justify-content: center; padding: 13px 18px; }
   }
   @media (max-width: 640px) {
     .container { padding: 0 20px; }
@@ -1000,8 +1034,8 @@
 <!-- ─── NAV ─── -->
 <header class="nav">
   <div class="nav-inner">
-    <a href="#home" class="logo">SA<span>*.*</span></a>
-    <nav class="nav-links">
+    <a href="#home" class="logo">SA<span>.</span></a>
+    <nav class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Work</a>
@@ -1009,6 +1043,9 @@
       <a href="#contact">Contact</a>
       <a href="cv/cv.pdf" class="nav-cv" download>Download CV ↓</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -1105,7 +1142,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 16a4 4 0 1 1 1-7.9 5 5 0 0 1 9.5 1.4A3.5 3.5 0 0 1 17 16"/><path d="M12 12v8m-3-3l3 3 3-3"/></svg>
         </div>
         <h3>Cloud &amp; <span class="it">automation</span></h3>
-        <p>GCP, Cloud Run, Docker, Firebase. Workflow automation for Dilmah, SANASA, Sarvodaya — 80% paper reduction across enterprise implementations.</p>
+        <p>GCP, Cloud Run, Docker, Firebase. Workflow automation for Dilmah, SANASA, and Sarvodaya, cutting paper use by 80% across enterprise implementations.</p>
       </div>
       <div class="pillar">
         <div class="pillar-num">▲ A3</div>
@@ -1118,7 +1155,7 @@
     </div>
 
     <div class="brands">
-      <div class="brands-label">— Trusted by leading organisations —</div>
+      <div class="brands-label">Trusted by leading organisations</div>
       <div class="brand-row">
         <span class="brand-chip flag">★ Finetech</span>
         <span class="brand-chip">SANASA</span>
@@ -1145,7 +1182,7 @@
       <div>
         <h2 class="sec-title">Technical <span class="it">stack</span></h2>
         <p class="sec-blurb">
-          The tools and technologies I reach for to build production systems —
+          The tools and technologies I reach for to build production systems across
           mobile, backend, cloud, automation, and the unloved glue in between.
         </p>
       </div>
@@ -1228,8 +1265,8 @@
       <div>
         <h2 class="sec-title">Professional <span class="it">journey</span></h2>
         <p class="sec-blurb">
-          Building and shipping production systems across mobile, cloud, and enterprise automation —
-          one organisation, many product surfaces.
+          Building and shipping production systems across mobile, cloud, and enterprise automation.
+          One organisation, many product surfaces.
         </p>
       </div>
     </div>
@@ -1252,8 +1289,8 @@
       </div>
       <div class="exp-body">
         <div class="exp-summary">
-          <p>Leading development of <b>production mobile applications</b> and <b>enterprise workflow automation</b> for major Sri Lankan organisations across finance, insurance, manufacturing, and distribution sectors. Architecting end-to-end solutions from Flutter mobile to GCP cloud infrastructure — integrating SAP B1 (HANA/SQL), social APIs, and third-party enterprise systems.</p>
-          <p>Mobile products are built on <b>Clean Architecture + BLoC</b> with offline-first <b>Drift SQLite</b> sync, GPS check-in, OCR document processing, and deep ERP integration. Automation spans <b>AppSheet</b> low-code forms, <b>Google Apps Script</b> orchestration, and Cloud Run microservices — replacing paper-based operations across 12+ client organisations.</p>
+          <p>Leading development of <b>production mobile applications</b> and <b>enterprise workflow automation</b> for major Sri Lankan organisations across finance, insurance, manufacturing, and distribution sectors. Architecting end-to-end solutions from Flutter mobile to GCP cloud infrastructure, integrating SAP B1 (HANA/SQL), social APIs, and third-party enterprise systems.</p>
+          <p>Mobile products are built on <b>Clean Architecture + BLoC</b> with offline-first <b>Drift SQLite</b> sync, GPS check-in, OCR document processing, and deep ERP integration. Automation spans <b>AppSheet</b> low-code forms, <b>Google Apps Script</b> orchestration, and Cloud Run microservices, replacing paper-based operations across 12+ client organisations.</p>
           <div class="exp-kpis">
             <div class="exp-kpi">
               <span class="exp-kpi-num">6+</span>
@@ -1274,14 +1311,14 @@
           </div>
         </div>
         <ul class="exp-list">
-          <li>Led full-cycle development of <b>Timespot</b> — GPS check-in/out, task &amp; sub-task tracking, leave &amp; WFH approval workflows — live on Play &amp; App Store</li>
-          <li>Built <b>Litro Gas SPO Hub &amp; Sales POS</b> — offline-first dealer visit management, promotions tracking, and island-wide gas distribution recording with Drift SQLite background sync</li>
-          <li>Architected <b>DocIt</b> — OCR-powered Document Management System with full-text search, dynamic field indexing, and Flutter Clean Architecture</li>
+          <li>Led full-cycle development of <b>Timespot</b>, covering GPS check-in/out, task &amp; sub-task tracking, and leave &amp; WFH approval workflows. Live on Play &amp; App Store</li>
+          <li>Built <b>Litro Gas SPO Hub &amp; Sales POS</b> with offline-first dealer visit management, promotions tracking, and island-wide gas distribution recording on Drift SQLite background sync</li>
+          <li>Architected <b>DocIt</b>, an OCR-powered Document Management System with full-text search, dynamic field indexing, and Flutter Clean Architecture</li>
           <li>Delivered <b>20+ workflow automation systems</b> for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, BNS Music</li>
           <li>Integrated <b>SAP B1 (HANA/SQL)</b> into payment workflows, multi-level approval mechanisms, and HRIS digitisation</li>
-          <li>Built <b>BNS Music OPMS</b> — multi-level digital approval workflow (Production → Finance → Director) replacing manual job sheets, with budgeted vs actual cost tracking</li>
-          <li>Built <b>Hive Trendz</b> — autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), FFmpeg video editing, and direct Facebook &amp; Instagram publishing</li>
-          <li>Developed <b>Flutter Feature Generator CLI</b> — scaffolds ~25-file Clean Architecture + BLoC + Drift + Spring Boot features in one command</li>
+          <li>Built <b>BNS Music OPMS</b>, a multi-level digital approval workflow (Production → Finance → Director) that replaced manual job sheets, with budgeted vs actual cost tracking</li>
+          <li>Built <b>Hive Trendz</b>, an autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), FFmpeg video editing, and direct Facebook &amp; Instagram publishing</li>
+          <li>Developed <b>Flutter Feature Generator CLI</b> that scaffolds ~25-file Clean Architecture + BLoC + Drift + Spring Boot features in one command</li>
           <li>Mentored developers on Clean Architecture patterns, GCP integration, and cross-team system design</li>
         </ul>
       </div>
@@ -1296,7 +1333,7 @@
       <div class="sec-label"><b>04</b> &nbsp;/&nbsp; Certifications</div>
       <div>
         <h2 class="sec-title">Google Cloud <span class="it">credentials</span></h2>
-        <p class="sec-blurb">Verified badges on <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank" style="color:var(--cyan);text-decoration:none;">Credly</a> — 13 badges earned across GCP infrastructure, AI, and serverless</p>
+        <p class="sec-blurb">Verified badges on <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank" style="color:var(--cyan);text-decoration:none;">Credly</a>, with 13 earned across GCP infrastructure, AI, and serverless</p>
       </div>
     </div>
 
@@ -1390,7 +1427,7 @@
       <div>
         <h2 class="sec-title">Selected <span class="it">work</span></h2>
         <p class="sec-blurb">
-          Production systems, personal builds, and open tooling — a sample of the
+          Production systems, personal builds, and open tooling. A sample of the
           last six years of shipping.
         </p>
       </div>
@@ -1403,15 +1440,15 @@
         <div class="p-corner">01 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
-          <h3 class="p-title">Sela — AI <span class="it">gift concierge</span> for Kapruka 🛍️</h3>
+          <h3 class="p-title">Sela: AI <span class="it">gift concierge</span> for Kapruka 🛍️</h3>
           <p class="p-desc">
             A full-screen conversational shopping agent that lets Sri Lankans find and buy gifts through natural
-            chat — in English, Sinhala, or Tanglish — turning Kapruka's live product catalog into rich, generative
-            UI and taking the user from <em>"I need a gift for amma"</em> all the way to a payment link.
+            chat in English, Sinhala, or Tanglish. It turns Kapruka's live product catalog into rich, generative
+            UI and takes the user from <em>"I need a gift for amma"</em> all the way to a payment link.
           </p>
           <p class="p-desc">
-            The entire storefront <em>is</em> the chat. An LLM brain connects to Kapruka's public MCP server —
-            real product search, category browsing, delivery quotes, and guest-checkout order creation — and streams
+            The entire storefront <em>is</em> the chat. An LLM brain connects to Kapruka's public MCP server for
+            real product search, category browsing, delivery quotes, and guest-checkout order creation, then streams
             tool results back as generative UI: animated product carousels, delivery-quote cards, and a celebratory
             payment card, never walls of text. A production-grade multi-provider fallback
             (<b style="color:var(--cyan);font-weight:500;">Claude → Groq → Gemini</b>) keeps the agent self-healing,
@@ -1443,7 +1480,7 @@
         <div class="p-corner">02 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Autonomous AI pipeline</div>
-          <h3 class="p-title">Hive Trendz — AI <span class="it">social media</span> automation</h3>
+          <h3 class="p-title">Hive Trendz: AI <span class="it">social media</span> automation</h3>
           <p class="p-desc">
             Autonomous news-to-post pipeline: discovers trending articles, generates branded content via
             LLaMA 3.3 70B (Groq API), and publishes to Facebook &amp; Instagram with zero manual effort.
@@ -1471,7 +1508,7 @@
           <div class="p-kicker"><b>Personal · Open Tooling</b></div>
           <h3 class="p-title">Flutter Feature <span class="it">Generator</span> CLI</h3>
           <p class="p-desc">
-            Production-grade Dart CLI that scaffolds an entire full-stack feature (~25 files) in one command —
+            Production-grade Dart CLI that scaffolds an entire full-stack feature (~25 files) in one command:
             Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend.
             Born while architecting the Litro Gas offline-first pipeline.
           </p>
@@ -1502,7 +1539,7 @@
             <p class="p-desc" style="margin-bottom:10px;">
               One command generates ~25 files across the full stack. Auth generation (<code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">--auth firebase</code>)
               wires the complete auth layer automatically. Platform-aware <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">ApiConfig</code>
-              auto-selects the correct backend URL for emulator, device, or web — zero manual config.
+              auto-selects the correct backend URL for emulator, device, or web, with zero manual config.
             </p>
             <div class="ffg-pre">workspace/
 │
@@ -1567,7 +1604,7 @@
           <div class="p-kicker"><b>Litro Gas Lanka</b> · Cloud-based</div>
           <h3 class="p-title">Dealer Stock <span class="it">recommendation</span> engine</h3>
           <p class="p-desc">
-            Intelligent stock recommendation algorithms for Litro's island-wide distribution network —
+            Intelligent stock recommendation algorithms for Litro's island-wide distribution network,
             a 3-app ecosystem tracking gas cylinder flow across all dealers and drivers. Historical
             sales analytics with predictive modelling on GCP.
           </p>
@@ -1608,9 +1645,9 @@
         <div class="p-corner">06</div>
         <div class="p-body" style="padding-top:28px;">
           <div class="p-kicker"><b>Finetech</b> · Sep 2023 — Present</div>
-          <h3 class="p-title">Timespot — <span class="it">attendance</span> &amp; PM</h3>
+          <h3 class="p-title">Timespot: <span class="it">attendance</span> &amp; PM</h3>
           <p class="p-desc">
-            Cross-platform Flutter app for enterprise attendance — GPS-based check-in/out, daily task creation
+            Cross-platform Flutter app for enterprise attendance: GPS-based check-in/out, daily task creation
             with sub-task breakdown and real-time progress tracking, leave requests with multi-level approvals,
             and WFH request workflows. Live on Play Store &amp; App Store.
           </p>
@@ -1638,7 +1675,7 @@
         <div class="p-corner">07</div>
         <div class="p-body">
           <div class="p-kicker"><b>Freelance Project</b></div>
-          <h3 class="p-title">RhythmCore — <span class="it">event</span> ticketing</h3>
+          <h3 class="p-title">RhythmCore: <span class="it">event</span> ticketing</h3>
           <p class="p-desc">
             Full-stack event management with QR code verification, role-based access control, and
             automated email notifications. Dual deployment environments, Spring Security, Angular 19.
@@ -1657,7 +1694,7 @@
         <div class="p-corner">08</div>
         <div class="p-body">
           <div class="p-kicker"><b>Finetech</b> · Apr 2024 — Present</div>
-          <h3 class="p-title">DocIt — <span class="it">document</span> management</h3>
+          <h3 class="p-title">DocIt: <span class="it">document</span> management</h3>
           <p class="p-desc">
             Flutter DMS with Clean Architecture + BLoC. Dynamic document field indexing, OCR-based
             full-text search, and advanced multi-field filtering.
@@ -1698,8 +1735,8 @@
           <div class="p-kicker"><b>Dilmah Tea</b> · Jun 2022 — Feb 2023</div>
           <h3 class="p-title">Dilmah <span class="it">product</span> development workflow</h3>
           <p class="p-desc">
-            Automated new product development pipeline for Dilmah Tea — multi-stage creation and approval
-            workflows across departments, eliminating manual paper processes.
+            Automated new product development pipeline for Dilmah Tea, with multi-stage creation and approval
+            workflows across departments that eliminate manual paper processes.
           </p>
           <div class="p-stack">
             <span class="chip">AppSheet</span><span class="chip">Cloud SQL</span><span class="chip">Workflow Automation</span>
@@ -1731,7 +1768,7 @@
         <div class="p-corner">12</div>
         <div class="p-body">
           <div class="p-kicker"><b>BNS Music</b> · Enterprise OPMS</div>
-          <h3 class="p-title">BNS Music — <span class="it">OPMS</span></h3>
+          <h3 class="p-title">BNS Music: <span class="it">OPMS</span></h3>
           <p class="p-desc">
             Web &amp; mobile OPMS replacing manual job sheet processes for BNS Music's two organisational clusters.
             Multi-level digital approval workflow (Production → Cluster Finance → Director → Central Finance),
@@ -1753,7 +1790,7 @@
           <div class="p-kicker"><b>Research Project</b></div>
           <h3 class="p-title">Smart <span class="it">urban</span> parking</h3>
           <p class="p-desc">
-            Pay-As-You-Park — real-time urban parking system with a mobile app for drivers and web platform
+            Pay-As-You-Park: a real-time urban parking system with a mobile app for drivers and a web platform
             for lot owners. ML surface detection model for automated parking space validation.
           </p>
           <div class="p-stack">
@@ -1770,7 +1807,7 @@
         <div class="p-corner">14</div>
         <div class="p-body" style="padding-top:28px;">
           <div class="p-kicker"><b>Personal Project</b> · Mar — May 2024</div>
-          <h3 class="p-title">Ceylon <span class="it">Explorer</span> — travel booking</h3>
+          <h3 class="p-title">Ceylon <span class="it">Explorer</span>: travel booking</h3>
           <p class="p-desc">
             Modular travel booking and management system built with Flutter, Clean Architecture, and BLoC.
             Designed for scalability across multiple travel verticals with a clean domain-driven feature structure.
@@ -1833,7 +1870,7 @@
 
       <form class="contact-card" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent ✓';">
         <h4>Send a <span class="it">message</span></h4>
-        <p>Quick note or full brief — either works. I reply within 24 hours.</p>
+        <p>Quick note or full brief, either works. I reply within 24 hours.</p>
         <div class="form-field">
           <label>Name</label>
           <input type="text" placeholder="Your name" />
@@ -1862,7 +1899,7 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-text">© 2026 Sachintha Madushan Antany — BSc (Hons) IT, SLIIT &nbsp;·&nbsp; v2.0.0</div>
+      <div class="footer-text">© 2026 Sachintha Madushan Antany &nbsp;·&nbsp; BSc (Hons) IT, SLIIT &nbsp;·&nbsp; v2.0.0</div>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM8 19H5V8h3v11zM6.5 6.7c-1 0-1.7-.8-1.7-1.7s.8-1.7 1.7-1.7 1.7.8 1.7 1.7-.7 1.7-1.7 1.7zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V8h3v1.8c1.4-2.6 7-2.8 7 2.5V19z"/></svg>
@@ -1901,7 +1938,18 @@
       : 'rgba(6,23,49,0.55)';
   });
 
-  /* Flutter Feature Generator — see more toggle */
+  /* Mobile nav toggle */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+  function setMenu(open) {
+    navLinks.classList.toggle('open', open);
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  }
+  navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  /* Flutter Feature Generator see-more toggle */
   function toggleFfg() {
     const extra = document.getElementById('ffgExtra');
     const btn   = document.getElementById('ffgBtn');
