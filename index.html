@@ -1398,9 +1398,49 @@
 
     <div class="projects-grid">
 
-      <!-- 01 — Hive Trendz (feature) -->
-      <article class="project p-feature">
+      <!-- 01 — Sela (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
         <div class="p-corner">01 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
+          <h3 class="p-title">Sela — AI <span class="it">gift concierge</span> for Kapruka 🛍️</h3>
+          <p class="p-desc">
+            A full-screen conversational shopping agent that lets Sri Lankans find and buy gifts through natural
+            chat — in English, Sinhala, or Tanglish — turning Kapruka's live product catalog into rich, generative
+            UI and taking the user from <em>"I need a gift for amma"</em> all the way to a payment link.
+          </p>
+          <p class="p-desc">
+            The entire storefront <em>is</em> the chat. An LLM brain connects to Kapruka's public MCP server —
+            real product search, category browsing, delivery quotes, and guest-checkout order creation — and streams
+            tool results back as generative UI: animated product carousels, delivery-quote cards, and a celebratory
+            payment card, never walls of text. A production-grade multi-provider fallback
+            (<b style="color:var(--cyan);font-weight:500;">Claude → Groq → Gemini</b>) keeps the agent self-healing,
+            while server-side response shaping guarantees clean product data regardless of model behavior. Voice input
+            via the Web Speech API and a bilingual persona that mirrors the customer's language and script round it out.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">TypeScript</span>
+            <span class="chip">Vercel AI SDK v6</span><span class="chip">MCP</span><span class="chip">Claude Sonnet 4.6</span>
+            <span class="chip">Groq · Llama 3.3 70B</span><span class="chip">Gemini 2.5 Flash</span>
+            <span class="chip">Tailwind v4</span><span class="chip">Framer Motion</span><span class="chip">Web Speech API</span>
+            <span class="chip">Vercel</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px;align-items:center;">
+            <a href="https://sela-kapruka.vercel.app" class="store-badge" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Live Demo
+            </a>
+            <button class="btn-screenshots" onclick="openLb(['images/kapruka/k1.png','images/kapruka/k2.png'],0)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21"/></svg>
+              Screenshots · 2
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 — Hive Trendz (feature) -->
+      <article class="project p-feature">
+        <div class="p-corner">02 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Autonomous AI pipeline</div>
           <h3 class="p-title">Hive Trendz — AI <span class="it">social media</span> automation</h3>
@@ -1424,9 +1464,9 @@
         </div>
       </article>
 
-      <!-- 02 — Flutter Feature Generator (side, tall with code) -->
+      <!-- 03 — Flutter Feature Generator (side, tall with code) -->
       <article class="project p-side">
-        <div class="p-corner">02</div>
+        <div class="p-corner">03</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal · Open Tooling</b></div>
           <h3 class="p-title">Flutter Feature <span class="it">Generator</span> CLI</h3>
@@ -1520,9 +1560,9 @@
         </div>
       </article>
 
-      <!-- 03 + 04 row -->
+      <!-- 04 + 05 row -->
       <article class="project p-half">
-        <div class="p-corner">03</div>
+        <div class="p-corner">04</div>
         <div class="p-body">
           <div class="p-kicker"><b>Litro Gas Lanka</b> · Cloud-based</div>
           <h3 class="p-title">Dealer Stock <span class="it">recommendation</span> engine</h3>
@@ -1543,7 +1583,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">04</div>
+        <div class="p-corner">05</div>
         <div class="p-body">
           <div class="p-kicker"><b>Litro Gas Lanka</b> · Combined Flutter app</div>
           <h3 class="p-title">SPO Hub &amp; <span class="it">Sales POS</span></h3>
@@ -1563,9 +1603,9 @@
         </div>
       </article>
 
-      <!-- 05, 06, 07 row -->
+      <!-- 06, 07, 08 row -->
       <article class="project p-third">
-        <div class="p-corner">05</div>
+        <div class="p-corner">06</div>
         <div class="p-body" style="padding-top:28px;">
           <div class="p-kicker"><b>Finetech</b> · Sep 2023 — Present</div>
           <h3 class="p-title">Timespot — <span class="it">attendance</span> &amp; PM</h3>
@@ -1595,7 +1635,7 @@
       </article>
 
       <article class="project p-third">
-        <div class="p-corner">06</div>
+        <div class="p-corner">07</div>
         <div class="p-body">
           <div class="p-kicker"><b>Freelance Project</b></div>
           <h3 class="p-title">RhythmCore — <span class="it">event</span> ticketing</h3>
@@ -1614,7 +1654,7 @@
       </article>
 
       <article class="project p-third">
-        <div class="p-corner">07</div>
+        <div class="p-corner">08</div>
         <div class="p-body">
           <div class="p-kicker"><b>Finetech</b> · Apr 2024 — Present</div>
           <h3 class="p-title">DocIt — <span class="it">document</span> management</h3>
@@ -1632,9 +1672,9 @@
         </div>
       </article>
 
-      <!-- 08, 09 (half + half) -->
+      <!-- 09, 10 (half + half) -->
       <article class="project p-half">
-        <div class="p-corner">08</div>
+        <div class="p-corner">09</div>
         <div class="p-body">
           <div class="p-kicker"><b>SANASA Life</b> · Jun — Sep 2023</div>
           <h3 class="p-title">SANASA Life <span class="it">insurance</span> integration</h3>
@@ -1653,7 +1693,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">09</div>
+        <div class="p-corner">10</div>
         <div class="p-body">
           <div class="p-kicker"><b>Dilmah Tea</b> · Jun 2022 — Feb 2023</div>
           <h3 class="p-title">Dilmah <span class="it">product</span> development workflow</h3>
@@ -1671,9 +1711,9 @@
         </div>
       </article>
 
-      <!-- 10, 11, 12, 13 — text-only row -->
+      <!-- 11, 12, 13, 14 — text-only row -->
       <article class="project p-third">
-        <div class="p-corner">10</div>
+        <div class="p-corner">11</div>
         <div class="p-body">
           <div class="p-kicker"><b>Sarvodaya Finance</b> · Mar 2020 — Sep 2021</div>
           <h3 class="p-title">Sarvodaya <span class="it">workflow</span> suite</h3>
@@ -1688,7 +1728,7 @@
       </article>
 
       <article class="project p-third">
-        <div class="p-corner">11</div>
+        <div class="p-corner">12</div>
         <div class="p-body">
           <div class="p-kicker"><b>BNS Music</b> · Enterprise OPMS</div>
           <h3 class="p-title">BNS Music — <span class="it">OPMS</span></h3>
@@ -1708,7 +1748,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">12</div>
+        <div class="p-corner">13</div>
         <div class="p-body" style="padding-top:28px;">
           <div class="p-kicker"><b>Research Project</b></div>
           <h3 class="p-title">Smart <span class="it">urban</span> parking</h3>
@@ -1727,7 +1767,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">13</div>
+        <div class="p-corner">14</div>
         <div class="p-body" style="padding-top:28px;">
           <div class="p-kicker"><b>Personal Project</b> · Mar — May 2024</div>
           <h3 class="p-title">Ceylon <span class="it">Explorer</span> — travel booking</h3>
