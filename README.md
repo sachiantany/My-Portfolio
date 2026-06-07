@@ -20,7 +20,7 @@ Welcome to my professional portfolio! I'm **Sachintha Madushan Antany**, a Softw
 ### Key Projects Highlighted
 
 #### 🤖 AI & Agentic
-- **Sela — AI Gift Concierge for Kapruka** - Conversational commerce agent built on Kapruka's MCP server with generative UI, multilingual (English/Sinhala/Tanglish) chat, voice input, and a self-healing Claude → Groq → Gemini fallback ([live](https://sela-kapruka.vercel.app))
+- **Sela — Trilingual AI Shopping Concierge for Kapruka** - Conversational commerce agent built on Kapruka's MCP server with generative UI, trilingual (English/Sinhala/Tamil) chat, voice, Singlish/Thanglish transliteration and handwriting input, an animated Lottie mascot, and a self-healing Gemini → Groq → Claude fallback ([live](https://sela-kapruka.vercel.app))
 
 #### 🏢 Enterprise Solutions
 - **Litro Gas Distribution System** - Stock recommendation algorithms for island-wide distribution

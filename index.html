@@ -855,12 +855,14 @@
   /* ───── LIGHTBOX ───── */
   .lb {
     display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(6,23,49,0.96); backdrop-filter: blur(12px);
+    background: rgba(6,23,49,0.04); backdrop-filter: blur(4px);
     align-items: center; justify-content: center; flex-direction: column;
   }
   .lb.open { display: flex; }
   .lb-wrap { position: relative; max-width: min(92vw, 1100px); }
   .lb-img { max-width: 100%; max-height: 80vh; border-radius: 10px; display: block; border: 1px solid var(--line); }
+  .lb-video { width: min(92vw, 1100px); aspect-ratio: 16 / 9; max-height: 80vh; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+  .lb-video iframe { width: 100%; height: 100%; border: 0; display: block; }
   .lb-close {
     position: absolute; top: -36px; right: 0;
     background: none; border: none; color: var(--dim); cursor: pointer;
@@ -1440,27 +1442,32 @@
         <div class="p-corner">01 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
-          <h3 class="p-title">Sela: AI <span class="it">gift concierge</span> for Kapruka 🛍️</h3>
+          <h3 class="p-title">Sela: trilingual AI <span class="it">shopping concierge</span> for Kapruka 🛍️</h3>
           <p class="p-desc">
-            A full-screen conversational shopping agent that lets Sri Lankans find and buy gifts through natural
-            chat in English, Sinhala, or Tanglish. It turns Kapruka's live product catalog into rich, generative
-            UI and takes the user from <em>"I need a gift for amma"</em> all the way to a payment link.
+            A full-screen chat agent that takes a shopper from <em>"I need something"</em> all the way to a paid order
+            with delivery, without ever leaving the conversation. It works for gifting and everyday shopping across
+            Kapruka's real catalog, understands and replies in <b style="color:var(--cyan);font-weight:500;">English,
+            Sinhala, and Tamil</b>, and accepts voice, transliteration typing, and handwriting input. An animated
+            mascot reacts to every stage of the journey.
           </p>
           <p class="p-desc">
-            The entire storefront <em>is</em> the chat. An LLM brain connects to Kapruka's public MCP server for
-            real product search, category browsing, delivery quotes, and guest-checkout order creation, then streams
-            tool results back as generative UI: animated product carousels, delivery-quote cards, and a celebratory
-            payment card, never walls of text. A production-grade multi-provider fallback
-            (<b style="color:var(--cyan);font-weight:500;">Claude → Groq → Gemini</b>) keeps the agent self-healing,
-            while server-side response shaping guarantees clean product data regardless of model behavior. Voice input
-            via the Web Speech API and a bilingual persona that mirrors the customer's language and script round it out.
+            The entire storefront <em>is</em> the chat. Sela connects to Kapruka's Model Context Protocol for real
+            product search, delivery quotes, a multi-item basket, gift messaging, and guest checkout with a live
+            payment link, then streams tool results back as generative UI: product cards and carousels, delivery
+            cards, and order cards, never walls of text. A language picker starts the chat in English, Sinhala, or
+            Tamil and Sela mirrors the user's script, including Singlish and Thanglish. Users can speak, type Singlish
+            or Thanglish that converts to native script as they type, or draw letters on a handwriting pad, plus a
+            hands-free voice mode where Sela speaks back in the chosen language. Date awareness resolves relative
+            dates like <em>"next Friday"</em> to real Sri&nbsp;Lanka calendar dates, and a resilient multi-model brain
+            with automatic fallback (<b style="color:var(--cyan);font-weight:500;">Gemini → Groq → Claude</b>) keeps
+            the agent up even when a provider is rate-limited.
           </p>
           <div class="p-stack">
             <span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">TypeScript</span>
-            <span class="chip">Vercel AI SDK v6</span><span class="chip">MCP</span><span class="chip">Claude Sonnet 4.6</span>
-            <span class="chip">Groq · Llama 3.3 70B</span><span class="chip">Gemini 2.5 Flash</span>
-            <span class="chip">Tailwind v4</span><span class="chip">Framer Motion</span><span class="chip">Web Speech API</span>
-            <span class="chip">Vercel</span>
+            <span class="chip">Vercel AI SDK v6</span><span class="chip">MCP</span><span class="chip">Vertex AI · Gemini 2.5 Flash</span>
+            <span class="chip">Groq · Llama 3.3 70B</span><span class="chip">Claude</span><span class="chip">Trilingual EN · SI · TA</span>
+            <span class="chip">Web Speech API</span><span class="chip">Google Input Tools</span><span class="chip">Handwriting input</span>
+            <span class="chip">Lottie</span><span class="chip">Tailwind v4</span><span class="chip">Vercel</span>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px;align-items:center;">
             <a href="https://sela-kapruka.vercel.app" class="store-badge" target="_blank">
@@ -1470,6 +1477,10 @@
             <button class="btn-screenshots" onclick="openLb(['images/kapruka/k1.png','images/kapruka/k2.png'],0)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21"/></svg>
               Screenshots · 2
+            </button>
+            <button class="btn-screenshots" onclick="openLb([{video:'https://drive.google.com/file/d/1Bv2MgXAT8p1At-SH8a87dpOhU73Aw2rD/preview'}],0)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>
+              Watch Demo
             </button>
           </div>
         </div>
@@ -1923,6 +1934,9 @@
   <div class="lb-wrap">
     <button class="lb-close" onclick="closeLb()">ESC / CLOSE ×</button>
     <img id="lbImg" class="lb-img" src="" alt="">
+    <div id="lbVid" class="lb-video" style="display:none;">
+      <iframe id="lbVidFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
     <button class="lb-btn" id="lbPrev" onclick="_li=(_li-1+_lb.length)%_lb.length;_lbRender()">‹</button>
     <button class="lb-btn" id="lbNext" onclick="_li=(_li+1)%_lb.length;_lbRender()">›</button>
   </div>
@@ -1970,9 +1984,23 @@
   function closeLb() {
     document.getElementById('lb').classList.remove('open');
     document.body.style.overflow = '';
+    document.getElementById('lbVidFrame').src = '';   /* stop playback */
   }
   function _lbRender() {
-    document.getElementById('lbImg').src = _lb[_li];
+    const item = _lb[_li];
+    const img  = document.getElementById('lbImg');
+    const vid  = document.getElementById('lbVid');
+    const frame = document.getElementById('lbVidFrame');
+    if (item && item.video) {
+      img.style.display = 'none';
+      vid.style.display = 'block';
+      frame.src = item.video;
+    } else {
+      vid.style.display = 'none';
+      frame.src = '';
+      img.style.display = 'block';
+      img.src = item;
+    }
     document.getElementById('lbCtr').textContent = _lb.length > 1 ? (_li + 1) + ' / ' + _lb.length : '';
     document.getElementById('lbPrev').style.display = _lb.length > 1 ? 'flex' : 'none';
     document.getElementById('lbNext').style.display = _lb.length > 1 ? 'flex' : 'none';
