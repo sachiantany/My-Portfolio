@@ -20,7 +20,6 @@
 
         .page {
             width: 180mm;
-            min-height: 297mm;
             margin: -25mm auto 0 auto;
             background: white;
             padding: 0mm 7mm 12mm 0mm;
@@ -79,7 +78,7 @@
 
         /* Section Headers */
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .section-title {
@@ -88,7 +87,7 @@
             color: #1a5490;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            margin-bottom: 9px;
             padding-bottom: 6px;
             border-bottom: 2px solid #e0e0e0;
         }
@@ -143,8 +142,8 @@
         }
 
         .subsection {
-            margin-top: 12px;
-            margin-bottom: 12px;
+            margin-top: 9px;
+            margin-bottom: 9px;
         }
 
         .subsection-title {
@@ -169,8 +168,8 @@
         /* Projects */
         .project-item {
             font-size: 11px;
-            line-height: 1.6;
-            margin-bottom: 4px;
+            line-height: 1.5;
+            margin-bottom: 3px;
             color: #444;
         }
 
@@ -181,7 +180,7 @@
 
         /* Education */
         .education-item {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .education-header {
@@ -222,7 +221,7 @@
 
         /* References */
         .reference-item {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .reference-name {
@@ -238,6 +237,10 @@
         }
 
         /* Print styles */
+        @page {
+            size: A4;
+            margin: 9mm 15mm;
+        }
         @media print {
             body {
                 background: white;
@@ -245,10 +248,9 @@
                 padding: 0;
             }
             .page {
-                margin: -5mm 0 0 0;
-                padding: 0mm 12mm 12mm 0mm;
-                width: 180mm;
-                height: 297mm;
+                margin: 0;
+                padding: 0;
+                width: auto;
                 box-sizing: border-box;
                 page-break-after: always;
             }
@@ -271,10 +273,10 @@
             <img src="../images/pro.png" alt="Sachintha Antany Profile" class="profile-image">
             <div class="header-content">
                 <h1 class="name">SACHINTHA ANTANY</h1>
-                <p class="title">Software Engineer | Flutter Developer | Cloud Integration Expert</p>
+                <p class="title">Software Engineer | Flutter & Full-Stack Developer | AI Agents & Cloud Integration</p>
                 <div class="contact-info">
                     +94 717804901 | <a href="mailto:sachi.antany@gmail.com">sachi.antany@gmail.com</a> | Colombo, Sri Lanka<br>
-                    <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank">LinkedIn</a> | <a href="https://sachintha-antany.netlify.app/" target="_blank">Portfolio</a>
+                    <a href="https://www.linkedin.com/in/sachintha-antany-b48784168/" target="_blank">LinkedIn</a> | <a href="https://sachintha-antany.netlify.app/" target="_blank">Portfolio</a> | <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank">Credly</a>
                 </div>
             </div>
         </div>
@@ -283,13 +285,12 @@
         <div class="section">
             <h2 class="section-title">About Me</h2>
             <p class="about-text">
-                Results-driven Software Engineer with 6+ years of experience in full-cycle mobile app development, 
-                including 3+ years specializing in Flutter. Expert in building high-performance, scalable, and 
-                intuitive mobile applications using Clean Architecture and Bloc Pattern. Proven track record in 
-                delivering enterprise-grade digital transformation projects and workflow automation across finance, 
-                insurance, manufacturing, and distribution sectors. Google Certified Professional Cloud Architect 
-                with expertise in GCP, low-code platforms, and enterprise integration solutions that streamline 
-                operations and enhance business efficiency.
+                Results-driven Software Engineer with 6+ years in full-cycle mobile and full-stack development,
+                including 3+ years specializing in Flutter with Clean Architecture and the Bloc Pattern. Increasingly
+                focused on AI-powered products, building agentic experiences with LLMs (Gemini, Groq/LLaMA, Claude),
+                the Vercel AI SDK, and the Model Context Protocol (MCP). Proven track record delivering enterprise-grade
+                digital transformation and workflow automation across finance, insurance, manufacturing, and
+                distribution. Google Certified Professional Cloud Architect.
             </p>
         </div>
 
@@ -297,12 +298,12 @@
         <div class="section">
             <h2 class="section-title">Tech Stack & Tools</h2>
             <div class="tech-list">
-                <div class="tech-item"><span class="tech-label">Languages:</span> Dart, SQL, JavaScript, Java, TypeScript</div>
-                <div class="tech-item"><span class="tech-label">Mobile:</span> Flutter (Android & iOS), Cross-platform Development</div>
-                <div class="tech-item"><span class="tech-label">Architecture:</span> Clean Architecture, Bloc Pattern, MVVM</div>
-                <div class="tech-item"><span class="tech-label">Cloud & Backend:</span> Google Cloud Platform (GCP), Firebase, Node.js, Express.js</div>
-                <div class="tech-item"><span class="tech-label">Automation:</span> AppSheet, Google Apps Script, Workflow Automation</div>
-                <div class="tech-item"><span class="tech-label">Enterprise:</span> SAP HANA, SAP B1, Cloud SQL, Redis, Docker</div>
+                <div class="tech-item"><span class="tech-label">Languages:</span> Dart, TypeScript, JavaScript, Java, Python, SQL</div>
+                <div class="tech-item"><span class="tech-label">Mobile:</span> Flutter (Android & iOS), Clean Architecture, Bloc Pattern, Drift SQLite, Offline-first sync</div>
+                <div class="tech-item"><span class="tech-label">Web & Backend:</span> Next.js, React, Angular, Spring Boot 3, Node.js / Express, Flask</div>
+                <div class="tech-item"><span class="tech-label">AI & Agents:</span> LLMs (Gemini, Groq/LLaMA, Claude), Vercel AI SDK, MCP, Vertex AI</div>
+                <div class="tech-item"><span class="tech-label">Cloud & DevOps:</span> GCP, Cloud Run, Docker, Firebase, Supabase, Vercel</div>
+                <div class="tech-item"><span class="tech-label">Automation & Enterprise:</span> AppSheet, Apps Script, SAP HANA / SAP B1, Cloud SQL, Redis</div>
                 <div class="tech-item"><span class="tech-label">Dev Tools:</span> Git, Bitbucket, Figma, VS Code, Android Studio</div>
             </div>
         </div>
@@ -319,25 +320,30 @@
                 <div class="subsection">
                     <div class="subsection-title">Flutter App Development</div>
                     <ul>
-                        <li>Architected & launched Timespot Attendance & Project Management App — GPS check-in/out, task & sub-task progress tracking, leave & WFH approval workflows.</li>
-                        <li>Built Litro Gas SPO Hub & Sales POS — combined Flutter app for dealer visit management, promotions tracking & fully offline gas distribution recording with Drift SQLite background sync.</li>
-                        <li>Created DocIt, an OCR-powered document management system with dynamic indexing and search.</li>
+                        <li>Architected & launched Timespot — GPS attendance, task & sub-task tracking, and leave/WFH approval workflows (live on Play & App Store).</li>
+                        <li>Built Litro Gas SPO Hub & Sales POS (offline-first Drift SQLite sync) and DocIt, an OCR-powered document management system.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">AI & Full-Stack Product Development</div>
+                    <ul>
+                        <li>Built Sela, a trilingual (EN/SI/TA) AI shopping concierge for the Kapruka Agent Challenge on Next.js 16, Vercel AI SDK, MCP and a multi-model fallback brain (Gemini → Groq → Claude).</li>
+                        <li>Created an AppSheet Workflow Automation pipeline over a reverse-engineered editor API, letting an AI agent generate full enterprise apps in seconds.</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <div class="subsection-title">Cloud Workflow Automation</div>
                     <ul>
-                        <li>Digitized workflows for top clients (Dilmah, DFCC, SANASA, SDF Bank), achieving up to 80% paper reduction.</li>
-                        <li>Automated business processes using AppSheet & Apps Script integrated with SAP B1 (HANA/SQL).</li>
+                        <li>Digitized workflows for clients (Dilmah, DFCC, SANASA, Commercial Bank) using AppSheet & Apps Script with SAP B1 (HANA/SQL), achieving up to 80% paper reduction.</li>
                     </ul>
                 </div>
 
                 <div class="subsection">
                     <div class="subsection-title">Tech Leadership & Collaboration</div>
                     <ul>
-                        <li>Led technical design and cross-team integrations for enterprise-grade systems.</li>
-                        <li>Mentored developers in architecture best practices and cloud workflows.</li>
+                        <li>Led technical design and cross-team integrations, and mentored developers on architecture best practices and cloud workflows.</li>
                     </ul>
                 </div>
             </div>
@@ -370,13 +376,22 @@
         <div class="section">
             <h2 class="section-title">Project Highlights</h2>
             <div class="project-item">
-                <span class="project-name">Hive Trendz – AI Social Media Automation</span> – Autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), Flask + APScheduler backend on Railway, Flutter mobile app with on-device image compositing, FFmpeg video editor, and Android AlarmManager exact scheduling. Posts to Facebook & Instagram fully autonomously.
+                <span class="project-name">Sela – Trilingual AI Shopping Concierge</span> – Full-screen conversational commerce agent for the Kapruka Agent Challenge 2026, taking a shopper from intent to paid order entirely in chat across English, Sinhala & Tamil with voice and handwriting input. Built on Next.js 16, Vercel AI SDK v6 and MCP, with generative UI and a multi-model fallback brain (Gemini → Groq → Claude).
             </div>
             <div class="project-item">
-                <span class="project-name">Flutter Feature Generator</span> – Production-grade Dart CLI that scaffolds a complete Flutter feature (~25 files) in one command: Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend. 15 generator modules, 3 CLI modes, idempotent marker-based file merging.
+                <span class="project-name">AppSheet Workflow Automation (Reverse-Engineered Editor API)</span> – Cracked AppSheet's private editor API via a Chrome MV3 extension + Node.js bridge relay, letting an AI agent drive real-time app builds — generating a full enterprise DLP app (36 slices, 35 views, 23 actions, 14 bots) from one idempotent Python script. Fast-forwards workflow delivery ~4× (a ~20-day build now ships in ~5).
             </div>
             <div class="project-item">
-                <span class="project-name">Litro Gas SPO Hub & Sales POS</span> – Combined Flutter app: SPO Hub for dealer visit management, promotions tracking & evaluations; Sales POS for fully offline island-wide gas distribution recording with Drift SQLite background sync (Clean Architecture + BLoC).
+                <span class="project-name">DLP Rule Workflow – Commercial Bank of Sri Lanka</span> – Enterprise Data Loss Prevention rule lifecycle management with three approval workflows, 8+ sequential stages, five role-based dashboards, a full audit trail and automated notifications. Generated via the AppSheet Workflow Automation pipeline.
+            </div>
+            <div class="project-item">
+                <span class="project-name">Hive Trendz – AI Social Media Automation</span> – Autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), a Flask + APScheduler backend on Railway, and a Flutter app with on-device image compositing and FFmpeg video editing. Posts to Facebook & Instagram fully autonomously.
+            </div>
+            <div class="project-item">
+                <span class="project-name">Flutter Feature Generator</span> – Production-grade Dart CLI that scaffolds a complete full-stack feature (~25 files) in one command: Clean Architecture + BLoC + Drift SQLite + offline-first sync + Java Spring Boot 3 REST backend.
+            </div>
+            <div class="project-item">
+                <span class="project-name">Litro Gas SPO Hub & Sales POS</span> – Combined Flutter app: SPO Hub for dealer visit management; Sales POS for fully offline island-wide gas distribution recording with Drift SQLite background sync (Clean Architecture + BLoC).
             </div>
             <div class="project-item">
                 <span class="project-name">Enterprise Dealer Stock Recommendation System</span> – Intelligent stock recommendation for Litro Gas distribution network (Cloud-based Solution)
@@ -400,7 +415,7 @@
                 <span class="project-name">Dilmah Tea NPD</span> – Product Development Workflow Automation (06/2022–02/2023)
             </div>
             <div class="project-item">
-                <span class="project-name">BNS Music OPMS</span> – Organisational Project Management System replacing manual job sheets with a multi-level digital approval workflow (Production → Cluster Finance → Director → Central Finance), budgeted vs actual cost tracking, and dual-cluster access control. Built on AppSheet, Apps Script & Cloud SQL.
+                <span class="project-name">BNS Music OPMS</span> – Organisational Project Management System replacing manual job sheets with a multi-level digital approval workflow (Production → Finance → Director) and budgeted vs actual cost tracking. Built on AppSheet, Apps Script & Cloud SQL.
             </div>
             <div class="project-item">
                 <span class="project-name">Sarvodaya Finance</span> – HRIS & Workflow Automation System (Enterprise Solution)
@@ -410,8 +425,9 @@
         <!-- Certifications -->
         <div class="section">
             <h2 class="section-title">Certifications</h2>
-            <div class="cert-item">Google Associate Cloud Engineer – Valid till 03/2026</div>
-            <div class="cert-item">Google Professional Cloud Architect – Valid till 12/2024</div>
+            <div class="cert-item">Google Professional Cloud Architect · Associate Cloud Engineer</div>
+            <div class="cert-item">Serverless Apps on Cloud Run · Search & Recommendations with AI Applications (Vertex AI) – Google Cloud</div>
+            <div class="cert-item">13 verified Google Cloud badges on Credly</div>
         </div>
 
         <!-- Publication -->
