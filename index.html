@@ -1317,6 +1317,7 @@
           <li>Built <b>Litro Gas SPO Hub &amp; Sales POS</b> with offline-first dealer visit management, promotions tracking, and island-wide gas distribution recording on Drift SQLite background sync</li>
           <li>Architected <b>DocIt</b>, an OCR-powered Document Management System with full-text search, dynamic field indexing, and Flutter Clean Architecture</li>
           <li>Delivered <b>20+ workflow automation systems</b> for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, BNS Music</li>
+          <li>Built a custom <b>MCP server</b> bridging SAP Business One with Gemini Enterprise, exposing 75 read-only tools across 10 business domains on Cloud Run with OAuth 2.0, enabling 15x faster data retrieval through natural language</li>
           <li>Integrated <b>SAP B1 (HANA/SQL)</b> into payment workflows, multi-level approval mechanisms, and HRIS digitisation</li>
           <li>Built <b>BNS Music OPMS</b>, a multi-level digital approval workflow (Production → Finance → Director) that replaced manual job sheets, with budgeted vs actual cost tracking</li>
           <li>Built <b>Hive Trendz</b>, an autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), FFmpeg video editing, and direct Facebook &amp; Instagram publishing</li>
@@ -1437,9 +1438,42 @@
 
     <div class="projects-grid">
 
-      <!-- 01 — Sela (featured, full width) -->
+      <!-- 01 — SAP B1 MCP (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
         <div class="p-corner">01 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>Finetech</b> · Enterprise AI Integration · Production (UAT + Live)</div>
+          <h3 class="p-title">SAP Business One AI Integration <span class="it">MCP Server</span> for Gemini Enterprise</h3>
+          <p class="p-desc">
+            Built a custom <b>Model Context Protocol (MCP) server</b> that bridges SAP Business One ERP with Google's
+            Gemini Enterprise AI platform. Business users query real-time SAP data using natural language: "show me
+            last month's sales orders" or "how much does customer C00001 owe us" in a chat interface, and the AI
+            retrieves live data from SAP. No SAP expertise required.
+          </p>
+          <p class="p-desc">
+            The server exposes <b style="color:var(--cyan);font-weight:500;">75 read-only MCP tools</b> across
+            10 business domains (Sales, Purchasing, Inventory, Finance, Banking, Service, Master Data, Payments, Admin,
+            and a cross-entity document lookup), all backed by an async SAP B1 Service Layer client with session-based
+            auth and automatic re-login. Deployed on <b>Cloud Run</b> with dual environments (UAT on <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">develop</code>,
+            Live on <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">main</code>)
+            via Cloud Build CI/CD, secrets managed in Google Secret Manager, and secured with Google OAuth 2.0 middleware
+            including PKCE support for external clients like Claude. Estimated
+            <b style="color:var(--cyan);font-weight:500;">15x faster</b> data retrieval for daily operational tasks,
+            replacing minutes of SAP menu navigation with seconds of conversation.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Python</span><span class="chip">MCP SDK</span><span class="chip">Streamable HTTP</span>
+            <span class="chip">SAP B1 Service Layer</span><span class="chip">OData</span><span class="chip">Gemini Enterprise</span>
+            <span class="chip">Cloud Run</span><span class="chip">Cloud Build</span><span class="chip">Secret Manager</span>
+            <span class="chip">OAuth 2.0 + PKCE</span><span class="chip">JWT / JWKS</span><span class="chip">Docker</span>
+            <span class="chip">Uvicorn</span><span class="chip">Starlette</span><span class="chip">SAP HANA</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 — Sela (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
+        <div class="p-corner">02 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
           <h3 class="p-title">Sela: trilingual AI <span class="it">shopping concierge</span> for Kapruka 🛍️</h3>
@@ -1486,9 +1520,9 @@
         </div>
       </article>
 
-      <!-- 02 + 03 — AppSheet + DLP (half tiles) -->
+      <!-- 03 + 04 — AppSheet + DLP (half tiles) -->
       <article class="project p-half">
-        <div class="p-corner">02 / PERSONAL</div>
+        <div class="p-corner">03 / PERSONAL</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Reverse-engineered private API · AI-controlled build pipeline</div>
           <h3 class="p-title">AppSheet Workflow Automation via <span class="it">Reverse-Engineered</span> Editor API</h3>
@@ -1526,7 +1560,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">03 / CLIENT</div>
+        <div class="p-corner">04 / CLIENT</div>
         <div class="p-body">
           <div class="p-kicker"><b>Commercial Bank of Sri Lanka</b> · Enterprise · <span style="color:var(--cyan);font-weight:500;">In Progress</span></div>
           <h3 class="p-title">DLP Rule Workflow: <span class="it">enterprise</span> data loss prevention management</h3>
@@ -1552,9 +1586,9 @@
         </div>
       </article>
 
-      <!-- 04 — Hive Trendz (full row) -->
+      <!-- 05 — Hive Trendz (full row) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">04 / FEATURED</div>
+        <div class="p-corner">05 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Autonomous AI pipeline</div>
           <h3 class="p-title">Hive Trendz: AI <span class="it">social media</span> automation</h3>
@@ -1580,7 +1614,7 @@
 
 
 
-      <!-- 06 + 07 row -->
+      <!-- 07 + 08 row -->
       <article class="project p-half">
         <div class="p-corner">06</div>
         <div class="p-body">
