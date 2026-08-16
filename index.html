@@ -863,6 +863,10 @@
   .lb-img { max-width: 100%; max-height: 80vh; border-radius: 10px; display: block; border: 1px solid var(--line); }
   .lb-video { width: min(92vw, 1100px); aspect-ratio: 16 / 9; max-height: 80vh; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #000; }
   .lb-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .lb-pdf { width: min(92vw, 900px); height: 85vh; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+  .lb-pdf iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .lb-dl { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 8px 18px; background: var(--cyan); color: var(--ink); border: none; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: opacity .2s; }
+  .lb-dl:hover { opacity: 0.85; }
   .lb-close {
     position: absolute; top: -36px; right: 0;
     background: none; border: none; color: var(--dim); cursor: pointer;
@@ -1043,7 +1047,7 @@
       <a href="#experience">Work</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="cv/cv.pdf" class="nav-cv" download>Download CV ↓</a>
+      <a href="javascript:void(0)" class="nav-cv" onclick="openLb([{pdf:'cv/cv.pdf'}],0)">Preview CV</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -1071,7 +1075,7 @@
         </p>
         <div class="hero-ctas">
           <a href="#projects" class="btn btn-primary">View Selected Work →</a>
-          <a href="cv/cv.pdf" class="btn btn-ghost" download>Download CV ↓</a>
+          <a href="javascript:void(0)" class="btn btn-ghost" onclick="openLb([{pdf:'cv/cv.pdf'}],0)">Preview CV</a>
         </div>
       </div>
       <div>
@@ -2068,10 +2072,17 @@
     <div id="lbVid" class="lb-video" style="display:none;">
       <iframe id="lbVidFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
+    <div id="lbPdf" class="lb-pdf" style="display:none;">
+      <iframe id="lbPdfFrame" src=""></iframe>
+    </div>
     <button class="lb-btn" id="lbPrev" onclick="_li=(_li-1+_lb.length)%_lb.length;_lbRender()">‹</button>
     <button class="lb-btn" id="lbNext" onclick="_li=(_li+1)%_lb.length;_lbRender()">›</button>
   </div>
   <div class="lb-ctr" id="lbCtr"></div>
+  <a id="lbDl" class="lb-dl" style="display:none;" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download PDF
+  </a>
 </div>
 
 <script>
@@ -2115,20 +2126,27 @@
   function closeLb() {
     document.getElementById('lb').classList.remove('open');
     document.body.style.overflow = '';
-    document.getElementById('lbVidFrame').src = '';   /* stop playback */
+    document.getElementById('lbVidFrame').src = '';
+    document.getElementById('lbPdfFrame').src = '';
   }
   function _lbRender() {
     const item = _lb[_li];
     const img  = document.getElementById('lbImg');
     const vid  = document.getElementById('lbVid');
     const frame = document.getElementById('lbVidFrame');
+    const pdf  = document.getElementById('lbPdf');
+    const pdfFrame = document.getElementById('lbPdfFrame');
+    const dl   = document.getElementById('lbDl');
+    img.style.display = 'none'; vid.style.display = 'none'; pdf.style.display = 'none'; dl.style.display = 'none';
+    frame.src = ''; pdfFrame.src = '';
     if (item && item.video) {
-      img.style.display = 'none';
       vid.style.display = 'block';
       frame.src = item.video;
+    } else if (item && item.pdf) {
+      pdf.style.display = 'block';
+      pdfFrame.src = item.pdf;
+      dl.href = item.pdf; dl.style.display = 'inline-flex';
     } else {
-      vid.style.display = 'none';
-      frame.src = '';
       img.style.display = 'block';
       img.src = item;
     }
