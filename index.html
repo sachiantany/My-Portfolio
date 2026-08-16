@@ -1442,31 +1442,51 @@
       <article class="project p-feature" style="grid-column: span 12;">
         <div class="p-corner">01 / FEATURED</div>
         <div class="p-body">
-          <div class="p-kicker"><b>Finetech</b> · Enterprise AI Integration · Production (UAT + Live)</div>
+          <div class="p-kicker"><b>Finetech</b> · Solo R&amp;D Initiative · Production</div>
           <h3 class="p-title">SAP Business One AI Integration <span class="it">MCP Server</span> for Gemini Enterprise</h3>
           <p class="p-desc">
-            Built a custom <b>Model Context Protocol (MCP) server</b> that bridges SAP Business One ERP with Google's
-            Gemini Enterprise AI platform. Business users query real-time SAP data using natural language: "show me
-            last month's sales orders" or "how much does customer C00001 owe us" in a chat interface, and the AI
-            retrieves live data from SAP. No SAP expertise required.
+            Neither SAP nor Google offers a native integration between SAP Business One and Gemini. I independently
+            researched SAP's Service Layer OData API and designed a custom <b>Model Context Protocol (MCP) server</b>
+            from scratch, transforming SAP Business One from a transactional repository into an
+            <b style="color:var(--cyan);font-weight:500;">autonomous cognitive engine</b>.
+            Rather than navigating dozens of nested SAP windows and static Crystal Reports, this architecture enables
+            real-time natural language querying, cross-entity reconciliation, proactive anomaly detection, and automated
+            document generation.
           </p>
           <p class="p-desc">
             The server exposes <b style="color:var(--cyan);font-weight:500;">75 read-only MCP tools</b> across
-            10 business domains (Sales, Purchasing, Inventory, Finance, Banking, Service, Master Data, Payments, Admin,
-            and a cross-entity document lookup), all backed by an async SAP B1 Service Layer client with session-based
-            auth and automatic re-login. Deployed on <b>Cloud Run</b> with dual environments (UAT on <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">develop</code>,
-            Live on <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">main</code>)
-            via Cloud Build CI/CD, secrets managed in Google Secret Manager, and secured with Google OAuth 2.0 middleware
-            including PKCE support for external clients like Claude. Estimated
-            <b style="color:var(--cyan);font-weight:500;">15x faster</b> data retrieval for daily operational tasks,
-            replacing minutes of SAP menu navigation with seconds of conversation.
+            Procurement, Sales &amp; CRM, Financials &amp; Accounting, Inventory &amp; Assets, Contracts &amp; Service,
+            and System &amp; Metadata. Gemini orchestrates multi-step operations across these tools: autonomous
+            <b>3-way PO matching</b> that cross-references purchase orders, GRPO receiving slips, and vendor invoices
+            to flag quantity/price discrepancies automatically. <b>Intelligent PR/PV generation</b> where Gemini parses
+            an uploaded vendor invoice PDF via multimodal ingestion, validates vendor codes and GL accounts against live
+            SAP data, and produces a complete purchase requisition with zero manual data entry. <b>Dynamic cash flow
+            analysis</b> combining bank statements, incoming payments, vendor payments, and open receivables to calculate
+            rolling net cash position and flag liquidity shortfalls. <b>Forensic inventory variance detection</b>
+            comparing physical counts against perpetual stock ledgers to identify shrinkage, dead stock over 90 days,
+            and carrying cost impact. <b>Customer margin intelligence</b> computing gross profit per customer and
+            flagging margin dilution from extended payment terms or heavy discounting.
+          </p>
+          <p class="p-desc">
+            Combined with Google Workspace, the AI cross-references SAP data with Drive spreadsheets, correlates Gmail
+            threads with SAP transactions, and synthesizes answers from multiple sources into a single response.
+            Executives get revenue summaries, margin health, and aged debt overviews in plain language without needing
+            SAP desktop clients. Estimated <b style="color:var(--cyan);font-weight:500;">80%+ reduction</b> in
+            AP/procurement processing time and <b style="color:var(--cyan);font-weight:500;">15x faster</b> daily
+            data retrieval.
           </p>
           <div class="p-stack">
             <span class="chip">Python</span><span class="chip">MCP SDK</span><span class="chip">Streamable HTTP</span>
             <span class="chip">SAP B1 Service Layer</span><span class="chip">OData</span><span class="chip">Gemini Enterprise</span>
-            <span class="chip">Cloud Run</span><span class="chip">Cloud Build</span><span class="chip">Secret Manager</span>
+            <span class="chip">Google Workspace</span><span class="chip">Cloud Run</span>
             <span class="chip">OAuth 2.0 + PKCE</span><span class="chip">JWT / JWKS</span><span class="chip">Docker</span>
-            <span class="chip">Uvicorn</span><span class="chip">Starlette</span><span class="chip">SAP HANA</span>
+            <span class="chip">SAP HANA</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px;align-items:center;">
+            <a href="assets/project/sap-mcp-and-gemini/SAP_B1_MCP_&_Gemini_Enterprise__Advanced_Capabilities_&_Comparative_Analysis.pdf" class="store-badge" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Advanced Capabilities &amp; Comparative Analysis
+            </a>
           </div>
         </div>
       </article>
