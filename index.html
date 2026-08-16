@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sachintha Antany | Software Engineer | AI Agents & Full-Stack | Flutter | GCP Certified Architect</title>
+<title>Sachintha Antany | Software Engineer | AI Agents & Cloud Platforms | Flutter | Full-Stack</title>
 
 <!-- SEO -->
-<meta name="description" content="Portfolio of Sachintha Antany | Software Engineer at Finetech Consultancy, Sri Lanka. Building AI agents and LLM-powered products with MCP, Vercel AI SDK, and multi-model architectures. Flutter mobile specialist. Google Certified Professional Cloud Architect." />
+<meta name="description" content="Portfolio of Sachintha Antany | Software Engineer at Finetech Consultancy, Sri Lanka. Building AI agents, MCP servers, cloud platforms, and LLM-powered products. Flutter mobile specialist. Google Cloud Certified." />
 <meta name="keywords" content="Sachintha Antany, AI Agents, LLM Integration, MCP, Vercel AI SDK, Flutter developer, Software Engineer Sri Lanka, GCP Cloud Architect, Next.js, Full-Stack Developer, enterprise automation, Finetech Consultancy" />
 <meta name="author" content="Sachintha Antany" />
 <meta name="robots" content="index, follow" />
@@ -15,8 +15,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sachintha-antany.netlify.app/" />
-<meta property="og:title" content="Sachintha Antany | Software Engineer | AI Agents & Full-Stack | Flutter | GCP Certified Architect" />
-<meta property="og:description" content="Software Engineer building AI agents, LLM-powered products, and Flutter mobile apps. 6+ years full-stack and enterprise automation at Finetech Consultancy, Sri Lanka. Google Certified Professional Cloud Architect." />
+<meta property="og:title" content="Sachintha Antany | Software Engineer | AI Agents & Cloud Platforms | Flutter | Full-Stack" />
+<meta property="og:description" content="Software Engineer building AI agents, MCP servers, cloud platforms, and Flutter mobile apps. 6+ years full-stack and enterprise automation at Finetech Consultancy, Sri Lanka. Google Cloud Certified." />
 <meta property="og:image" content="https://sachintha-antany.netlify.app/images/og-preview.png" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="Sachintha Antany Portfolio" />
@@ -24,7 +24,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sachintha Antany | Software Engineer | AI Agents & Full-Stack" />
-<meta name="twitter:description" content="Building AI agents and LLM-powered products. Flutter mobile specialist. Google Certified Professional Cloud Architect." />
+<meta name="twitter:description" content="Building AI agents, MCP servers, and cloud platforms. Flutter mobile specialist. Google Cloud Certified." />
 <meta name="twitter:image" content="https://sachintha-antany.netlify.app/images/og-preview.png" />
 
 <!-- JSON-LD Structured Data -->
@@ -54,7 +54,7 @@
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
-      "name": "Google Professional Cloud Architect",
+      "name": "Google Cloud Certified",
       "credentialCategory": "certification",
       "recognizedBy": { "@type": "Organization", "name": "Google Cloud" }
     },
@@ -534,8 +534,8 @@
   .exp-body {
     padding: 36px 40px 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
   .exp-summary { color: var(--dim); font-size: 18px; line-height: 1.75; display: flex; flex-direction: column; gap: 18px; }
   .exp-summary p { margin: 0; }
@@ -547,8 +547,9 @@
     margin-top: 4px;
     padding-top: 20px;
     border-top: 1px solid var(--line);
+    justify-content: center;
   }
-  .exp-kpi { display: flex; flex-direction: column; gap: 3px; }
+  .exp-kpi { display: flex; flex-direction: column; gap: 3px; align-items: center; text-align: center; }
   .exp-kpi-num {
     font-family: 'Instrument Serif', serif;
     font-style: italic;
@@ -563,21 +564,28 @@
     text-transform: uppercase;
     color: var(--dimmer);
   }
-  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .exp-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
   .exp-list li {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 10px;
     font-size: 14.5px;
     color: var(--paper);
     line-height: 1.55;
   }
   .exp-list li::before {
-    content: '→';
+    content: '>';
     color: var(--cyan);
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
-    padding-top: 2px;
+    padding-top: 1px;
     flex-shrink: 0;
   }
 
@@ -999,6 +1007,7 @@
     .exp-header { grid-template-columns: 40px 1fr; }
     .exp-where { grid-column: 2; text-align: left; }
     .exp-body { grid-template-columns: 1fr; gap: 28px; }
+    .exp-list { grid-template-columns: 1fr; }
     .projects-grid > * { grid-column: span 12 !important; }
     .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     .nav-toggle { display: flex; }
@@ -1047,7 +1056,7 @@
       <a href="#experience">Work</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="javascript:void(0)" class="nav-cv" onclick="openLb([{pdf:'cv/cv.pdf'}],0)">Preview CV</a>
+      <a href="javascript:void(0)" class="nav-cv" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v2.pdf'}],0)">Preview CV</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -1069,13 +1078,13 @@
         <div class="badge"><span class="dot"></span> Open to senior engineering roles</div>
         <h1 class="name">Sachintha<br><span class="it">Antany.</span></h1>
         <p class="hero-tag">
-          <b>Senior Software Engineer</b> specialising in Flutter mobile architecture,
-          cloud-native backends, and full-stack enterprise systems. Six years shipping production
-          software for leading organisations across Sri Lanka.
+          <b>Software Engineer</b> building AI agents, MCP integrations, and cloud-native platforms.
+          Six years shipping production systems across AI, full-stack, mobile, and enterprise
+          automation for leading organisations across Sri Lanka.
         </p>
         <div class="hero-ctas">
-          <a href="#projects" class="btn btn-primary">View Selected Work →</a>
-          <a href="javascript:void(0)" class="btn btn-ghost" onclick="openLb([{pdf:'cv/cv.pdf'}],0)">Preview CV</a>
+          <a href="#projects" class="btn btn-primary">View Selected Work</a>
+          <a href="javascript:void(0)" class="btn btn-ghost" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v2.pdf'}],0)">Preview CV</a>
         </div>
       </div>
       <div>
@@ -1127,8 +1136,8 @@
       <div>
         <h2 class="sec-title">Engineering <span class="it">digital</span> transformation</h2>
         <p class="sec-blurb">
-          Six years architecting enterprise-grade systems across mobile, cloud, and automation.
-          I design for scale, write for maintainability, and ship for real users.
+          Six years building AI-powered products, cloud platforms, and enterprise automation.
+          From MCP servers and LLM agents to Flutter apps and infrastructure-as-code.
         </p>
       </div>
     </div>
@@ -1137,26 +1146,26 @@
       <div class="pillar">
         <div class="pillar-num">▲ A1</div>
         <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
-        <h3>Mobile <span class="it">architecture</span></h3>
-        <p>Production Flutter apps on Play Store &amp; App Store. Clean Architecture + BLoC, offline-first Drift SQLite, cross-platform sync pipelines, code-gen everywhere.</p>
+        <h3>AI agents &amp; <span class="it">LLM integration</span></h3>
+        <p>MCP servers, Vercel AI SDK, multi-model architectures (Gemini, Claude, Groq/LLaMA). Building autonomous cognitive engines over enterprise ERPs, conversational commerce agents, and AI-driven workflow automation.</p>
       </div>
       <div class="pillar">
         <div class="pillar-num">▲ A2</div>
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 16a4 4 0 1 1 1-7.9 5 5 0 0 1 9.5 1.4A3.5 3.5 0 0 1 17 16"/><path d="M12 12v8m-3-3l3 3 3-3"/></svg>
         </div>
-        <h3>Cloud &amp; <span class="it">automation</span></h3>
-        <p>GCP, Cloud Run, Docker, Firebase. Workflow automation for Dilmah, SANASA, and Sarvodaya, cutting paper use by 80% across enterprise implementations.</p>
+        <h3>Cloud platforms &amp; <span class="it">IaC</span></h3>
+        <p>Google Cloud Certified. Cloud Run, Terraform, Docker, internal developer platforms. Designing single-tenant infrastructure with automated provisioning, RBAC, and approval gates.</p>
       </div>
       <div class="pillar">
         <div class="pillar-num">▲ A3</div>
         <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8 8l3 7M16 8l-3 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
         </div>
-        <h3>Systems <span class="it">integration</span></h3>
-        <p>SAP HANA, Meta Graph API, App Script, REST. Wiring payment workflows, HRIS, and approval chains across complex organisational hierarchies.</p>
+        <h3>Full-stack &amp; <span class="it">mobile</span></h3>
+        <p>Flutter (Clean Architecture + BLoC), Next.js, Spring Boot. Production apps on Play Store &amp; App Store with offline-first sync, SAP B1 integration, and enterprise workflow automation across 12+ clients.</p>
       </div>
     </div>
 
@@ -1196,7 +1205,51 @@
 
     <div class="skills-grid">
       <div class="skill-card wide">
-        <div class="skill-head"><div class="skill-name">Mobile <span class="it">stack</span></div><div class="skill-idx">/01</div></div>
+        <div class="skill-head"><div class="skill-name">AI agents &amp; <span class="it">integration</span></div><div class="skill-idx">/01</div></div>
+        <div class="chip-row">
+          <span class="chip">Model Context Protocol (MCP)</span><span class="chip">Multi-model orchestration</span>
+          <span class="chip">Agentic workflows</span><span class="chip">Tool-use architectures</span>
+          <span class="chip">Gemini / Vertex AI</span><span class="chip">Claude</span><span class="chip">Groq / LLaMA</span>
+          <span class="chip">Vercel AI SDK</span><span class="chip">Multimodal ingestion</span>
+          <span class="chip">SAP B1 Service Layer</span><span class="chip">OData</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head"><div class="skill-name"><span class="it">Languages</span></div><div class="skill-idx">/02</div></div>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span>
+          <span class="chip">Dart</span><span class="chip">Java</span><span class="chip">SQL</span><span class="chip">HCL (Terraform)</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head"><div class="skill-name">Cloud &amp; <span class="it">IaC</span></div><div class="skill-idx">/03</div></div>
+        <div class="chip-row">
+          <span class="chip">GCP</span><span class="chip">Cloud Run</span><span class="chip">Terraform</span><span class="chip">Cloud Build</span><span class="chip">Docker</span>
+          <span class="chip">Vercel</span><span class="chip">Firebase</span><span class="chip">Supabase</span><span class="chip">Railway</span><span class="chip">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head"><div class="skill-name">Web <span class="it">frameworks</span></div><div class="skill-idx">/04</div></div>
+        <div class="chip-row">
+          <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">NestJS</span><span class="chip">Angular 19</span>
+          <span class="chip">Spring Boot 3</span><span class="chip">Flask</span><span class="chip">Node.js</span>
+          <span class="chip">Express</span><span class="chip">Starlette</span><span class="chip">Uvicorn</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head"><div class="skill-name"><span class="it">Databases</span></div><div class="skill-idx">/05</div></div>
+        <div class="chip-row">
+          <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SAP HANA</span>
+          <span class="chip">Cloud SQL</span><span class="chip">Prisma</span><span class="chip">Firestore</span><span class="chip">Redis</span><span class="chip">SQLite</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-head"><div class="skill-name">Mobile <span class="it">stack</span></div><div class="skill-idx">/06</div></div>
         <div class="chip-row">
           <span class="chip">Flutter</span><span class="chip">Clean Architecture</span><span class="chip">BLoC Pattern</span>
           <span class="chip">Drift SQLite</span><span class="chip">Offline-first</span><span class="chip">Android</span><span class="chip">iOS</span>
@@ -1205,61 +1258,19 @@
       </div>
 
       <div class="skill-card">
-        <div class="skill-head"><div class="skill-name"><span class="it">Languages</span></div><div class="skill-idx">/02</div></div>
-        <div class="chip-row">
-          <span class="chip">Dart</span><span class="chip">Java</span><span class="chip">Python</span>
-          <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">SQL</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-name">Web <span class="it">frameworks</span></div><div class="skill-idx">/03</div></div>
-        <div class="chip-row">
-          <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Angular 19</span>
-          <span class="chip">Spring Boot 3</span><span class="chip">Flask</span><span class="chip">Node.js</span>
-          <span class="chip">Express</span><span class="chip">Starlette</span><span class="chip">Uvicorn</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-name">Cloud &amp; <span class="it">DevOps</span></div><div class="skill-idx">/04</div></div>
-        <div class="chip-row">
-          <span class="chip">GCP</span><span class="chip">Cloud Run</span><span class="chip">Cloud Build</span><span class="chip">Docker</span>
-          <span class="chip">Vercel</span><span class="chip">Firebase</span><span class="chip">Supabase</span><span class="chip">Railway</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-head"><div class="skill-name"><span class="it">Databases</span></div><div class="skill-idx">/05</div></div>
-        <div class="chip-row">
-          <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SAP HANA</span>
-          <span class="chip">Cloud SQL</span><span class="chip">Firestore</span><span class="chip">Redis</span><span class="chip">SQLite</span>
-        </div>
-      </div>
-
-      <div class="skill-card wide">
-        <div class="skill-head"><div class="skill-name">AI &amp; <span class="it">agents</span></div><div class="skill-idx">/06</div></div>
-        <div class="chip-row">
-          <span class="chip">MCP</span><span class="chip">Vercel AI SDK</span><span class="chip">Gemini / Vertex AI</span>
-          <span class="chip">Claude</span><span class="chip">Groq API</span><span class="chip">LLaMA 3.3 70B</span>
-          <span class="chip">SAP B1 Service Layer</span><span class="chip">OData</span>
-          <span class="chip">Google Apps Script</span><span class="chip">APScheduler</span><span class="chip">FFmpeg</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
         <div class="skill-head"><div class="skill-name">Architecture <span class="it">patterns</span></div><div class="skill-idx">/07</div></div>
         <div class="chip-row">
-          <span class="chip">Clean Arch.</span><span class="chip">MCP Protocol</span><span class="chip">MVVM</span><span class="chip">MVC</span>
-          <span class="chip">RESTful APIs</span><span class="chip">Streamable HTTP</span><span class="chip">Offline-first</span><span class="chip">Code Generation</span>
+          <span class="chip">MCP Protocol</span><span class="chip">Clean Arch.</span><span class="chip">IaC (Terraform)</span><span class="chip">MVVM</span><span class="chip">MVC</span>
+          <span class="chip">RESTful APIs</span><span class="chip">Streamable HTTP</span><span class="chip">Single-tenant</span><span class="chip">Offline-first</span><span class="chip">Code Generation</span>
         </div>
       </div>
 
       <div class="skill-card">
-        <div class="skill-head"><div class="skill-name">Tools &amp; <span class="it">APIs</span></div><div class="skill-idx">/08</div></div>
+        <div class="skill-head"><div class="skill-name">Tools &amp; <span class="it">automation</span></div><div class="skill-idx">/08</div></div>
         <div class="chip-row">
           <span class="chip">Git / Bitbucket</span><span class="chip">Figma</span><span class="chip">Tailwind CSS</span>
-          <span class="chip">OAuth 2.0 / JWT</span><span class="chip">Spring Security</span><span class="chip">Meta Graph v24</span><span class="chip">NewsAPI</span>
+          <span class="chip">OAuth 2.0 / JWT</span><span class="chip">Google Apps Script</span><span class="chip">AppSheet</span>
+          <span class="chip">APScheduler</span><span class="chip">FFmpeg</span>
         </div>
       </div>
     </div>
@@ -1274,7 +1285,7 @@
       <div>
         <h2 class="sec-title">Professional <span class="it">journey</span></h2>
         <p class="sec-blurb">
-          Building and shipping production systems across mobile, cloud, and enterprise automation.
+          Building AI agents, cloud platforms, and production systems across full-stack and mobile.
           One organisation, many product surfaces.
         </p>
       </div>
@@ -1298,7 +1309,7 @@
       </div>
       <div class="exp-body">
         <div class="exp-summary">
-          <p>Leading development of <b>production mobile applications</b> and <b>enterprise workflow automation</b> for major Sri Lankan organisations across finance, insurance, manufacturing, and distribution sectors. Architecting end-to-end solutions from Flutter mobile to GCP cloud infrastructure, integrating SAP B1 (HANA/SQL), social APIs, and third-party enterprise systems.</p>
+          <p>Building <b>AI-powered products</b>, <b>cloud platforms</b>, and <b>enterprise automation</b> for major Sri Lankan organisations across finance, insurance, manufacturing, and distribution. Independently researched and built MCP servers bridging SAP Business One with Gemini Enterprise, designed an Internal Developer Platform (IDP) with Terraform IaC, and shipped conversational AI agents with multi-model architectures.</p>
           <p>Mobile products are built on <b>Clean Architecture + BLoC</b> with offline-first <b>Drift SQLite</b> sync, GPS check-in, OCR document processing, and deep ERP integration. Automation spans <b>AppSheet</b> low-code forms, <b>Google Apps Script</b> orchestration, and Cloud Run microservices, replacing paper-based operations across 12+ client organisations.</p>
           <div class="exp-kpis">
             <div class="exp-kpi">
@@ -1320,14 +1331,14 @@
           </div>
         </div>
         <ul class="exp-list">
+          <li>Built a custom <b>MCP server</b> bridging SAP Business One with Gemini Enterprise, exposing 75 read-only tools across 10 business domains on Cloud Run with OAuth 2.0, enabling 15x faster data retrieval through natural language</li>
+          <li>Built <b>Hive Trendz</b>, an autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), FFmpeg video editing, and direct Facebook &amp; Instagram publishing</li>
+          <li>Delivered <b>20+ workflow automation systems</b> using AppSheet, Apps Script, and Cloud Run microservices for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, BNS Music</li>
+          <li>Integrated <b>SAP B1 (HANA/SQL)</b> into payment workflows, multi-level approval mechanisms, and HRIS digitisation</li>
           <li>Led full-cycle development of <b>Timespot</b>, covering GPS check-in/out, task &amp; sub-task tracking, and leave &amp; WFH approval workflows. Live on Play &amp; App Store</li>
           <li>Built <b>Litro Gas SPO Hub &amp; Sales POS</b> with offline-first dealer visit management, promotions tracking, and island-wide gas distribution recording on Drift SQLite background sync</li>
           <li>Architected <b>DocIt</b>, an OCR-powered Document Management System with full-text search, dynamic field indexing, and Flutter Clean Architecture</li>
-          <li>Delivered <b>20+ workflow automation systems</b> for Sarvodaya, Dilmah, SANASA, Litro Gas, DFCC, GSS, Finetech, BNS Music</li>
-          <li>Built a custom <b>MCP server</b> bridging SAP Business One with Gemini Enterprise, exposing 75 read-only tools across 10 business domains on Cloud Run with OAuth 2.0, enabling 15x faster data retrieval through natural language</li>
-          <li>Integrated <b>SAP B1 (HANA/SQL)</b> into payment workflows, multi-level approval mechanisms, and HRIS digitisation</li>
-          <li>Built <b>BNS Music OPMS</b>, a multi-level digital approval workflow (Production → Finance → Director) that replaced manual job sheets, with budgeted vs actual cost tracking</li>
-          <li>Built <b>Hive Trendz</b>, an autonomous news-to-post pipeline using LLaMA 3.3 70B (Groq API), FFmpeg video editing, and direct Facebook &amp; Instagram publishing</li>
+          <li>Built <b>BNS Music OPMS</b>, a multi-level digital approval workflow (Production to Finance to Director) that replaced manual job sheets, with budgeted vs actual cost tracking</li>
           <li>Developed <b>Flutter Feature Generator CLI</b> that scaffolds ~25-file Clean Architecture + BLoC + Drift + Spring Boot features in one command</li>
           <li>Mentored developers on Clean Architecture patterns, GCP integration, and cross-team system design</li>
         </ul>
@@ -1424,7 +1435,7 @@
     </div>
 
     <div class="certs-footer">
-      <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank">View all 13 badges on Credly →</a>
+      <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank">View all 13 badges on Credly</a>
     </div>
   </div>
 </section>
@@ -1502,9 +1513,47 @@
         </div>
       </article>
 
-      <!-- 02 — Sela (featured, full width) -->
+      <!-- 02 — Finetech IDP (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
         <div class="p-corner">02 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>Finetech</b> · Solo R&amp;D Initiative · Architecture &amp; Development · In Progress</div>
+          <h3 class="p-title">Finetech IDP: Internal <span class="it">Developer Platform</span> for GCP</h3>
+          <p class="p-desc">
+            Researching and building an Internal Developer Platform that automates the provisioning of customer
+            environments on Google Cloud. A non-technical operator selects a customer, a product, and a runtime,
+            and the platform creates the infrastructure, deploys the application, and returns the service URL.
+            Replaces a fully manual GCP provisioning process with a self-service portal backed by reusable
+            Terraform modules.
+          </p>
+          <p class="p-desc">
+            The architecture enforces <b style="color:var(--cyan);font-weight:500;">single-tenant isolation</b>: every
+            customer environment gets its own GCP project (<code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">ft-&lt;customer&gt;-&lt;env&gt;</code>),
+            designed for banks and enterprises with strict compliance requirements. A three-layer Terraform module
+            library (Foundation, Runtime, Data) with strict contracts means adding a new runtime (Cloud Run, App Engine,
+            GKE) is one new module directory with zero changes to products, API, or UI. Supports two hosting models
+            from the same codebase: <b>Finetech-hosted</b> (project under Finetech's GCP org) and
+            <b>BYOC</b> (customer's own GCP, accessed via Workload Identity Federation).
+          </p>
+          <p class="p-desc">
+            The provisioning flow runs through a <b>plan-then-approve gate</b>: Terraform init, plan, human approval
+            with resource summary (+N ~N -N), then apply, with live logs streamed to the portal via SSE. Full RBAC
+            (admin/operator/viewer), audit trail, and a product catalog with pluggable config schemas. Currently
+            running AI products including a 360 evaluation agent and a Gemini agent bot on the platform.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Next.js 15</span><span class="chip">NestJS</span><span class="chip">TypeScript</span>
+            <span class="chip">Prisma</span><span class="chip">PostgreSQL</span><span class="chip">Terraform</span>
+            <span class="chip">GCP</span><span class="chip">Cloud Run</span><span class="chip">App Engine</span>
+            <span class="chip">Artifact Registry</span><span class="chip">Google OAuth</span><span class="chip">RBAC</span>
+            <span class="chip">SSE</span><span class="chip">GitHub Actions</span><span class="chip">Workload Identity Federation</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 — Sela (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
+        <div class="p-corner">03 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
           <h3 class="p-title">Sela: trilingual AI <span class="it">shopping concierge</span> for Kapruka 🛍️</h3>
@@ -1524,7 +1573,7 @@
             or Thanglish that converts to native script as they type, or draw letters on a handwriting pad, plus a
             hands-free voice mode where Sela speaks back in the chosen language. Date awareness resolves relative
             dates like <em>"next Friday"</em> to real Sri&nbsp;Lanka calendar dates, and a resilient multi-model brain
-            with automatic fallback (<b style="color:var(--cyan);font-weight:500;">Gemini → Groq → Claude</b>) keeps
+            with automatic fallback (<b style="color:var(--cyan);font-weight:500;">Gemini to Groq to Claude</b>) keeps
             the agent up even when a provider is rate-limited.
           </p>
           <div class="p-stack">
@@ -1551,9 +1600,9 @@
         </div>
       </article>
 
-      <!-- 03 + 04 — AppSheet + DLP (half tiles) -->
+      <!-- 04 + 05 — AppSheet + DLP (half tiles) -->
       <article class="project p-half">
-        <div class="p-corner">03 / PERSONAL</div>
+        <div class="p-corner">04 / PERSONAL</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Reverse-engineered private API · AI-controlled build pipeline</div>
           <h3 class="p-title">AppSheet Workflow Automation via <span class="it">Reverse-Engineered</span> Editor API</h3>
@@ -1591,7 +1640,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">04 / CLIENT</div>
+        <div class="p-corner">05 / CLIENT</div>
         <div class="p-body">
           <div class="p-kicker"><b>Commercial Bank of Sri Lanka</b> · Enterprise · <span style="color:var(--cyan);font-weight:500;">In Progress</span></div>
           <h3 class="p-title">DLP Rule Workflow: <span class="it">enterprise</span> data loss prevention management</h3>
@@ -1617,9 +1666,9 @@
         </div>
       </article>
 
-      <!-- 05 — Hive Trendz (full row) -->
+      <!-- 06 — Hive Trendz (full row) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">05 / FEATURED</div>
+        <div class="p-corner">06 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Autonomous AI pipeline</div>
           <h3 class="p-title">Hive Trendz: AI <span class="it">social media</span> automation</h3>
@@ -1915,7 +1964,7 @@
           <h3 class="p-title">BNS Music: <span class="it">OPMS</span></h3>
           <p class="p-desc">
             Web &amp; mobile OPMS replacing manual job sheet processes for BNS Music's two organisational clusters.
-            Multi-level digital approval workflow (Production → Cluster Finance → Director → Central Finance),
+            Multi-level digital approval workflow (Production to Cluster Finance to Director to Central Finance),
             budgeted vs actual cost tracking, job sheet lifecycle management, and cluster-level segregation of duties.
           </p>
           <div class="p-stack">
@@ -1943,8 +1992,8 @@
             <span class="chip">Machine Learning</span><span class="chip">Mobile App</span><span class="chip">Web Platform</span>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-            <a href="https://github.com/sachiantany/Pay-As-You-Park/tree/master/payp-web" class="p-link" target="_blank">Web → GitHub</a>
-            <a href="https://github.com/sachiantany/payp-surface-detection-model" class="p-link" target="_blank" style="color:var(--blue)">ML Model →</a>
+            <a href="https://github.com/sachiantany/Pay-As-You-Park/tree/master/payp-web" class="p-link" target="_blank">Web on GitHub</a>
+            <a href="https://github.com/sachiantany/payp-surface-detection-model" class="p-link" target="_blank" style="color:var(--blue)">ML Model</a>
           </div>
         </div>
       </article>
@@ -1961,7 +2010,7 @@
           <div class="p-stack">
             <span class="chip">Flutter</span><span class="chip">Clean Architecture</span><span class="chip">BLoC</span>
           </div>
-          <a href="https://github.com/sachiantany/ceylonExplorer" class="p-link" target="_blank">GitHub →</a>
+          <a href="https://github.com/sachiantany/ceylonExplorer" class="p-link" target="_blank">GitHub</a>
         </div>
       </article>
 
@@ -2033,7 +2082,7 @@
           <label>Message</label>
           <textarea rows="3" placeholder="Tell me more..."></textarea>
         </div>
-        <button class="btn btn-primary" type="submit" style="margin-top: 12px; border:none; cursor:pointer;">Send Message →</button>
+        <button class="btn btn-primary" type="submit" style="margin-top: 12px; border:none; cursor:pointer;">Send Message</button>
       </form>
     </div>
   </div>

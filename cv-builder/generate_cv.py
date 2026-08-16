@@ -20,8 +20,8 @@ def generate_pdf():
     script_dir = Path(__file__).parent
 
     html_file = script_dir / "cv-template.html"
-    pdf_file = script_dir / "cv" / "cv.pdf"
-    root_pdf  = script_dir.parent / "cv" / "cv.pdf"  # served by the portfolio
+    pdf_file = script_dir / "cv" / "MDSM_Antany_CV_v2.pdf"
+    root_pdf  = script_dir.parent / "cv" / "MDSM_Antany_CV_v2.pdf"  # served by the portfolio
 
     pdf_file.parent.mkdir(parents=True, exist_ok=True)
     root_pdf.parent.mkdir(parents=True, exist_ok=True)
