@@ -300,10 +300,10 @@
             <div class="tech-list">
                 <div class="tech-item"><span class="tech-label">Languages:</span> Dart, TypeScript, JavaScript, Java, Python, SQL</div>
                 <div class="tech-item"><span class="tech-label">Mobile:</span> Flutter (Android & iOS), Clean Architecture, Bloc Pattern, Drift SQLite, Offline-first sync</div>
-                <div class="tech-item"><span class="tech-label">Web & Backend:</span> Next.js, React, Angular, Spring Boot 3, Node.js / Express, Flask</div>
-                <div class="tech-item"><span class="tech-label">AI & Agents:</span> LLMs (Gemini, Groq/LLaMA, Claude), Vercel AI SDK, MCP, Vertex AI</div>
-                <div class="tech-item"><span class="tech-label">Cloud & DevOps:</span> GCP, Cloud Run, Docker, Firebase, Supabase, Vercel</div>
-                <div class="tech-item"><span class="tech-label">Automation & Enterprise:</span> AppSheet, Apps Script, SAP HANA / SAP B1, Cloud SQL, Redis</div>
+                <div class="tech-item"><span class="tech-label">Web & Backend:</span> Next.js, React, Angular, Spring Boot 3, Node.js / Express, Flask, Starlette / Uvicorn</div>
+                <div class="tech-item"><span class="tech-label">AI & Agents:</span> LLMs (Gemini, Groq/LLaMA, Claude), Vercel AI SDK, MCP, Vertex AI, SAP B1 Service Layer / OData</div>
+                <div class="tech-item"><span class="tech-label">Cloud & DevOps:</span> GCP, Cloud Run, Cloud Build, Docker, Firebase, Supabase, Vercel</div>
+                <div class="tech-item"><span class="tech-label">Automation & Enterprise:</span> AppSheet, Apps Script, SAP HANA / SAP B1, Cloud SQL, Redis, OAuth 2.0 / JWT</div>
                 <div class="tech-item"><span class="tech-label">Dev Tools:</span> Git, Bitbucket, Figma, VS Code, Android Studio</div>
             </div>
         </div>
@@ -328,6 +328,7 @@
                 <div class="subsection">
                     <div class="subsection-title">AI & Full-Stack Product Development</div>
                     <ul>
+                        <li>Independently designed and built a custom MCP server bridging SAP Business One with Gemini Enterprise — 75 read-only tools across 10 business domains enabling autonomous 3-way PO matching, intelligent document generation, and real-time financial analytics via natural language. No native SAP–Gemini integration exists; this was a solo R&D initiative.</li>
                         <li>Built Sela, a trilingual (EN/SI/TA) AI shopping concierge for the Kapruka Agent Challenge on Next.js 16, Vercel AI SDK, MCP and a multi-model fallback brain (Gemini → Groq → Claude).</li>
                         <li>Created an AppSheet Workflow Automation pipeline over a reverse-engineered editor API, letting an AI agent generate full enterprise apps in seconds.</li>
                     </ul>
@@ -375,6 +376,9 @@
         <!-- Project Highlights -->
         <div class="section">
             <h2 class="section-title">Project Highlights</h2>
+            <div class="project-item">
+                <span class="project-name">SAP B1 MCP Server for Gemini Enterprise</span> – Custom Model Context Protocol server bridging SAP Business One with Gemini Enterprise (solo R&D — no native integration exists). 75 read-only MCP tools across Procurement, Sales, Finance, Inventory, Service, and Metadata domains. Enables autonomous 3-way PO matching, multimodal PR/PV generation from vendor invoice PDFs, dynamic cash flow analysis, and forensic inventory variance detection via natural language. Python, Streamable HTTP, OData, Cloud Run, OAuth 2.0 + PKCE, SAP HANA.
+            </div>
             <div class="project-item">
                 <span class="project-name">Sela – Trilingual AI Shopping Concierge</span> – Full-screen conversational commerce agent for the Kapruka Agent Challenge 2026, taking a shopper from intent to paid order entirely in chat across English, Sinhala & Tamil with voice and handwriting input. Built on Next.js 16, Vercel AI SDK v6 and MCP, with generative UI and a multi-model fallback brain (Gemini → Groq → Claude).
             </div>
