@@ -906,6 +906,285 @@
   .store-badge:hover { border-color: var(--cyan); color: var(--paper); }
   .store-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
 
+  /* ───── GITHUB ACTIVITY ───── */
+  .gh-graph-wrap {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    background: linear-gradient(180deg, rgba(28,77,141,0.08), rgba(15,40,84,0.0));
+    margin-bottom: 56px;
+  }
+  .gh-graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .gh-total {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--dim);
+  }
+  .gh-total b { color: var(--paper); font-weight: 600; }
+  .gh-legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .gh-legend-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--dimmer);
+    margin: 0 4px;
+  }
+  .gh-graph-scroll {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .gh-graph-inner {
+    display: inline-block;
+    min-width: 100%;
+  }
+  .gh-months {
+    position: relative;
+    height: 18px;
+    margin-left: 32px;
+    margin-bottom: 2px;
+  }
+  .gh-months span {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--dimmer);
+    letter-spacing: 0.04em;
+  }
+  .gh-graph {
+    display: flex;
+    gap: 4px;
+  }
+  .gh-days {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 28px;
+  }
+  .gh-days span {
+    height: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--dimmer);
+    line-height: 13px;
+  }
+  .gh-grid {
+    display: flex;
+    gap: 3px;
+  }
+  .gh-week {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .gh-cell {
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    transition: outline .15s;
+  }
+  .gh-cell:hover {
+    outline: 2px solid var(--cyan);
+    outline-offset: 1px;
+  }
+  .gh-cell[data-level="0"] { background: rgba(28,77,141,0.12); }
+  .gh-cell[data-level="1"] { background: var(--navy-2); }
+  .gh-cell[data-level="2"] { background: var(--blue); }
+  .gh-cell[data-level="3"] { background: #6BAED8; }
+  .gh-cell[data-level="4"] { background: var(--cyan); }
+  .gh-cell-empty { background: transparent !important; outline: none !important; }
+
+  .gh-activity-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--paper);
+    margin-bottom: 28px;
+  }
+  .gh-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .gh-month-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    margin-top: 8px;
+  }
+  .gh-month-header:first-child { margin-top: 0; }
+  .gh-month-header span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--paper);
+    white-space: nowrap;
+  }
+  .gh-month-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line-2);
+  }
+  .gh-event {
+    position: relative;
+    padding-left: 40px;
+    padding-bottom: 28px;
+  }
+  .gh-event::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--line-2);
+  }
+  .gh-event:last-child::before { bottom: 28px; }
+  .gh-event-icon {
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 2px solid var(--line-2);
+    display: grid;
+    place-items: center;
+    z-index: 1;
+  }
+  .gh-event-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  .gh-event-icon.gh-icon-pr svg { color: var(--cyan); }
+  .gh-event-icon.gh-icon-issue svg { color: var(--blue); }
+  .gh-event-icon.gh-icon-repo svg { color: var(--dim); }
+  .gh-event-header {
+    font-size: 14px;
+    color: var(--dim);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .gh-event-header a {
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .gh-event-header a:hover { text-decoration: underline; }
+  .gh-event-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--dimmer);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .gh-card {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    background: linear-gradient(180deg, rgba(28,77,141,0.06), transparent);
+    transition: border-color .2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .gh-card:hover { border-color: var(--blue); }
+  .gh-card-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .gh-card-state svg { width: 14px; height: 14px; }
+  .gh-card-state.open { color: var(--cyan); }
+  .gh-card-state.merged { color: #9B8CDB; }
+  .gh-card-state.closed { color: var(--dimmer); }
+  .gh-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--paper);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .gh-card-body {
+    font-size: 13px;
+    color: var(--dimmer);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .gh-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    flex-wrap: wrap;
+  }
+  .gh-additions { color: var(--cyan); }
+  .gh-deletions { color: var(--blue); }
+  .gh-diff-bar {
+    display: inline-flex;
+    gap: 2px;
+    margin: 0 2px;
+  }
+  .gh-diff-bar span {
+    width: 8px;
+    height: 8px;
+    border-radius: 1px;
+  }
+  .gh-diff-bar .add { background: var(--cyan); }
+  .gh-diff-bar .del { background: var(--navy-2); }
+  .gh-diff-bar .neutral { background: rgba(28,77,141,0.2); }
+  .gh-stat { color: var(--dimmer); }
+  .gh-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--dim);
+    margin-top: 4px;
+  }
+  .gh-lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .gh-empty {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--dimmer);
+    font-size: 14px;
+  }
+  .gh-empty a {
+    color: var(--cyan);
+    text-decoration: none;
+  }
+
   /* ───── CERTIFICATIONS ───── */
   .certs-grid {
     display: grid;
@@ -1038,6 +1317,8 @@
     .contact-row { grid-template-columns: 1fr; gap: 4px; }
     .contact-row .arrow { display: none; }
     .certs-grid { grid-template-columns: 1fr; }
+    .gh-graph-wrap { padding: 16px; }
+    .gh-event-header { font-size: 13px; }
   }
   @media (max-width: 1024px) and (min-width: 641px) {
     .certs-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1055,6 +1336,7 @@
       <a href="#skills">Skills</a>
       <a href="#experience">Work</a>
       <a href="#projects">Projects</a>
+      <a href="#github">GitHub</a>
       <a href="#contact">Contact</a>
       <a href="javascript:void(0)" class="nav-cv" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v2.pdf'}],0)">Preview CV</a>
     </nav>
@@ -2018,11 +2300,55 @@
   </div>
 </section>
 
+<!-- ─── GITHUB ─── -->
+<section class="section" id="github">
+  <div class="container">
+    <div class="section-head">
+      <div class="sec-label"><b>06</b> &nbsp;/&nbsp; GitHub</div>
+      <div>
+        <h2 class="sec-title">Open source <span class="it">activity</span></h2>
+        <p class="sec-blurb">
+          Contribution graph and recent pull requests, issues, and repos from GitHub. Updated daily.
+        </p>
+      </div>
+    </div>
+
+    <div class="gh-graph-wrap" id="gh-graph-wrap">
+      <div class="gh-graph-header">
+        <span class="gh-total" id="gh-total"></span>
+        <div class="gh-legend">
+          <span class="gh-legend-label">Less</span>
+          <span class="gh-cell" data-level="0" style="display:inline-block"></span>
+          <span class="gh-cell" data-level="1" style="display:inline-block"></span>
+          <span class="gh-cell" data-level="2" style="display:inline-block"></span>
+          <span class="gh-cell" data-level="3" style="display:inline-block"></span>
+          <span class="gh-cell" data-level="4" style="display:inline-block"></span>
+          <span class="gh-legend-label">More</span>
+        </div>
+      </div>
+      <div class="gh-graph-scroll">
+        <div class="gh-graph-inner">
+          <div class="gh-months" id="gh-months"></div>
+          <div class="gh-graph">
+            <div class="gh-days">
+              <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+            </div>
+            <div class="gh-grid" id="gh-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gh-activity-label">Contribution activity</div>
+    <div class="gh-feed" id="gh-feed"></div>
+  </div>
+</section>
+
 <!-- ─── CONTACT ─── -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="section-head">
-      <div class="sec-label"><b>06</b> &nbsp;/&nbsp; Contact</div>
+      <div class="sec-label"><b>07</b> &nbsp;/&nbsp; Contact</div>
       <div>
         <h2 class="sec-title">Let's <span class="it">work</span> together</h2>
         <p class="sec-blurb">
@@ -2212,6 +2538,199 @@
     if (e.key === 'ArrowLeft')  { _li = (_li - 1 + _lb.length) % _lb.length; _lbRender(); }
     if (e.key === 'Escape') closeLb();
   });
+
+  /* ── GitHub Activity ── */
+  (async function() {
+    try {
+      const resp = await fetch('data/github-stats.json');
+      if (!resp.ok) return;
+      const data = await resp.json();
+      if (!data.weeks || !data.weeks.length) {
+        document.getElementById('gh-graph-wrap').innerHTML =
+          '<div class="gh-empty">Stats loading. <a href="https://github.com/sachiantany" target="_blank">View on GitHub</a></div>';
+        return;
+      }
+      ghRenderGraph(data);
+      ghRenderFeed(data.activity || []);
+    } catch(e) {}
+  })();
+
+  var GH_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var GH_LANG_COLORS = {Python:'#3572A5',JavaScript:'#f1e05a',TypeScript:'#3178c6',Dart:'#00B4AB',Shell:'#89e051',HTML:'#e34c26',CSS:'#563d7c',Go:'#00ADD8',Java:'#b07219',Kotlin:'#A97BFF',Rust:'#dea584',Ruby:'#701516',C:'#555555','C++':'#f34b7d','C#':'#178600',Swift:'#F05138',PHP:'#4F5D95',Lua:'#000080'};
+
+  function ghEsc(s) {
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function ghFmtDate(iso) {
+    var d = new Date(iso);
+    return GH_MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function ghShortDate(iso) {
+    var d = new Date(iso);
+    return GH_MONTHS[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  function ghRenderGraph(data) {
+    var grid = document.getElementById('gh-grid');
+    var monthsEl = document.getElementById('gh-months');
+    var totalEl = document.getElementById('gh-total');
+
+    totalEl.innerHTML = '<b>' + data.total + '</b> contributions in the last year';
+
+    var lastMonth = -1;
+
+    data.weeks.forEach(function(week, wi) {
+      var col = document.createElement('div');
+      col.className = 'gh-week';
+
+      if (week.length > 0) {
+        var dt = new Date(week[0].d + 'T00:00:00');
+        var m = dt.getMonth();
+        if (m !== lastMonth) {
+          var sp = document.createElement('span');
+          sp.textContent = GH_MONTHS[m];
+          sp.style.left = (wi * 16) + 'px';
+          monthsEl.appendChild(sp);
+          lastMonth = m;
+        }
+      }
+
+      week.forEach(function(day) {
+        var cell = document.createElement('span');
+        cell.className = 'gh-cell';
+        cell.dataset.level = day.l;
+        cell.title = day.c + ' contribution' + (day.c !== 1 ? 's' : '') + ' on ' + ghFmtDate(day.d);
+        col.appendChild(cell);
+      });
+
+      for (var i = week.length; i < 7; i++) {
+        var empty = document.createElement('span');
+        empty.className = 'gh-cell gh-cell-empty';
+        col.appendChild(empty);
+      }
+
+      grid.appendChild(col);
+    });
+
+    monthsEl.style.width = (data.weeks.length * 16) + 'px';
+  }
+
+  function ghDiffBar(add, del) {
+    var total = add + del;
+    if (total === 0) return '';
+    var blocks = 5;
+    var addBlocks = Math.max(1, Math.round((add / total) * blocks));
+    var delBlocks = del > 0 ? Math.max(1, blocks - addBlocks) : 0;
+    if (delBlocks > 0) addBlocks = blocks - delBlocks;
+    var neutral = blocks - addBlocks - delBlocks;
+    var html = '<span class="gh-diff-bar">';
+    for (var i = 0; i < addBlocks; i++) html += '<span class="add"></span>';
+    for (var i = 0; i < delBlocks; i++) html += '<span class="del"></span>';
+    for (var i = 0; i < neutral; i++) html += '<span class="neutral"></span>';
+    html += '</span>';
+    return html;
+  }
+
+  var ghPrIcon = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"/></svg>';
+  var ghIssueIcon = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/></svg>';
+  var ghRepoIcon = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5zm10.5-1h-8a1 1 0 00-1 1v6.708A2.486 2.486 0 014.5 9h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg>';
+  var ghMergedIcon = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218zM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM5 3.25a.75.75 0 1 0 0 .005V3.25z"/></svg>';
+  var ghClosedIcon = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M11.28 6.78a.75.75 0 0 0-1.06-1.06L7.25 8.69 5.78 7.22a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.06 0l3.5-3.5z"/><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-1.5 0a6.5 6.5 0 1 0-13 0 6.5 6.5 0 0 0 13 0z"/></svg>';
+
+  function ghStateHtml(item) {
+    var icon, label, cls;
+    if (item.type === 'pr') {
+      if (item.state === 'merged') { icon = ghMergedIcon; label = 'Merged'; cls = 'merged'; }
+      else if (item.state === 'closed') { icon = ghClosedIcon; label = 'Closed'; cls = 'closed'; }
+      else { icon = ghPrIcon; label = 'Open'; cls = 'open'; }
+    } else {
+      if (item.state === 'closed') { icon = ghClosedIcon; label = 'Closed'; cls = 'closed'; }
+      else { icon = ghIssueIcon; label = 'Open'; cls = 'open'; }
+    }
+    return '<div class="gh-card-state ' + cls + '">' + icon + ' ' + label + ' #' + item.number + '</div>';
+  }
+
+  function ghRenderFeed(activities) {
+    var feed = document.getElementById('gh-feed');
+    if (!activities.length) {
+      feed.innerHTML = '<div class="gh-empty">No recent public activity. <a href="https://github.com/sachiantany" target="_blank">View on GitHub</a></div>';
+      return;
+    }
+
+    var groups = {};
+    var order = [];
+    activities.forEach(function(a) {
+      var d = new Date(a.date);
+      var key = GH_MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+      if (!groups[key]) { groups[key] = []; order.push(key); }
+      groups[key].push(a);
+    });
+
+    order.forEach(function(month) {
+      var h = document.createElement('div');
+      h.className = 'gh-month-header';
+      h.innerHTML = '<span>' + month + '</span><div class="gh-month-line"></div>';
+      feed.appendChild(h);
+
+      groups[month].forEach(function(item) {
+        var el = document.createElement('div');
+        el.className = 'gh-event';
+
+        if (item.type === 'pr') {
+          var meta = '<span class="gh-additions">+' + item.additions + '</span> '
+            + '<span class="gh-deletions">&minus;' + item.deletions + '</span> '
+            + ghDiffBar(item.additions, item.deletions)
+            + ' <span class="gh-stat">lines changed</span>';
+          if (item.comments) meta += ' <span class="gh-stat">&middot; ' + item.comments + ' comment' + (item.comments !== 1 ? 's' : '') + '</span>';
+
+          el.innerHTML =
+            '<div class="gh-event-icon gh-icon-pr">' + ghPrIcon + '</div>'
+            + '<div>'
+            + '<div class="gh-event-header"><span>Created a pull request in <a href="https://github.com/' + item.repo + '" target="_blank">' + ghEsc(item.repo) + '</a></span><span class="gh-event-date">' + ghShortDate(item.date) + '</span></div>'
+            + '<a href="' + item.url + '" class="gh-card" target="_blank">'
+            + ghStateHtml(item)
+            + '<div class="gh-card-title">' + ghEsc(item.title) + '</div>'
+            + (item.body ? '<div class="gh-card-body">' + ghEsc(item.body) + '</div>' : '')
+            + '<div class="gh-card-meta">' + meta + '</div>'
+            + '</a></div>';
+        }
+        else if (item.type === 'issue') {
+          var issueMeta = '';
+          if (item.comments) issueMeta = '<div class="gh-card-meta"><span class="gh-stat">' + item.comments + ' comment' + (item.comments !== 1 ? 's' : '') + '</span></div>';
+
+          el.innerHTML =
+            '<div class="gh-event-icon gh-icon-issue">' + ghIssueIcon + '</div>'
+            + '<div>'
+            + '<div class="gh-event-header"><span>Opened an issue in <a href="https://github.com/' + item.repo + '" target="_blank">' + ghEsc(item.repo) + '</a></span><span class="gh-event-date">' + ghShortDate(item.date) + '</span></div>'
+            + '<a href="' + item.url + '" class="gh-card" target="_blank">'
+            + ghStateHtml(item)
+            + '<div class="gh-card-title">' + ghEsc(item.title) + '</div>'
+            + (item.body ? '<div class="gh-card-body">' + ghEsc(item.body) + '</div>' : '')
+            + issueMeta
+            + '</a></div>';
+        }
+        else if (item.type === 'repo') {
+          var langHtml = '';
+          if (item.language) {
+            var color = GH_LANG_COLORS[item.language] || 'var(--dimmer)';
+            langHtml = '<div class="gh-lang"><span class="gh-lang-dot" style="background:' + color + '"></span>' + ghEsc(item.language) + '</div>';
+          }
+          el.innerHTML =
+            '<div class="gh-event-icon gh-icon-repo">' + ghRepoIcon + '</div>'
+            + '<div>'
+            + '<div class="gh-event-header"><span>Created <a href="' + item.url + '" target="_blank">' + ghEsc(item.repo) + '</a>' + (item.is_fork ? ' <span class="gh-stat">(fork)</span>' : '') + '</span><span class="gh-event-date">' + ghShortDate(item.date) + '</span></div>'
+            + langHtml
+            + '</div>';
+        }
+
+        feed.appendChild(el);
+      });
+    });
+  }
 </script>
 </body>
 </html>
