@@ -933,6 +933,12 @@
     align-items: center;
     gap: 4px;
   }
+  .gh-legend .gh-cell {
+    width: 13px;
+    height: 13px;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
   .gh-legend-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -944,8 +950,7 @@
     padding-bottom: 4px;
   }
   .gh-graph-inner {
-    display: inline-block;
-    min-width: 100%;
+    width: 100%;
   }
   .gh-months {
     position: relative;
@@ -971,24 +976,28 @@
     min-width: 28px;
   }
   .gh-days span {
-    height: 13px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
     color: var(--dimmer);
-    line-height: 13px;
+    display: flex;
+    align-items: center;
+    flex: 1;
   }
   .gh-grid {
     display: flex;
     gap: 3px;
+    flex: 1;
   }
   .gh-week {
     display: flex;
     flex-direction: column;
     gap: 3px;
+    flex: 1;
+    min-width: 0;
   }
   .gh-cell {
-    width: 13px;
-    height: 13px;
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 3px;
     transition: outline .15s;
   }
@@ -2582,6 +2591,8 @@
     totalEl.innerHTML = '<b>' + data.total + '</b> contributions in the last year';
 
     var lastMonth = -1;
+    var totalWeeks = data.weeks.length;
+    var monthMarkers = [];
 
     data.weeks.forEach(function(week, wi) {
       var col = document.createElement('div');
@@ -2591,10 +2602,7 @@
         var dt = new Date(week[0].d + 'T00:00:00');
         var m = dt.getMonth();
         if (m !== lastMonth) {
-          var sp = document.createElement('span');
-          sp.textContent = GH_MONTHS[m];
-          sp.style.left = (wi * 16) + 'px';
-          monthsEl.appendChild(sp);
+          monthMarkers.push({ name: GH_MONTHS[m], col: wi });
           lastMonth = m;
         }
       }
@@ -2616,7 +2624,12 @@
       grid.appendChild(col);
     });
 
-    monthsEl.style.width = (data.weeks.length * 16) + 'px';
+    monthMarkers.forEach(function(m) {
+      var sp = document.createElement('span');
+      sp.textContent = m.name;
+      sp.style.left = ((m.col / totalWeeks) * 100) + '%';
+      monthsEl.appendChild(sp);
+    });
   }
 
   function ghDiffBar(add, del) {
