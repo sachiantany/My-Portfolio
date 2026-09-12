@@ -2604,10 +2604,13 @@
 
   function _openPdf3D(pdfUrl) {
     var lb = document.getElementById('lb');
-    var canvas = document.getElementById('lb3dCanvas');
+    var oldCanvas = document.getElementById('lb3dCanvas');
     var closeBtn = document.getElementById('lb3dClose');
-    lb.classList.add('lb-3d-mode');
+    var canvas = document.createElement('canvas');
+    canvas.id = 'lb3dCanvas';
     canvas.style.display = 'block';
+    oldCanvas.parentNode.replaceChild(canvas, oldCanvas);
+    lb.classList.add('lb-3d-mode');
     closeBtn.style.display = 'block';
     _load3dLibs().then(function() {
       window._paper3D = _createPaper3D(canvas, pdfUrl);
