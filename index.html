@@ -1828,9 +1828,50 @@
         </div>
       </article>
 
-      <!-- 02 — Finetech IDP (featured, full width) -->
+      <!-- 02 — DSI Route Optimizer (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
         <div class="p-corner">02 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>DSI Samson Group</b> · Solo R&amp;D Initiative · POC</div>
+          <h3 class="p-title">DSI Route Optimizer: AI-Powered <span class="it">Delivery Route Planning</span> for 111+ Showrooms</h3>
+          <p class="p-desc">
+            Sri Lanka's largest footwear retailer (D. Samson &amp; Sons) operates 111+ showrooms across all 25 districts.
+            Every morning, delivery managers manually plan truck routes from the Colombo warehouse to 10-25 showrooms
+            along a corridor. Wrong sequencing burns hours backtracking through congested roads. I built an
+            <b style="color:var(--cyan);font-weight:500;">AI-powered route optimisation agent</b> that solves this as a
+            single-vehicle open-path Travelling Salesman Problem, deployed inside
+            <b>Gemini Enterprise</b> where managers interact with it conversationally.
+          </p>
+          <p class="p-desc">
+            The agent uses <b style="color:var(--cyan);font-weight:500;">Google OR-Tools</b> with Guided Local Search to
+            find near-optimal stop sequences for 25 locations in under a second, at zero API cost. Travel times come from
+            Google's Routes API with <b>TRAFFIC_AWARE</b> routing, not straight-line approximations, capturing real Sri
+            Lankan road conditions: single-lane coastal highways, mountain switchbacks, and Colombo urban congestion.
+            A data pipeline discovered and verified all 111 DSI locations via Google Places API, auto-classifying each
+            into districts and delivery corridors, stored in Firestore.
+          </p>
+          <p class="p-desc">
+            The agent emits structured payloads rendered as <b style="color:var(--cyan);font-weight:500;">A2UI Material
+            Design components</b> natively in Gemini: selection chips, toggle controls, data tables, and expandable
+            driver manifests, with zero frontend code. Managers can iteratively refine routes: remove stops, add detours,
+            switch between shortest-time and shortest-distance. The open-path TSP formulation (distinct start/end depots)
+            models DSI's actual operations where trucks end at their final destination rather than returning to origin.
+            For a 15-stop run, even a 10% reduction in travel time saves 20-30 minutes daily across fuel costs, driver
+            utilisation, and faster showroom restocking.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Google ADK</span><span class="chip">Python</span><span class="chip">Gemini 2.5 Pro</span>
+            <span class="chip">Google OR-Tools</span><span class="chip">Google Routes API</span>
+            <span class="chip">Google Places API</span><span class="chip">Cloud Firestore</span>
+            <span class="chip">Vertex AI Agent Engine</span><span class="chip">A2UI</span>
+            <span class="chip">Workload Identity Federation</span><span class="chip">TSP Solver</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 — Finetech IDP (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
+        <div class="p-corner">03 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Finetech</b> · Solo R&amp;D Initiative · Architecture &amp; Development · In Progress</div>
           <h3 class="p-title">Finetech IDP: Internal <span class="it">Developer Platform</span> for GCP</h3>
@@ -1866,9 +1907,9 @@
         </div>
       </article>
 
-      <!-- 03 — Sela (featured, full width) -->
+      <!-- 04 — Sela (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">03 / FEATURED</div>
+        <div class="p-corner">04 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
           <h3 class="p-title">Sela: trilingual AI <span class="it">shopping concierge</span> for Kapruka 🛍️</h3>
@@ -1915,9 +1956,9 @@
         </div>
       </article>
 
-      <!-- 04 + 05 — AppSheet + DLP (half tiles) -->
+      <!-- 05 + 06 — AppSheet + DLP (half tiles) -->
       <article class="project p-half">
-        <div class="p-corner">04 / PERSONAL</div>
+        <div class="p-corner">05 / PERSONAL</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Reverse-engineered private API · AI-controlled build pipeline</div>
           <h3 class="p-title">AppSheet Workflow Automation via <span class="it">Reverse-Engineered</span> Editor API</h3>
@@ -1955,7 +1996,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">05 / CLIENT</div>
+        <div class="p-corner">06 / CLIENT</div>
         <div class="p-body">
           <div class="p-kicker"><b>Commercial Bank of Sri Lanka</b> · Enterprise · <span style="color:var(--cyan);font-weight:500;">In Progress</span></div>
           <h3 class="p-title">DLP Rule Workflow: <span class="it">enterprise</span> data loss prevention management</h3>
@@ -1981,9 +2022,9 @@
         </div>
       </article>
 
-      <!-- 06 — Hive Trendz (full row) -->
+      <!-- 07 — Hive Trendz (full row) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">06 / FEATURED</div>
+        <div class="p-corner">07 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Autonomous AI pipeline</div>
           <h3 class="p-title">Hive Trendz: AI <span class="it">social media</span> automation</h3>
