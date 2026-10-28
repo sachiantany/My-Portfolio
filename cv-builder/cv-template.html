@@ -299,12 +299,12 @@
         <div class="section">
             <h2 class="section-title">Tech Stack & Tools</h2>
             <div class="tech-list">
-                <div class="tech-item"><span class="tech-label">AI & Agents:</span> AI agent architecture (MCP servers, multi-model orchestration, tool-use pipelines), enterprise ERP integration with LLMs, Gemini / Vertex AI, Claude, Groq / LLaMA, Vercel AI SDK, agentic workflow design</div>
+                <div class="tech-item"><span class="tech-label">AI & Agents:</span> AI agent architecture (MCP servers, multi-model orchestration, tool-use pipelines), enterprise ERP integration with LLMs, Gemini / Vertex AI, Claude, Groq / LLaMA, Vercel AI SDK, Google OR-Tools (route / constraint optimization), agentic workflow design</div>
                 <div class="tech-item"><span class="tech-label">Languages:</span> Python, TypeScript, JavaScript, Dart, Java, SQL, HCL (Terraform)</div>
                 <div class="tech-item"><span class="tech-label">Cloud & IaC:</span> GCP, Cloud Run, Terraform, Cloud Build, Docker, Firebase, Supabase, Vercel, GitHub Actions</div>
-                <div class="tech-item"><span class="tech-label">Web & Backend:</span> Next.js, React, NestJS, Angular, Spring Boot 3, Node.js / Express, Flask, Starlette / Uvicorn</div>
+                <div class="tech-item"><span class="tech-label">Web & Backend:</span> Next.js, React, NestJS, Angular, Spring Boot 3, Node.js / Express, FastAPI, Flask, Starlette / Uvicorn</div>
                 <div class="tech-item"><span class="tech-label">Mobile:</span> Flutter (Android & iOS), Clean Architecture, Bloc Pattern, Drift SQLite, Offline-first sync</div>
-                <div class="tech-item"><span class="tech-label">Automation & Enterprise:</span> AppSheet, Apps Script, SAP HANA / SAP B1, Prisma, Cloud SQL, Redis, OAuth 2.0 / JWT</div>
+                <div class="tech-item"><span class="tech-label">Automation & Enterprise:</span> AppSheet, Apps Script, SAP HANA / SAP B1, SAP B1 Service Layer (OData), Prisma, Cloud SQL, Redis, OAuth 2.0 / JWT</div>
                 <div class="tech-item"><span class="tech-label">Dev Tools:</span> Git, Bitbucket, Figma, VS Code, Android Studio</div>
             </div>
         </div>
@@ -329,9 +329,9 @@
                 <div class="subsection">
                     <div class="subsection-title">AI & Full-Stack Product Development</div>
                     <ul>
-                        <li>Independently designed and built a custom MCP server bridging SAP Business One with Gemini Enterprise |75 read-only tools across 10 business domains enabling autonomous 3-way PO matching, intelligent document generation, and real-time financial analytics via natural language. No native SAP-Gemini integration exists; this was a solo R&D initiative.</li>
-                        <li>Built Sela, a trilingual (EN/SI/TA) AI shopping concierge for the Kapruka Agent Challenge on Next.js 16, Vercel AI SDK, MCP and a multi-model fallback brain (Gemini to Groq to Claude).</li>
-                        <li>Researching and building Finetech IDP, an Internal Developer Platform that automates GCP customer provisioning via Terraform, with a Next.js 15 portal, NestJS API, plan-then-approve gates, RBAC, live SSE logs, and single-tenant isolation per customer project.</li>
+                        <li>Independently built a custom MCP server bridging SAP Business One with Gemini Enterprise |75 read-only tools across 10 domains for autonomous 3-way PO matching, document generation, and natural-language analytics (solo R&D, no native integration exists).</li>
+                        <li>Built two production SAP B1 finance tools (FastAPI + React): a Google billing reconciliation and invoicing middleware writing back via the SAP Service Layer behind a finance sign-off control, and an executive dashboard reconciling P&L and debtor aging to the cent.</li>
+                        <li>Researching and building Finetech IDP, an Internal Developer Platform automating GCP customer provisioning via Terraform (Next.js 15, NestJS), with plan-then-approve gates, RBAC, live SSE logs, and single-tenant isolation per customer project.</li>
                         <li>Created an AppSheet Workflow Automation pipeline over a reverse-engineered editor API, letting an AI agent generate full enterprise apps in seconds.</li>
                     </ul>
                 </div>
@@ -339,7 +339,7 @@
                 <div class="subsection">
                     <div class="subsection-title">Cloud Workflow Automation</div>
                     <ul>
-                        <li>Digitized workflows for clients (Dilmah, DFCC, SANASA, Commercial Bank) using AppSheet & Apps Script with SAP B1 (HANA/SQL), achieving up to 80% paper reduction.</li>
+                        <li>Digitized SAP B1 workflows for clients (Dilmah, DFCC, SANASA) using AppSheet & Apps Script, cutting paper use up to 80%.</li>
                     </ul>
                 </div>
 
@@ -382,7 +382,19 @@
                 <span class="project-name">SAP B1 MCP Server for Gemini Enterprise</span> -Custom Model Context Protocol server bridging SAP Business One with Gemini Enterprise (solo R&D |no native integration exists). 75 read-only MCP tools across Procurement, Sales, Finance, Inventory, Service, and Metadata domains. Enables autonomous 3-way PO matching, multimodal PR/PV generation from vendor invoice PDFs, dynamic cash flow analysis, and forensic inventory variance detection via natural language. Python, Streamable HTTP, OData, Cloud Run, OAuth 2.0 + PKCE, SAP HANA.
             </div>
             <div class="project-item">
+                <span class="project-name">SAP B1 Conversational Agent on Gemini Enterprise</span> -Production Google ADK agent (Gemini 2.5 Pro) that answers natural-language ERP questions over live SAP B1, surfacing 80+ read-only Service Layer tools plus ARIMA and MRR forecasting through the custom MCP server. Served as a portable A2A agent on Vertex AI Agent Engine. Reworked the MCP session manager to survive Cloud Run scale-to-zero (session TTL + invalidation), a self-repairing A2UI toolset, and a deterministic fast path that renders interactive finance canvases from live data with no LLM round trip. Google ADK, A2A, A2UI, MCP, Vertex AI Agent Engine, Vega-Lite, Python. (Production)
+            </div>
+            <div class="project-item">
+                <span class="project-name">Google Billing to SAP B1 Middleware</span> -Reconciliation and invoice-processing middleware for Finetech finance and sales (solo, end to end). Parses Google Workspace, Cloud Platform and Maps billing and reconciles against SAP A/P by matching on amount, not date, to handle monthly, quarterly and annual billing cycles; a second workflow fetches SAP customer and item master to raise A/R and proforma invoices. Writes back via the SAP Service Layer behind a role-gated, finance sign-off control. Python, FastAPI, React 19, TypeScript, Firestore, Cloud Run, Cloud Build. (Production)
+            </div>
+            <div class="project-item">
+                <span class="project-name">Executive Financial & Debtor Dashboard over SAP B1</span> -Live, read-only executive dashboard (P&L, operating expenses, debtor aging, invoice listings) replacing an error-prone manual workbook. Figures reconcile to SAP's official Profit & Loss and Customer Receivables Aging to the cent via a GL control-account roll-back. FastAPI + React, Google OAuth with per-section RBAC, Firestore, Secret Manager, Cloud Run. (Production)
+            </div>
+            <div class="project-item">
                 <span class="project-name">Finetech IDP -Internal Developer Platform</span> -Self-service portal automating GCP customer environment provisioning. Operators select a customer, product, and runtime; the platform runs Terraform (init, plan, approve, apply) with live SSE log streaming and returns a service URL. Single-tenant isolation per customer GCP project, three-layer Terraform module library, RBAC, audit trail, and BYOC support via Workload Identity Federation. Next.js 15, NestJS, Prisma, PostgreSQL, Terraform, GitHub Actions. (In Progress)
+            </div>
+            <div class="project-item">
+                <span class="project-name">DSI Route Optimizer</span> -AI-powered delivery route planning for 111+ showrooms across Sri Lanka, deployed conversationally in Gemini Enterprise. Solves a single-vehicle open-path TSP with Google OR-Tools (Guided Local Search) in under a second using traffic-aware travel times from the Google Routes API, with results rendered as A2UI Material Design components. Python, Google ADK, Gemini 2.5 Pro, Routes & Places API, Firestore. (POC)
             </div>
             <div class="project-item">
                 <span class="project-name">Sela -Trilingual AI Shopping Concierge</span> -Full-screen conversational commerce agent for the Kapruka Agent Challenge 2026, taking a shopper from intent to paid order entirely in chat across English, Sinhala & Tamil with voice and handwriting input. Built on Next.js 16, Vercel AI SDK v6 and MCP, with generative UI and a multi-model fallback brain (Gemini to Groq to Claude).
@@ -435,8 +447,7 @@
         <div class="section">
             <h2 class="section-title">Certifications</h2>
             <div class="cert-item">Google Cloud Certified · Associate Cloud Engineer</div>
-            <div class="cert-item">Serverless Apps on Cloud Run · Search & Recommendations with AI Applications (Vertex AI) -Google Cloud</div>
-            <div class="cert-item">13 verified Google Cloud badges on Credly</div>
+            <div class="cert-item">13 verified Google Cloud badges on <a href="https://www.credly.com/users/sachintha-antany.1f19a389/badges" target="_blank" style="color:#1a5490;text-decoration:underline;">Credly</a></div>
         </div>
 
         <!-- Publication -->
@@ -453,15 +464,15 @@
             <div class="reference-item">
                 <div class="reference-name">Mr. Nirushka Samarasinghe</div>
                 <div class="reference-title">
-                    Software Engineer, Ernst & Young (EY), Sri Lanka<br>
-                    +94 71 110 7812
+                    Senior Software Engineer, Ernst & Young (EY), Sri Lanka<br>
+                    +94 71 110 7812 | <a href="https://www.linkedin.com/in/nirushka-samarasinghe/" target="_blank" style="color:#1a5490;text-decoration:none;">LinkedIn</a>
                 </div>
             </div>
             <div class="reference-item">
                 <div class="reference-name">Mr. Thilina Prabashwara Wickramarachchi</div>
                 <div class="reference-title">
                     Business Analyst & Project Coordinator, Finetech<br>
-                    +94 770 470 548
+                    +94 770 470 548 | <a href="https://www.linkedin.com/in/tpwick/" target="_blank" style="color:#1a5490;text-decoration:none;">LinkedIn</a>
                 </div>
             </div>
         </div>

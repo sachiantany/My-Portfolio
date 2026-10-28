@@ -51,7 +51,7 @@ git_commit() {
             commit_msg="Update CV - $(date +'%Y-%m-%d')"
         fi
         
-        git add cv-template.html cv/cv.pdf ../cv/cv.pdf
+        git add cv-template.html cv/MDSM_Antany_CV_v3.pdf ../cv/MDSM_Antany_CV_v3.pdf
         git commit -m "$commit_msg"
         
         echo "✅ Changes committed!"

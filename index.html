@@ -1371,7 +1371,7 @@
       <a href="#projects">Projects</a>
       <a href="#github">GitHub</a>
       <a href="#contact">Contact</a>
-      <a href="javascript:void(0)" class="nav-cv" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v2.pdf?v=2'}],0)">Preview CV</a>
+      <a href="javascript:void(0)" class="nav-cv" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v3.pdf?v=3'}],0)">Preview CV</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -1399,7 +1399,7 @@
         </p>
         <div class="hero-ctas">
           <a href="#projects" class="btn btn-primary">View Selected Work</a>
-          <a href="javascript:void(0)" class="btn btn-ghost" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v2.pdf?v=2'}],0)">Preview CV</a>
+          <a href="javascript:void(0)" class="btn btn-ghost" onclick="openLb([{pdf:'cv/MDSM_Antany_CV_v3.pdf?v=3'}],0)">Preview CV</a>
         </div>
       </div>
       <div>
@@ -1526,6 +1526,7 @@
           <span class="chip">Agentic workflows</span><span class="chip">Tool-use architectures</span>
           <span class="chip">Gemini / Vertex AI</span><span class="chip">Claude</span><span class="chip">Groq / LLaMA</span>
           <span class="chip">Vercel AI SDK</span><span class="chip">Multimodal ingestion</span>
+          <span class="chip">Google OR-Tools</span>
           <span class="chip">SAP B1 Service Layer</span><span class="chip">OData</span>
         </div>
       </div>
@@ -1550,7 +1551,7 @@
         <div class="skill-head"><div class="skill-name">Web <span class="it">frameworks</span></div><div class="skill-idx">/04</div></div>
         <div class="chip-row">
           <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">NestJS</span><span class="chip">Angular 19</span>
-          <span class="chip">Spring Boot 3</span><span class="chip">Flask</span><span class="chip">Node.js</span>
+          <span class="chip">Spring Boot 3</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Node.js</span>
           <span class="chip">Express</span><span class="chip">Starlette</span><span class="chip">Uvicorn</span>
         </div>
       </div>
@@ -1828,9 +1829,60 @@
         </div>
       </article>
 
-      <!-- 02 — DSI Route Optimizer (featured, full width) -->
+      <!-- 02 — SAP B1 Conversational Agent (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
         <div class="p-corner">02 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>Finetech</b> · Solo Build · AI Agent Layer · Production</div>
+          <h3 class="p-title">SAP Business One <span class="it">Conversational Agent</span> on Gemini Enterprise</h3>
+          <p class="p-desc">
+            Business users had to open SAP Business One and walk through its screens to pull routine ERP data such as
+            sales orders, invoices, inventory, debtor aging, and financials, so everyday questions were slow and
+            dependent on whoever knew the system. I built a high-code <b style="color:var(--cyan);font-weight:500;">Google
+            ADK agent (Gemini 2.5 Pro)</b> that lets anyone ask in plain language and get live, accurate figures back,
+            including charts and forecasts. The agent reaches SAP through the custom MCP server (a separate project) over
+            Streamable HTTP, exposing <b style="color:var(--cyan);font-weight:500;">80+ read-only Service Layer tools</b>
+            across sales, purchasing, payments, inventory, finance, banking, service, and master data, plus ARIMA
+            time-series and MRR-based forecasting.
+          </p>
+          <p class="p-desc">
+            It is served as an <b>A2A service</b> and runs on Gemini Enterprise, but because it is a standard ADK/A2A
+            agent it is portable to any surface that speaks A2A, not tied to one UI. It deploys to
+            <b style="color:var(--cyan);font-weight:500;">Vertex AI Agent Engine</b> and reaches the Cloud Run MCP server
+            in a different region through a managed Agent Gateway egress path, with a CA bundle wired in for TLS.
+          </p>
+          <p class="p-desc">
+            The hard engineering sits in three layers. A reworked <b>MCP session manager</b> fixes a real failure mode:
+            when the MCP server's Cloud Run instance scales to zero the HTTP connection still looks healthy but
+            server-side session state is gone, so the next call 404s on a session the stock manager keeps reusing. A
+            session TTL plus explicit invalidation force a fresh session on a failed call. A lenient
+            <b>A2UI toolset</b> parses, repairs (including bracket-recovering truncated JSON), auto-injects missing ids
+            and form bindings, and validates against the Gemini Enterprise composite catalog before handing UI back to
+            the client. A deterministic <b style="color:var(--cyan);font-weight:500;">fast path</b> renders interactive
+            finance canvases from live SAP data with no LLM round trip: it detects greetings, menu phrases, dashboard
+            triggers, and round-tripped canvas button events, carries a fiscal-year-aware period parser (fiscal year
+            starts in April) covering quarters, month-name ranges, and "last N months", and uses a ping probe to tell a
+            genuine SAP outage from other failures so it never hallucinates a dashboard.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Google ADK</span><span class="chip">Gemini 2.5 Pro</span><span class="chip">A2A protocol</span>
+            <span class="chip">A2UI canvas</span><span class="chip">MCP</span><span class="chip">Streamable HTTP</span>
+            <span class="chip">ARIMA forecasting</span><span class="chip">Vega-Lite</span><span class="chip">Python 3.11</span>
+            <span class="chip">Vertex AI Agent Engine</span><span class="chip">Cloud Run</span><span class="chip">SAP B1 Service Layer</span>
+            <span class="chip">Starlette</span><span class="chip">Uvicorn</span><span class="chip">Docker</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px;align-items:center;">
+            <button class="btn-screenshots" onclick="openLb(['images/sap-agent/sa1.png','images/sap-agent/sa2.png'],0)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21"/></svg>
+              Screenshots · 2
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 — DSI Route Optimizer (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
+        <div class="p-corner">03 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>DSI Samson Group</b> · Solo R&amp;D Initiative · POC</div>
           <h3 class="p-title">DSI Route Optimizer: AI-Powered <span class="it">Delivery Route Planning</span> for 111+ Showrooms</h3>
@@ -1869,9 +1921,127 @@
         </div>
       </article>
 
-      <!-- 03 — Finetech IDP (featured, full width) -->
+      <!-- 04 — Google Billing to SAP B1 Middleware (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">03 / FEATURED</div>
+        <div class="p-corner">04 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>Finetech</b> · Finance &amp; Sales Internal Tool · Production</div>
+          <h3 class="p-title">Google Billing to <span class="it">SAP Business One</span> Middleware: Reconciliation &amp; Invoice Processing</h3>
+          <p class="p-desc">
+            Each month Finetech receives Google billing (Workspace, Cloud Platform, and Maps) covering many customer
+            domains, and finance staff reconciled each domain against the matching customer account in SAP Business One
+            by hand, then keyed the result back into SAP. It was slow and error prone, so it kept getting deferred until
+            a long backlog built up, and it is harder still because customers bill on different cycles (monthly,
+            quarterly, annual), so a customer's SAP invoice need not fall in the same month as the Google invoice, which
+            breaks any date-based match. The COO, Ms. Sujatha Nadesan, had wanted this solved for years, so I built a
+            middleware that reads SAP directly, does the matching and pricing maths, keeps a
+            <b style="color:var(--cyan);font-weight:500;">human in the loop</b>, and writes the result straight back
+            into SAP.
+          </p>
+          <p class="p-desc">
+            The app is a modular monolith: a Python 3.12 <b>FastAPI</b> backend (services across 10 modules, roughly
+            <b style="color:var(--cyan);font-weight:500;">27 endpoints</b>) behind a React 19 and TypeScript single-page
+            app (around <b style="color:var(--cyan);font-weight:500;">7,000 lines</b>) built with Vite 6, Tailwind CSS 4,
+            TanStack Query, Zustand, react-hook-form, and Zod. Two write-capable workflows run against SAP B1.
+            Reconciliation is a header-driven parser that ingests Google Workspace invoices and GCP/Maps cost tables
+            (.xlsx and .csv), groups lines by domain or billing account, resolves each to its SAP service-group vendor
+            card by matching the domain against SAP's <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">CardForeignName</code>,
+            classifies Workspace versus Cloud lines, and computes the amount to reconcile per service group. The
+            non-obvious part is the billing-cycle handling: rather than filtering SAP invoices by the Google invoice's
+            month (which would hide quarterly and annual customers), it pulls open invoices for the business partner and
+            matches on <b style="color:var(--cyan);font-weight:500;">amount, not date</b>.
+          </p>
+          <p class="p-desc">
+            The second workflow, Invoice Processing, backs a New Request intake form that looks up the SAP customer card
+            by domain and searches the SAP item master so staff never retype master data, with pricing and proration
+            maths computed live in the front end (unit-tested with Vitest) and raised as an A/R or proforma invoice in
+            SAP. Both workflows share one SAP Business One Service Layer session client, and every SAP write is funnelled
+            through a single posting method gated by a server-side control, so live updates switch on deliberately after
+            validation and finance sign-off rather than by accident.
+            Access is Google OAuth (OpenID Connect) restricted to the company domain, layered over Cloud Run IAM, with
+            server-side roles (finance, technical, admin) and an admin user-management UI. Per-user drafts save and
+            resume to Firestore, every uploaded file is archived to a Cloud Storage audit bucket, and secrets live in
+            Secret Manager. It ships through a multi-stage Docker build with a Cloud Build trigger auto-deploying
+            separate pre-prod and production environments.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SAP B1 Service Layer</span>
+            <span class="chip">OData</span><span class="chip">httpx</span><span class="chip">openpyxl</span>
+            <span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Vite 6</span>
+            <span class="chip">Tailwind CSS</span><span class="chip">TanStack Query</span><span class="chip">Zustand</span>
+            <span class="chip">Zod</span><span class="chip">Vitest</span><span class="chip">Firestore</span>
+            <span class="chip">Cloud Storage</span><span class="chip">Secret Manager</span><span class="chip">Cloud Run</span>
+            <span class="chip">Cloud Build</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px;align-items:center;">
+            <button class="btn-screenshots" onclick="openLb(['images/invoice/inv1.png','images/invoice/inv2.png'],0)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21"/></svg>
+              Screenshots · 2
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 — Executive Financial Dashboard over SAP B1 (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
+        <div class="p-corner">05 / FEATURED</div>
+        <div class="p-body">
+          <div class="p-kicker"><b>Finetech</b> · Solo Build · AI-Assisted Engineering · Production</div>
+          <h3 class="p-title">Executive <span class="it">Financial &amp; Debtor</span> Dashboard over SAP Business One</h3>
+          <p class="p-desc">
+            Executive financials (P&amp;L, operating expenses, debtor aging, invoice listings) were maintained by hand in
+            an Excel workbook fed from SAP exports, a workbook that still carried live
+            <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">#REF!</code> errors, so
+            leadership could be reading broken numbers without anyone knowing. There was no single, always-current,
+            access-controlled view of company performance, and every refresh meant a manual re-export and re-paste. I
+            built a standing web app that pulls the same figures <b style="color:var(--cyan);font-weight:500;">live and
+            read-only</b> from SAP Business One and reconciles exactly to SAP's own Profit &amp; Loss and Customer
+            Receivables Aging.
+          </p>
+          <p class="p-desc">
+            A <b>FastAPI</b> backend (around 2,600 lines of Python) sits on the SAP B1 Service Layer via an async
+            <b>httpx</b> client that manages the login session and issues read-only GETs, exposing five dashboard sections
+            across seven endpoints. The P&amp;L and Opex logic follows SAP's own account structure (the first digit of each
+            GL account's <code style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--cyan)">FormatCode</code>)
+            rather than a hand-kept account map, nets credit minus debit per drawer and per two-digit opex sub-group per
+            month, and caches the chart of accounts because a six-month pull is roughly
+            <b style="color:var(--cyan);font-weight:500;">20,000 journal-entry lines</b>. The reconciliation-grade
+            calculations are the hard part: debtor aging is an exact as-of balance computed by a GL control-account
+            roll-back (customer current balance minus post-as-of journal movement), bucketed into SAP's native aging
+            intervals with GETs parallelised behind a concurrency-limited semaphore; the Invoice Listings view reproduces
+            SAP's Crystal "Post Costing Summary" per document and reconciles it against the general ledger so the tiles
+            sit on the same GL basis as SAP's P&amp;L.
+          </p>
+          <p class="p-desc">
+            A <b>React 18</b>, Vite, and Tailwind front end (around 3,500 lines) served by FastAPI from the built bundle
+            gives a collapsible sidebar shell over five sections (Overview, P&amp;L, Opex, Debtor Aging, Invoice Listings),
+            a fiscal-year-aware reporting-period selector, CSV export, and per-tile "how this is calculated" popups. Access
+            runs through <b>Google OAuth</b> (OpenID Connect) with per-section RBAC, the user store in Firestore in
+            production and a local JSON fallback in dev. It ships through a multi-stage Docker build auto-deployed by
+            Cloud Build on push to main, with the SAP password mounted from Secret Manager and no write path compiled in.
+            The result replaces an error-prone manual workbook with a live, access-controlled dashboard whose P&amp;L and
+            debtor aging reconcile to SAP <b style="color:var(--cyan);font-weight:500;">to the cent</b>, verified per
+            customer and in total.
+          </p>
+          <div class="p-stack">
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">httpx (async)</span>
+            <span class="chip">SAP B1 Service Layer</span><span class="chip">OData</span><span class="chip">React 18</span>
+            <span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">Google OAuth · OIDC</span>
+            <span class="chip">Authlib</span><span class="chip">Firestore</span><span class="chip">Secret Manager</span>
+            <span class="chip">Docker</span><span class="chip">Cloud Run</span><span class="chip">Cloud Build</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px;align-items:center;">
+            <button class="btn-screenshots" onclick="openLb(['images/ex-dashboard/ex1.png','images/ex-dashboard/ex2.png','images/ex-dashboard/ex3.png'],0)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21"/></svg>
+              Screenshots · 3
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 — Finetech IDP (featured, full width) -->
+      <article class="project p-feature" style="grid-column: span 12;">
+        <div class="p-corner">06 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Finetech</b> · Solo R&amp;D Initiative · Architecture &amp; Development · In Progress</div>
           <h3 class="p-title">Finetech IDP: Internal <span class="it">Developer Platform</span> for GCP</h3>
@@ -1907,9 +2077,9 @@
         </div>
       </article>
 
-      <!-- 04 — Sela (featured, full width) -->
+      <!-- 07 — Sela (featured, full width) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">04 / FEATURED</div>
+        <div class="p-corner">07 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Hackathon</b> · Kapruka Agent Challenge 2026 · Solo entry</div>
           <h3 class="p-title">Sela: trilingual AI <span class="it">shopping concierge</span> for Kapruka 🛍️</h3>
@@ -1956,9 +2126,9 @@
         </div>
       </article>
 
-      <!-- 05 + 06 — AppSheet + DLP (half tiles) -->
+      <!-- 08 + 09 — AppSheet + DLP (half tiles) -->
       <article class="project p-half">
-        <div class="p-corner">05 / PERSONAL</div>
+        <div class="p-corner">08 / PERSONAL</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Reverse-engineered private API · AI-controlled build pipeline</div>
           <h3 class="p-title">AppSheet Workflow Automation via <span class="it">Reverse-Engineered</span> Editor API</h3>
@@ -1996,7 +2166,7 @@
       </article>
 
       <article class="project p-half">
-        <div class="p-corner">06 / CLIENT</div>
+        <div class="p-corner">09 / CLIENT</div>
         <div class="p-body">
           <div class="p-kicker"><b>Commercial Bank of Sri Lanka</b> · Enterprise · <span style="color:var(--cyan);font-weight:500;">In Progress</span></div>
           <h3 class="p-title">DLP Rule Workflow: <span class="it">enterprise</span> data loss prevention management</h3>
@@ -2022,9 +2192,9 @@
         </div>
       </article>
 
-      <!-- 07 — Hive Trendz (full row) -->
+      <!-- 10 — Hive Trendz (full row) -->
       <article class="project p-feature" style="grid-column: span 12;">
-        <div class="p-corner">07 / FEATURED</div>
+        <div class="p-corner">10 / FEATURED</div>
         <div class="p-body">
           <div class="p-kicker"><b>Personal Project</b> · Autonomous AI pipeline</div>
           <h3 class="p-title">Hive Trendz: AI <span class="it">social media</span> automation</h3>
